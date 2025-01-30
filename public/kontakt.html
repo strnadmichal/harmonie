@@ -1,0 +1,113 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Chata Harmonie </title>
+  
+  <!-- Internal CSS styles -->
+  <style>
+    .imr {
+      height: 400px;
+    }
+  </style>
+
+  <link rel="stylesheet" href="../css/output.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../icon.png">
+
+  <link rel="manifest" href="../site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+
+  <script src="./components/js/utils.js"></script>
+  <script type="module">
+    document.addEventListener('DOMContentLoaded', async () => {
+      await loadComponent('header', 'header');
+      await loadComponent('footer', 'footer');
+
+        // Set header color based on page needs
+      const header = document.querySelector('header');
+      header.setAttribute('data-header-color', 'dark'); // or 'light'
+    });
+  </script>
+  <!--  <script src="../js/priceSheets.js" defer></script>-->
+</head>
+
+<body>
+
+  <div id="header"></div>
+
+  <main class="px-10 box-border">
+
+    <section>
+      <div class="h-[2px] bg-black"></div>
+      <h2 class="my-10 bold text-5xl "> 
+        Kontakt 
+      </h2>
+
+      <div class="flex flex-row flex-wrap w-full justify-between">
+
+        <div class="w-1/3 p-2 text-xl">
+          <div class="w-full bg-slate-200">
+            <div>
+              <p class="underline text-2xl">E-mail</p>
+              <p>harmonie-bedrichov@centrum.cz</p>
+              <br>
+            </div>
+            <div>
+              <p class="underline text-2xl">Telefon</p>
+              <p>+420 606 601 142</p>
+              <br>
+            </div>
+            <div>
+              <p class="underline text-2xl">Adresa</p>
+              <p>
+                Liana Lenzová <br>
+                Bedřichov 38 <br>
+                468 12 Bedřichov u Jablonce nad Nisou <br>
+                Česká republika <br>
+                <br>
+              </p>
+            </div>
+            <div>
+              <p class="underline text-2xl">IČO</p>
+              <p>764 587 33</p>
+              <br>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 p-2">
+          <div class="w-full bg-slate-200">
+              <div class="aspect-w-16 aspect-h-9">
+                  <iframe 
+                      src="https://www.google.com/maps/embed?pb=YOUR_MAPS_EMBED_CODE"
+                      width="100%" 
+                      height="100%" 
+                      style="border:0;" 
+                      allowfullscreen="" 
+                      loading="lazy" 
+                      referrerpolicy="no-referrer-when-downgrade"
+                      class="w-full h-full">
+                  </iframe>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer"></div>
+
+  </main>
+</body>
+</html>

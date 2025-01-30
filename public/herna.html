@@ -1,0 +1,84 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Chata Harmonie </title>
+  
+  <!-- Internal CSS styles -->
+  <style>
+    .imr {
+      height: 400px;
+    }
+  </style>
+
+  <link rel="stylesheet" href="../css/output.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../icon.png">
+
+  <link rel="manifest" href="../site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+
+  <script src="./components/js/utils.js"></script>
+  <script type="module">
+    document.addEventListener('DOMContentLoaded', async () => {
+      await loadComponent('header', 'header');
+      await loadComponent('footer', 'footer');
+
+        // Set header color based on page needs
+      const header = document.querySelector('header');
+      header.setAttribute('data-header-color', 'dark'); // or 'light'
+    });
+  </script>
+  <!--  <script src="../js/priceSheets.js" defer></script>-->
+</head>
+
+<body>
+
+  <div id="header"></div>
+
+  <main class="px-10 box-border">
+
+    <section>
+      <div class="h-[2px] bg-black"></div>
+      <h2 class="my-10 bold text-5xl "> 
+        Herna 
+      </h2>
+
+      <div class="flex flex-row flex-wrap w-full justify-between">
+
+        <div class="w-full md:w-full p-2">
+          <div class="aspect-[4/3] w-full overflow-hidden rounded-lg">
+            <img 
+              src="../img/ubytovani/herna.jpg" 
+              class="object-cover w-full h-full" />
+          </div>
+        </div>
+
+        <p class="mb-40 mt-20 max-w-[1000px] text-2xl">
+          Náš penzion je často vyhledáván rodinami s malými dětmi a to především 
+          díky veliké a dobře vybavené dětské herně. Herna je od jídelny oddělena 
+          prosklenými dveřmi, takže rodiče, kteří si chtějí v klidu vychutnat šálek 
+          kávy nebo čaje u stolu v jídelně mají své ratolesti stále na dohled.
+        </p>
+
+      </div>
+
+
+    </section>
+
+    <div id="footer"></div>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<style>
+  [data-header-color="light"] {
+    --header-text: #ffffff;
+    --header-underline: #ffffff;
+  }
+  
+  [data-header-color="dark"] {
+    --header-text: #000000;
+    --header-underline: #000000;
+  }
+
+  .header-text {
+    color: var(--header-text);
+  }
+
+  .header-underline {
+    background-color: var(--header-underline);
+  }
+</style>
+
+<header class="px-10" data-header-color="light">
+    <nav class="relative h-20 z-10 py-4 flex flex-row gap-8 text-2xl w-full items-end justify-between ">
+      <div class="dropdown flex items-center justify-center block md:hidden" data-dropdown>
+        <button class="link size-10 flex z-50" type="button" data-dropdown-button>
+          <img src="../../../img/menu.svg" class="dropdown-icon-open w-full h-full" alt="Menu" />
+          <img src="../../../img/close.svg" class="dropdown-icon-close hidden w-full h-full" alt="Close" />
+        </button>
+        <div class="dropdown-menu w-screen h-screen">
+          <ul class="flex flex-col gap-10 text-white mt-8 text-4xl justify-center">
+            <li><a href="/public/index.html">Ubytování</a></li>
+            <li><a href="/">Rezervace</a></li>
+            <li><a href="/">Ceny</a></li>
+            <li><a href="/">Kontakt</a></li>
+          </ul>
+        </div>
+      </div>
+      <a href="/public/index.html" class="min-w-fit h-full translate-y-1">
+        <p class="bold text-5xl header-text">Chata Harmonie</p>
+      </a>
+      <div class="flex flex-row justify-end md:justify-between items-end w-full relative header-text">
+        <div class="hidden md:block ">
+          <ul class="flex flex-row items-center gap-8 ">
+            <li><a href="/public/index.html#ubytovani">Ubytování</a></li>
+            <li><a href="/">Rezervace</a></li>
+            <li><a href="/public/index.html#ceny">Ceny</a></li>
+            <li><a href="/public/kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <ul class="flex flex-row items-center gap-8 justify-end">
+          <li><a href="/">EN</a></li>
+          <li><a href="/">DE</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="h-[3px] relative z-10 header-underline"></div>
+</header>

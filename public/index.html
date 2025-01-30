@@ -1,10 +1,36 @@
 <!doctype html>
 <html class="no-js" lang="">
 
-<head>
+<head class="px-10">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <title>Chata Harmonie</title>
+
+  <!-- Internal CSS styles -->
+  <style>
+    .imr {
+      height: 400px;
+    }
+
+    #slideshow {
+      position: relative;
+    }
+
+    .slide-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.25); /* 50% transparent black */
+      z-index: 1;
+    }
+
+    .slide-bg {
+      z-index: 0;
+    }
+  </style>
+
   <link rel="stylesheet" href="../css/output.css">
   <meta name="description" content="">
 
@@ -20,33 +46,341 @@
 
   <link rel="manifest" href="../site.webmanifest">
   <meta name="theme-color" content="#fafafa">
+
+  <script src="../js/slideshow.js" defer></script>
+  <script src="./components/js/dropdown-menu.js" defer></script>
+  <script src="./components/js/utils.js"></script>
+  <script type="module">
+    document.addEventListener('DOMContentLoaded', async () => {
+      await loadComponent('header', 'header');
+      await loadComponent('footer', 'footer');
+
+        // Set header color based on page needs
+      const header = document.querySelector('header');
+      header.setAttribute('data-header-color', 'light'); // or 'light'
+    });
+  </script>
+  <!--  <script src="../js/priceSheets.js" defer></script>-->
 </head>
 
 <body>
 
-<header class="relative w-full h-screen bg-cover bg-center px-8" style="background-image: url('../img/background-image.jpg');">
-  <nav class="relative z-10 p-4 flex flex-row gap-8 font-nav text-2xl w-full">
-    <img src="../img/menu.svg" alt="menu" class="w-12"/>
-    <img src="../img/chata-Harmonie-logo.svg" alt="Logo Chata Harmonie" class="w-64"/>
-    <div class="flex flex-row justify-between items-end w-full relative translate-y-1">
-      <ul class="flex flex-row items-center gap-8 text-white">
-        <li><a href="/">Ubytování</a></li>
-        <li><a href="/">Rezervace</a></li>
-        <li><a href="/">Ceny</a></li>
-        <li><a href="/">Kontakt</a></li>
-      </ul>
-      <ul class="flex flex-row items-center gap-8 text-white justify-end">
-        <li><a href="/">EN</a></li>
-        <li><a href="/">DE</a></li>
-      </ul>
+  <div class="h-screen w-screen">
+    <div id="header"></div>
+    <div id="slideshow">
+      <div class="slide-overlay"></div>
+      <div class="slide-bg" id="slide1"></div>
+      <div class="slide-bg" id="slide2"></div>
     </div>
-  </nav>
-  <div class="absolute inset-0 bg-black opacity-50"></div> <!-- Poloprůhledná vrstva pro tmavší efekt -->
-</header>
+  </div>
 
-<main class="relative z-10 bg-orange-100 py-10">
-  <p> Hello world! This is HTML5 Boilerplate.</p>
-</main>
+
+  <main class="px-10 pt-20 box-border">
+
+    <section class="text-black w-3/5 mb-32 ">
+      <h1 class="hidden">
+        Chata Harmonie
+      </h1>
+      <h2 class="bold text-5xl">
+        Hledáte klidné místo uprostřed přírody, kam se budete rádi vracet Vy i Vaše děti?
+      </h2>
+      <p class="mt-5 text-2xl">
+        Náš rodinný penzion s jedinečnou atmosférou původní
+        Jizerskohorské chalupy nabízí útulně zařízené komfortní pokoje a
+        apartmány, společenskou místnost s krbem, bar, kuchyňku, dětskou
+        hernu, lyžárnu, saunu a mnoho dalšího pro Vaši pohodovou
+        dovolenou, víkend v přírodě nebo setkání s přáteli či rodinou.
+      </p>
+    </section>
+
+    <section id="ubytovani">
+      <div class="my-10">
+        <div class="h-[2px] bg-black"></div>
+        <h2 class="my-6 bold text-5xl">
+          Ubytování
+        </h2>
+        <div class="h-[2px] bg-black"></div>
+      </div>
+
+      <div class="flex flex-row flex-wrap">
+        <div class="sm:w-1/2 lg:w-1/4 p-2">
+          <img src="../img/ubytovani/pokoj.jpg" class="object-cover imr" />
+          <div class="my-3">
+            <a href="./rooms.html" class="text-3xl underline"> 
+              Pokoje 
+            </a>
+          </div>
+        </div>
+        <div class="sm:w-1/2 lg:w-1/4 p-2">
+          <img src="../img/ubytovani/herna.jpg" class="object-cover imr" />
+          <div class="my-3">
+            <a href="./herna.html" class="text-3xl underline"> 
+              Herna 
+            </a>
+          </div>
+        </div>
+        <div class="sm:w-1/2 lg:w-1/4 p-2">
+          <img src="../img/ubytovani/zahrada.jpg" class="object-cover imr" />
+          <div class="my-3">
+            <a href="./zahrada.html" class="text-3xl underline"> 
+              Zahrada 
+            </a>
+          </div>
+        </div>
+        <div class="sm:w-1/2 lg:w-1/4 p-2">
+          <img src="../img/ubytovani/apartmany.jpg" class="object-cover imr" />
+          <div class="my-3">
+            <a href="./rooms.html" class="text-3xl underline"> 
+              Apartmány 
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <h2 class="my-16 bold text-5xl text-center underline"> 
+      Rezervace 
+    </h2>
+    
+    <section>
+      <div class="h-[2px] bg-black mb-12"></div>
+      <h2 class="my-12 bold text-5xl "> 
+        Služby 
+      </h2>
+
+      <div class="flex flex-row flex-wrap">
+        <div class="sm:w-1/2 lg:w-1/4 p-2">
+          <img src="../img/sluzby/snidane.jpg" class="object-cover imr" />
+          <div class="my-3">
+            <a href="./rooms.html" class="text-3xl"> 
+              Snídaně 
+            </a>
+            <p class="text-xl"> 
+              Celoročně nabízíme našim hostům vydatné a vyvážené snídaně, 
+              bohaté na bílkoviny, zdravé tuky, vlákninu, vitamíny a minerály. 
+              Na našem bufetovém stole najdete sladké i slané pečivo, toastový chléb, 
+              domácí koláč nebo palačinky, marmelády, med, nutelu, mléko, džusy, 
+              jogurty, vejce, několik druhů sýra a šunky, zeleninu, ovoce, cereálie apod.
+            </p>
+          </div>
+        </div>
+        <div class="sm:w-1/2 lg:w-1/4 p-2">
+          <img src="../img/sluzby/sauna.jpg" class="object-cover imr" />
+          <div class="my-3">
+            <a href="./rooms.html" class="text-3xl"> 
+              Saunda 
+            </a>
+            <p class="text-xl"> 
+              Pro příznivce saunování jsme před nedávnem vybudovali krásnou malou 
+              saunu s kamenným obložením, klenutým stropem, nápaditým  osvětlením a 
+              dřevěnou ochlazovací kádí.Během správného saunování se uvolňuje napětí svalů, 
+              dýchací cesty, posílí se Vaše imunita a Váš organismus se celkově detoxikuje.
+            </p>
+          </div>
+        </div>
+        <div class="sm:w-1/2 lg:w-1/4 p-2">
+          <img src="../img/sluzby/parkovani.jpg" class="object-cover imr" />
+          <div class="my-3">
+            <a href="./rooms.html" class="text-3xl"> 
+              Parkování 
+            </a>
+            <p class="text-xl"> 
+              Parkoviště s asfaltovým povrchem se nachází přímo před penzionem a 
+              hosté ho mohou využívat zcela zdarma.
+            </p>
+          </div>
+        </div>
+        <div class="sm:w-1/2 lg:w-1/4 p-2">
+          <img src="../img/sluzby/hriste.jpg" class="object-cover imr" />
+          <div class="my-3">
+            <a href="./rooms.html" class="text-3xl"> 
+              Dětské hřiště 
+            </a>
+            <p class="text-xl"> 
+              Pro příznivce saunování jsme před nedávnem vybudovali krásnou malou 
+              saunu s kamenným obložením, klenutým stropem, nápaditým  osvětlením 
+              a dřevěnou ochlazovací kádí.Během správného saunování se uvolňuje 
+              napětí svalů, dýchací cesty, posílí se Vaše imunita a Váš organismus 
+              se celkově detoxikuje.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ceny">
+      <div class="h-[2px] bg-black"></div>
+      <h2 class="my-12 bold text-5xl "> 
+        Ceny 
+      </h2>
+
+      <div class="flex justify-center align-middle mb-16 text-2xl w-full">
+
+        <!--Manual Table -->
+        <table class="w-4/5 text-center">
+          <caption class="hidden">Ceny služeb</caption>
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Zimní sezóna</th>
+              <th scope="col">Letní sezóna</th>
+              <th scope="col">Silvestr, Jiz50, atd.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"> Dospělí </th>
+              <td> 610 Kč osoba / noc</td>
+              <td>590 Kč osoba / noc</td>
+              <td>690 Kč osoba / noc</td>
+            </tr>
+            <tr>
+              <th scope="row"> Děti do 12 let </th>
+              <td>410 Kč osoba / noc</td>
+              <td>390 Kč osoba / noc</td>
+              <td>450 Kč osoba / noc</td>
+            </tr>
+            <tr>
+              <th scope="row"> Děti do 2 let </th>
+              <td>zdarma</td>
+              <td>zdarma</td>
+              <td>zdarma</td>
+            </tr>
+            <tr>
+              <th scope="row"> Přistýlka </th>
+              <td>250 Kč osoba/noc</td>
+              <td>250 Kč osoba/noc</td>
+              <td>400 Kč osoba/noc</td>
+            </tr>
+            <tr>
+              <th scope="row"> Dospělí na 1 noc </th>
+              <td>760 Kč</td>
+              <td>760 Kč</td>
+              <td>760 Kč</td>
+            </tr>
+            <tr>
+              <th scope="row"> Jednolůžkový pokoj </th>
+              <td>800 Kč osoba/noc</td>
+              <td>800 Kč osoba/noc</td>
+              <td>1000 Kč osoba/noc</td>
+            </tr>
+            <tr>
+              <th scope="row"> Příplatek za apartmán </th>
+              <td>150 Kč osoba/noc</td>
+              <td>150 Kč osoba/noc</td>
+              <td>150 Kč osoba/noc</td>
+            </tr>
+            <tr>
+              <th scope="row"> Snídaně dospělí </th>
+              <td>160 Kč</td>
+              <td>160 Kč</td>
+              <td>160 Kč</td>
+            </tr>
+            <tr>
+              <th scope="row"> Snídaně děti </th>
+              <td>80 Kč</td>
+              <td>80 Kč</td>
+              <td>80 Kč</td>
+            </tr>
+            <tr>
+              <th scope="row"> Sauna 2 osoby </th>
+              <td>400 Kč</td>
+              <td>400 Kč</td>
+              <td>400 Kč</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!--Google Sheets Fetch Table -->
+        <!--
+        <table id="myTable" class="w-4/5 text-center">
+          <thead>
+          <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+            <th>Column 4</th>
+          </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+        -->
+
+      </div>
+    </section>
+
+    <section class="flex flex-col justify-center items-center">
+      <p class="my-5 max-w-[1000px] text-center text-2xl">
+        <b>Ceny zahrnují:</b> Wifi v celém objektu, energii, vodu,
+        odvoz odpadků, závěrečný úklid, ručníky, povlečení,
+        TV/SAT, skladování kol a lyží, parkování, využití areálu.
+      </p>
+
+      <p class="my-10 max-w-[1000px] text-center text-2xl">
+        <b>Ceny nezahrnují:</b> Rekreační poplatek obci -
+        sazba poplatku činí za osobu starší 18 let a každý den pobytu 35,- Kč.
+      </p>
+
+      <p class="my-10 max-w-[1000px] text-center text-2xl">
+        <b>Rezervace a platební podmínky:</b> <br>
+        Rezervace ubytování je platná po zaplacení zálohy 20% z celkové ceny ubytování.
+        Doplatek se hradí v hotovosti nebo převodem na účet v den nástupu k pobytu.
+      </p>
+
+      <p class="my-10 max-w-[1000px] text-center text-2xl">
+        <b>Storno podnínky:</b> <br>
+        21 a více dní před příjdezdem vracíme celou zálohu
+        20-8 dní před příjezdem vracíme 25% ze zaplacené zálohy
+        7 a méně dní pře pžíjezdem zýlohu již nevracíme
+      </p>
+
+      <div class="flex flex-row justify-between w-3/4 my-16">
+        <p class="text-2xl">
+          <b>Příjezd:</b> <br>
+          Zahájení pobytu od 15:00 hod.
+        </p>
+        <p class="text-2xl">
+          <b>Odjezd:</b> <br>
+          Vyklizení pokoje do 10:00 hod.
+        </p>
+      </div>
+    </section>
+
+    <section class="my-10 text-2xl">
+      <div class="h-[2px] bg-black"></div>
+      <h2 class="my-12 bold text-5xl "> 
+        Provozní řád 
+      </h2>
+      <div class="flex flex-row justify-between">
+        <p class="max-w-[600px]">
+          1. V penzionu může být ubytován pouze host, který je k ubytování  přihlášen po předložení občanského průkazu, platného cestovního pasu nebo jiného dokladu o totožnosti. <br><br>
+          2. Užívání hotelového zařízení je dovoleno osobám, které nejsou postiženi infekčními nemocemi.<br><br>
+          3. Požádá-li ubytovaný host o prodloužení doby pobytu, může mu být nabídnutý jiný pokoj než ten, ve kterém byl původně ubytován.<br><br>
+          4. Host užívá pokoj po dobu, kterou sjednal při příchodu. Nebyla-li doba pobytu sjednána jinak, pokoje jsou připraveny od 15:00 hod, poslední  den pobytu host uvolní pokoj nejpozději do 10:00 hod. Pokud provoz  penzionu dovoluje, je možno domluvit i pozdější hodinu pro uvolnění  pokoje.<br><br>
+          5. V době od 22:00 hod do 7:00 hod je host povinen dodržovat noční klid.<br><br>
+          6. Za pobyt a poskytnuté služby je ubytovaný host povinen platit ceny v souladu s platným ceníkem zpravidla při příchodu.<br><br>
+          7. Donášení a konzumace vlastních nápojů a potravin do prostor restaurace není dovoleno.<br><br>
+          8. V pokoji a společných prostorách nesmí host bez souhlasu majitele  přemisťovat zařízení, provádět opravy a jakékoliv zásahy do elektrické  sítě nebo jiné instalace.<br><br>
+          9. Není dovoleno užívat vlastních elektrospotřebičů (např. varné konvice, vařiče, toustovače apod.) Vyjímkou jsou holící a masážní strojky,  vysoušeče vlasů, kulmy, rádia. Za použití povolených spotřebičů  zodpovídá host a ručí za jakékoliv škody způsobené jejich provozem.<br><br>
+          10. Při odchodu z pokoje je host povinen uzavřít vodovodní uzávěry,  zhasnout světla, vypnout televizi, uzavřít okna a při ukončení pobytu  odevzdat klíč.<br><br>
+        </p>
+        <p class="max-w-[600px]">
+          11. Není dovoleno donášet na pokoje sportovní nářadí a předměty  (lyže, sáňky, kola), pro jejichž uschování je vyhrazeno jiné místo.<br><br>
+          12. Z bezpečnostních důvodů není dovoleno ponechávat děti bez dozoru  dospělé osoby v pokoji a ostatních prostorách pensionu. Rodiče  odpovídají za bezpečnost svých dětí ve všech prostorech penzionu i v  jeho venkovní části.<br><br>
+          13. Za škody způsobené na majetku penzionu odpovídá host v plném rozsahu.<br><br>
+          14. Malá domácí zvířata mohou být umístěna v prostorách penzionu jen se souhlasem majitele.Majitel zvířete je povinen prokázat jeho nezávadný zdravotní stav předložením platného očkovacího průkazu. Psům a jiným zvířatům je zakázán vstup v těch prostorách, kde jsou  skladovány potraviny, připravována nebo podávána jídla a nápoje. Ve všech veřejných prostorách mají psi mít náhubek a být na vodítku. Není dovoleno, aby zvířata byla ponechána v pokoji bez dozoru svého majitele Zvířata nesmí ležet na lůžku nebo ostatním zařízení pro hosty, musí mít svůj pelech. Nelze užívat vany, sprchy nebo umyvadla ke koupání nebo mytí zvířat. Ke krmení zvířat nesmí být používán inventář, který slouží hostům.  Majitel zvířete odpovídá za dodržování nočního klidu od 22:00 hod do 07:00 hod. <br><br>
+          15. Penzion odpovídá za věci vnesené hostem do pensionu, za škodu na  odložených věcech, pokud tyto věci byly uloženy na místě k tomu  vyhrazeném. Za peníze a cenné věci odpovídá penzion jen tehdy,  převzal-li je do úschovy proti potvrzení.<br><br>
+          16. Snídaně se podává v restaurace od 08:00 do 10:00 hod po předchozí domluvě s personálem.<br><br>
+          17. Pokud host odchází z penzionu v nočních hodinách, kdy není v provozu restaurace, je povinen zhasnout světla na schodišti a zamknout budovu.<br><br>
+          18. Každý ubytovaný host je povinen dodržovat tento ubytovací řád i  požární řád.V případě, že jej závažným způsobem poruší, má majitel  penzionu právo smluvní poměr s ním ukončit bez náhrady.<br><br>
+        </p>
+      </div>
+    </section>
+    </div>
+
+    <div id="footer"></div>
+
+  </main>
 </body>
-
 </html>
