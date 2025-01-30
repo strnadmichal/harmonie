@@ -1,0 +1,135 @@
+<!doctype html>
+<html class="no-js" lang=""></html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Chata Harmonie </title>
+  
+  <!-- Internal CSS styles -->
+  <style>
+    .reservation-form {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #45a049;
+    }
+  </style>
+
+  <link rel="stylesheet" href="../css/output.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../icon.png">
+
+  <link rel="manifest" href="../site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+
+  <script src="./components/js/utils.js"></script>
+  <script type="module">
+    document.addEventListener('DOMContentLoaded', async () => {
+      await loadComponent('header', 'header');
+      await loadComponent('footer', 'footer');
+
+        // Set header color based on page needs
+      const header = document.querySelector('header');
+      header.setAttribute('data-header-color', 'dark'); // or 'light'
+    });
+  </script>
+  <!--  <script src="../js/priceSheets.js" defer></script>-->
+</head>
+
+<body>
+
+  <div id="header"></div>
+
+  <main class="px-10 box-border">
+
+    <section>
+      <div class="h-[2px] bg-black"></div>
+      <h2 class="my-10 bold text-5xl "> 
+        Rezervace 
+      </h2>
+
+      <form action="https://formsubmit.co/your-email@example.com" method="POST" class="reservation-form">
+        <div class="form-group">
+          <label for="name">Jméno a příjmení:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Telefon:</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+        
+        <div class="form-group">
+          <label for="date">Požadované datum:</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="time">Čas:</label>
+          <input type="time" id="time" name="time" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="guests">Počet osob:</label>
+          <input type="number" id="guests" name="guests" min="1" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Poznámka:</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+        </div>
+        
+        <button type="submit">Odeslat poptávku</button>
+      </form>
+
+    </section>
+
+    <div id="footer"></div>
+
+  </main>
+</body>
+</html>
