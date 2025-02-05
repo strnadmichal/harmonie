@@ -1,23 +1,29 @@
 export function initializeDropdownMenu() {
-  const dropdowns = document.querySelectorAll('[data-dropdown]');
+  const dropdownContainer = document.querySelector('[data-dropdown]');
+  const button = dropdownContainer.querySelector('[dropdown-button]');
+  const dropdown = document.querySelector('[dropdown-menu]');
+  const header = document.querySelector('[data-header]');
 
-  dropdowns.forEach(dropdown => {
-    const button = dropdown.querySelector('[data-dropdown-button]');
-    const openIcon = button.querySelector('.dropdown-icon-open');
-    const closeIcon = button.querySelector('.dropdown-icon-close');
+  const dropdownIconOpen = button.querySelectorAll('.dropdown-icon-open');
+  const dropdownIconClose = button.querySelector('.dropdown-icon-close');
 
-    button.addEventListener('click', function () {
-      dropdown.classList.toggle('active');
-      openIcon.classList.toggle('hidden');
-      closeIcon.classList.toggle('hidden');
+  button.addEventListener('click', function () {
+    dropdown.classList.toggle('hidden');
+
+    dropdownIconOpen.forEach(icon => {
+      icon.classList.toggle('hiddenOveride');
     });
 
-    document.addEventListener('click', function (event) {
-      if (!dropdown.contains(event.target)) {
-        dropdown.classList.remove('active');
-        openIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
+    dropdownIconClose.classList.toggle('hiddenOveride');
+
+    if (header) {
+      const currentTheme = header.getAttribute('data-header-color');
+      if (currentTheme === 'light') {
+        return
       }
-    });
-  });
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      header.setAttribute('data-header-color', newTheme);
+      console.log(newTheme);
+    }
+  })
 }

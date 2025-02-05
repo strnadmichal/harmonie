@@ -54,10 +54,10 @@
   background-color: hsl(240, 56%, 9%);
   padding: 5rem 1rem 1rem;
   /*box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);*/
-  opacity: 0;
+  /* opacity: 0;
   pointer-events: none;
   transform: translateY(-10px);
-  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out; */
 }
 
 .dropdown.active > .link + .dropdown-menu {

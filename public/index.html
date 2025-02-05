@@ -47,15 +47,16 @@
   <link rel="manifest" href="../site.webmanifest">
   <meta name="theme-color" content="#fafafa">
 
+
   <script src="../js/slideshow.js" defer></script>
-  <script src="./components/js/dropdown-menu.js" defer></script>
   <script src="./components/js/utils.js"></script>
+  
   <script type="module">
     document.addEventListener('DOMContentLoaded', async () => {
       await loadComponent('header', 'header');
       await loadComponent('footer', 'footer');
-
-        // Set header color based on page needs
+      
+      // Set header color based on page needs
       const header = document.querySelector('header');
       header.setAttribute('data-header-color', 'light'); // or 'light'
     });

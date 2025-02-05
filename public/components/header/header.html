@@ -1,31 +1,61 @@
 <style>
-  [data-header-color="light"] {
-    --header-text: #ffffff;
-    --header-underline: #ffffff;
+
+  header[data-header-color="light"] {
+    --theme: #ffffff;
+    --menu_light: block;
+    --menu_dark: none;
   }
-  
-  [data-header-color="dark"] {
-    --header-text: #000000;
-    --header-underline: #000000;
+  header[data-header-color="dark"] {
+    --theme: #000000;
+    --menu_light: none;
+    --menu_dark: block;
   }
 
-  .header-text {
-    color: var(--header-text);
-  }
+.dropdown-menu {
+  position: absolute;
+  left: -40px;
+  top: -24px;
+  /*top: calc(100% + 0.25rem);*/
+  background-color: hsl(240, 56%, 9%);
+  padding: 5rem 1rem 1rem;
+  /*box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);*/
+  opacity: 1;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
 
-  .header-underline {
-    background-color: var(--header-underline);
-  }
+.dark-icon {
+  display: var(--menu_dark);
+}
+
+.light-icon {
+  display: var(--menu_light);
+}
+
+.header-underline {
+  background-color: var(--theme);
+}
+
+.header-text-color {
+  color: var(--theme);
+}
+
+.hiddenOveride {
+  display: none !important;
+}
+
 </style>
 
-<header class="px-10" data-header-color="light">
+<header class="px-10" data-header-color="light" data-header>
     <nav class="relative h-20 z-10 py-4 flex flex-row gap-8 text-2xl w-full items-end justify-between ">
-      <div class="dropdown flex items-center justify-center block md:hidden" data-dropdown>
-        <button class="link size-10 flex z-50" type="button" data-dropdown-button>
-          <img src="../../../img/menu.svg" class="dropdown-icon-open w-full h-full" alt="Menu" />
-          <img src="../../../img/close.svg" class="dropdown-icon-close hidden w-full h-full" alt="Close" />
+      <div class="relative block md:hidden flex items-center justify-center" data-dropdown>
+        <button class="link size-10 flex z-50" type="button" dropdown-button>
+          <img src="../../../img/menu-dark.svg" class="dark-icon dropdown-icon-open w-full h-full" alt="Open dropdown" />
+          <img src="../../../img/menu-light.svg" class="light-icon dropdown-icon-open w-full h-full" alt="Open dropdown" />
+          <img src="../../../img/close.svg" class="dropdown-icon-close w-full h-full hiddenOveride" alt="Close dropdown" />
         </button>
-        <div class="dropdown-menu w-screen h-screen">
+        <div class="dropdown-menu w-screen h-screen hidden" dropdown-menu>
           <ul class="flex flex-col gap-10 text-white mt-8 text-4xl justify-center">
             <li><a href="/public/index.html">Ubytování</a></li>
             <li><a href="/">Rezervace</a></li>
@@ -36,9 +66,10 @@
       </div>
       <a href="/public/index.html" class="min-w-fit h-full translate-y-1 flex items-center">
         <!-- <p class="bold text-5xl header-text">Chata Harmonie</p> -->
-        <img src="../../../img/harmonie_logo.svg" class="w-full h-2/3" alt="Logo" />
+        <img src="../../../img/harmonie_logo_light.svg" class="light-icon w-full h-2/3 logo-light" alt="Logo" />
+        <img src="../../../img/harmonie_logo_dark.svg" class="dark-icon w-full h-2/3" alt="Logo" />
       </a>
-      <div class="flex flex-row justify-end md:justify-between items-end w-full relative header-text">
+      <div class="header-text-color flex flex-row justify-end md:justify-between items-end w-full relative">
         <div class="hidden md:block ">
           <ul class="flex flex-row items-center gap-8 ">
             <li><a href="/public/index.html#ubytovani">Ubytování</a></li>
