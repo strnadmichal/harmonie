@@ -19,7 +19,7 @@ export function initializeDropdownMenu() {
     if (header) {
       const currentTheme = header.getAttribute('data-header-color');
 
-      if (window.location.pathname.includes('index.html')) {
+      if (header.getAttribute('static-color') === 'true') {
         return;
       }
 
