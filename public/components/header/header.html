@@ -13,16 +13,15 @@
 
 .dropdown-menu {
   position: absolute;
-  left: -40px;
-  top: -24px;
+  /* left: -40px;
+  top: -24px; */
   /*top: calc(100% + 0.25rem);*/
   background-color: hsl(240, 56%, 9%);
   padding: 5rem 1rem 1rem;
   /*box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);*/
   opacity: 1;
-  pointer-events: none;
-  transform: translateY(-10px);
-  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+  /* transform: translateY(-10px);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out; */
 }
 
 .dark-icon {
@@ -47,16 +46,16 @@
 
 </style>
 
-<header class="px-10" data-header-color="light" data-header>
+<header class="px-10 z-50" data-header-color="light" data-header>
     <nav class="relative h-20 z-10 py-4 flex flex-row gap-8 text-2xl w-full items-end justify-between ">
       <div class="relative block md:hidden flex items-center justify-center" data-dropdown>
         <button class="link size-10 flex z-50" type="button" dropdown-button>
-          <img src="../../../img/menu-dark.svg" class="dark-icon dropdown-icon-open w-full h-full" alt="Open dropdown" />
-          <img src="../../../img/menu-light.svg" class="light-icon dropdown-icon-open w-full h-full" alt="Open dropdown" />
-          <img src="../../../img/close.svg" class="dropdown-icon-close w-full h-full hiddenOveride" alt="Close dropdown" />
+          <img src="/../img/menu-dark.svg" class="dark-icon dropdown-icon-open w-full h-full" alt="Open dropdown" />
+          <img src="/../img/menu-light.svg" class="light-icon dropdown-icon-open w-full h-full" alt="Open dropdown" />
+          <img src="/../img/close.svg" class="dropdown-icon-close w-full h-full hiddenOveride" alt="Close dropdown" />
         </button>
         <div class="dropdown-menu w-screen h-screen hidden" dropdown-menu>
-          <ul class="flex flex-col gap-10 text-white mt-8 text-4xl justify-center">
+          <ul class="relative ml-6 flex flex-col gap-10 text-white mt-16 text-4xl justify-center z-50">
             <li><a href="./index.html#ubytovani">Ubytování</a></li>
             <li><a href="./rezervace.html">Rezervace</a></li>
             <li><a href="./index.html#ceny">Ceny</a></li>
