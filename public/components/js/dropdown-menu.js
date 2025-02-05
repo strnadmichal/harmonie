@@ -18,12 +18,17 @@ export function initializeDropdownMenu() {
 
     if (header) {
       const currentTheme = header.getAttribute('data-header-color');
-      if (currentTheme === 'light') {
-        return
+
+      if (window.location.pathname.includes('index.html')) {
+        return;
       }
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      header.setAttribute('data-header-color', newTheme);
-      console.log(newTheme);
+
+      if (!dropdown.classList.contains('hidden')) {
+        header.setAttribute('data-header-color', 'light');
+      } else {
+        header.setAttribute('data-header-color', 'dark');
+      }
+      console.log(header.getAttribute('data-header-color'));
     }
   })
 }
