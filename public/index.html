@@ -52,14 +52,18 @@
   <script src="./components/js/utils.js"></script>
   
   <script type="module">
+    import './js/languageManager.js';
+    
     document.addEventListener('DOMContentLoaded', async () => {
       await loadComponent('header', 'header');
       await loadComponent('footer', 'footer');
       
-      // Set header color based on page needs
       const header = document.querySelector('header');
-      header.setAttribute('data-header-color', 'light'); // or 'light'
-      header.setAttribute('static-color', 'true'); // or 'light'
+      header.setAttribute('data-header-color', 'light');
+      header.setAttribute('static-color', 'true');
+      
+      // Inicializace jazykového manageru po načtení komponent
+      window.languageManager.updateContent();
     });
   </script>
   <script src="../js/loadingScreen.js"></script>
@@ -88,10 +92,10 @@
       <h1 class="hidden">
         Chata Harmonie
       </h1>
-      <h2 class="bold text-5xl">
+      <h2 class="bold text-5xl" data-i18n="home.title">
         Hledáte klidné místo uprostřed přírody, kam se budete rádi vracet Vy i Vaše děti?
       </h2>
-      <p class="mt-5 text-2xl">
+      <p class="mt-5 text-2xl" data-i18n="home.description">
         Náš rodinný penzion s jedinečnou atmosférou původní
         Jizerskohorské chalupy nabízí útulně zařízené komfortní pokoje a
         apartmány, společenskou místnost s krbem, bar, kuchyňku, dětskou

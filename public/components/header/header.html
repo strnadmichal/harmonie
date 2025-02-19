@@ -71,15 +71,16 @@
       <div class="header-text-color flex flex-row justify-end md:justify-between items-end w-full relative">
         <div class="hidden md:block ">
           <ul class="flex flex-row items-center gap-8 ">
-            <li><a href="./index.html#ubytovani">Ubytování</a></li>
-            <li><a href="./rezervace.html">Rezervace</a></li>
-            <li><a href="./index.html#ceny">Ceny</a></li>
-            <li><a href="./kontakt.html">Kontakt</a></li>
+            <li><a href="./index.html#ubytovani" data-i18n="nav.accommodation">Ubytování</a></li>
+            <li><a href="./rezervace.html" data-i18n="nav.reservation">Rezervace</a></li>
+            <li><a href="./index.html#ceny" data-i18n="nav.prices">Ceny</a></li>
+            <li><a href="./kontakt.html" data-i18n="nav.contact">Kontakt</a></li>
           </ul>
         </div>
         <ul class="flex flex-row items-center gap-8 justify-end">
-          <li><a href="/">EN</a></li>
-          <li><a href="/">DE</a></li>
+          <li><a href="#" onclick="languageManager.setLanguage('en')">EN</a></li>
+          <li><a href="#" onclick="languageManager.setLanguage('de')">DE</a></li>
+          <li><a href="#" onclick="languageManager.setLanguage('cs')">CZ</a></li>
         </ul>
       </div>
     </nav>
