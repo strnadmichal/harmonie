@@ -521,18 +521,6 @@ video {
 .relative{
   position: relative;
 }
-.right-14{
-  right: 3.5rem;
-}
-.top-52{
-  top: 13rem;
-}
-.left-12{
-  left: 3rem;
-}
-.left-10{
-  left: 2.5rem;
-}
 .z-10{
   z-index: 10;
 }
@@ -579,29 +567,17 @@ video {
 .mb-40{
   margin-bottom: 10rem;
 }
+.ml-6{
+  margin-left: 1.5rem;
+}
+.mt-16{
+  margin-top: 4rem;
+}
 .mt-20{
   margin-top: 5rem;
 }
 .mt-5{
   margin-top: 1.25rem;
-}
-.mt-8{
-  margin-top: 2rem;
-}
-.mt-10{
-  margin-top: 2.5rem;
-}
-.ml-10{
-  margin-left: 2.5rem;
-}
-.mt-16{
-  margin-top: 4rem;
-}
-.ml-8{
-  margin-left: 2rem;
-}
-.ml-6{
-  margin-left: 1.5rem;
 }
 .box-border{
   box-sizing: border-box;
@@ -801,6 +777,34 @@ video {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+#splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: beige;
+  z-index: 1000;
+  display: none; /* Hide by default */
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ccc;
+  border-top: 5px solid #3498db; /* barva spinneru */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 #slideshow {
