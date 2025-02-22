@@ -6,8 +6,8 @@
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
  * Kroc Camen, and the H5BP dev community and team.
  */
-@import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Alice&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -19,7 +19,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: beige;
+  background-color: #f5f5dc;
   z-index: 1000;
   display: none; /* Hide by default */
   justify-content: center;
@@ -38,7 +38,9 @@
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 #slideshow {
@@ -61,7 +63,7 @@
 
 #slide1 {
   opacity: 1;
-  background-image: url('../img/uvod/1.jpg');
+  background-image: url("../img/uvod/1.jpg");
 }
 
 .link {
@@ -95,13 +97,13 @@
 }
 
 .link.close-icon img {
-  content: url('../img/x.svg');
+  content: url("../img/x.svg");
 }
 
-
-td, th {
-    padding: 1rem;
-    border: 2px solid black;
+td,
+th {
+  padding: 1rem;
+  border: 2px solid black;
 }
 
 .table_col_header {
@@ -112,7 +114,6 @@ td, th {
   border-top: 2px solid black;
   border-bottom: 2px solid black;
 }
-
 
 /* ==========================================================================
    Base styles: opinionated defaults
@@ -349,4 +350,3 @@ textarea {
     page-break-after: avoid;
   }
 }
-

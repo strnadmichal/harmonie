@@ -1,88 +1,87 @@
 <style>
-
   header[data-header-color="light"] {
     --theme: #ffffff;
     --menu_light: block;
     --menu_dark: none;
   }
+
   header[data-header-color="dark"] {
     --theme: #000000;
     --menu_light: none;
     --menu_dark: block;
   }
 
-.dropdown-menu {
-  position: absolute;
-  /* left: -40px;
+  .dropdown-menu {
+    position: absolute;
+    /* left: -40px;
   top: -24px; */
-  /*top: calc(100% + 0.25rem);*/
-  background-color: hsl(240, 56%, 9%);
-  padding: 5rem 1rem 1rem;
-  /*box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);*/
-  opacity: 1;
-  /* transform: translateY(-10px);
+    /*top: calc(100% + 0.25rem);*/
+    background-color: hsl(240, 56%, 9%);
+    padding: 5rem 1rem 1rem;
+    /*box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);*/
+    opacity: 1;
+    /* transform: translateY(-10px);
   transition: opacity 150ms ease-in-out, transform 150ms ease-in-out; */
-}
+  }
 
-.dark-icon {
-  display: var(--menu_dark);
-}
+  .dark-icon {
+    display: var(--menu_dark);
+  }
 
-.light-icon {
-  display: var(--menu_light);
-}
+  .light-icon {
+    display: var(--menu_light);
+  }
 
-.header-underline {
-  background-color: var(--theme);
-}
+  .header-underline {
+    background-color: var(--theme);
+  }
 
-.header-text-color {
-  color: var(--theme);
-}
+  .header-text-color {
+    color: var(--theme);
+  }
 
-.hiddenOveride {
-  display: none !important;
-}
-
+  .hiddenOveride {
+    display: none !important;
+  }
 </style>
 
-<header class="px-10 z-50" data-header-color="light" data-header>
-    <nav class="relative h-20 z-10 py-4 flex flex-row gap-8 text-2xl w-full items-end justify-between ">
-      <div class="relative block md:hidden flex items-center justify-center" data-dropdown>
-        <button class="link size-10 flex z-50" type="button" dropdown-button>
-          <img src="/../img/menu-dark.svg" class="dark-icon dropdown-icon-open w-full h-full" alt="Open dropdown" />
-          <img src="/../img/menu-light.svg" class="light-icon dropdown-icon-open w-full h-full" alt="Open dropdown" />
-          <img src="/../img/close.svg" class="dropdown-icon-close w-full h-full hiddenOveride" alt="Close dropdown" />
-        </button>
-        <div class="dropdown-menu w-screen h-screen hidden" dropdown-menu>
-          <ul class="relative ml-6 flex flex-col gap-10 text-white mt-16 text-4xl justify-center z-50">
-            <li><a href="./index.html#ubytovani">Ubytování</a></li>
-            <li><a href="./rezervace.html">Rezervace</a></li>
-            <li><a href="./index.html#ceny">Ceny</a></li>
-            <li><a href="./kontakt.html">Kontakt</a></li>
-          </ul>
-        </div>
-      </div>
-      <a href="./index.html" class="min-w-fit h-full translate-y-1 flex items-center">
-        <!-- <p class="bold text-5xl header-text">Chata Harmonie</p> -->
-        <img src="../img/harmonie_logo_light.svg" class="light-icon w-full h-2/3 logo-light" alt="Logo" />
-        <img src="../img/harmonie_logo_dark.svg" class="dark-icon w-full h-2/3" alt="Logo" />
-      </a>
-      <div class="header-text-color flex flex-row justify-end md:justify-between items-end w-full relative">
-        <div class="hidden md:block ">
-          <ul class="flex flex-row items-center gap-8 ">
-            <li><a href="./index.html#ubytovani" data-i18n="nav.accommodation">Ubytování</a></li>
-            <li><a href="./rezervace.html" data-i18n="nav.reservation">Rezervace</a></li>
-            <li><a href="./index.html#ceny" data-i18n="nav.prices">Ceny</a></li>
-            <li><a href="./kontakt.html" data-i18n="nav.contact">Kontakt</a></li>
-          </ul>
-        </div>
-        <ul class="flex flex-row items-center gap-8 justify-end">
-          <li><a href="#" onclick="languageManager.setLanguage('en')">EN</a></li>
-          <li><a href="#" onclick="languageManager.setLanguage('de')">DE</a></li>
-          <li><a href="#" onclick="languageManager.setLanguage('cs')">CZ</a></li>
+<header class="z-50 px-10" data-header-color="light" data-header>
+  <nav class="relative z-10 flex flex-row items-end justify-between w-full gap-8 py-8 h-28">
+    <div class="relative flex items-center justify-center block md:hidden" data-dropdown>
+      <button class="z-50 flex link size-10" type="button" dropdown-button>
+        <img src="/../img/menu-dark.svg" class="w-full h-full dark-icon dropdown-icon-open" alt="Open dropdown" />
+        <img src="/../img/menu-light.svg" class="w-full h-full light-icon dropdown-icon-open" alt="Open dropdown" />
+        <img src="/../img/close.svg" class="w-full h-full dropdown-icon-close hiddenOveride" alt="Close dropdown" />
+      </button>
+      <div class="hidden w-screen h-screen dropdown-menu" dropdown-menu>
+        <ul class="relative z-50 flex flex-col justify-center gap-10 mt-16 ml-6 text-4xl text-white">
+          <li><a href="./index.html#ubytovani" data-i18n="nav.accommodation">Ubytování</a></li>
+          <li><a href="./rezervace.html" data-i18n="nav.reservation">Rezervace</a></li>
+          <li><a href="./index.html#ceny" data-i18n="nav.prices">Ceny</a></li>
+          <li><a href="./kontakt.html" data-i18n="nav.contact">Kontakt</a></li>
         </ul>
       </div>
-    </nav>
-    <div class="h-[3px] relative z-10 header-underline"></div>
+    </div>
+    <a href="./index.html" class="flex items-center h-full translate-y-1 min-w-fit">
+      <!-- <p class="text-5xl bold header-text">Chata Harmonie</p> -->
+      <img src="../img/harmonie_logo_light.svg" class="w-full light-icon h-[36px] logo-light" alt="Logo" />
+      <img src="../img/harmonie_logo_dark.svg" class="w-full dark-icon h-[36px]" alt="Logo" />
+    </a>
+    <div class="relative flex flex-row items-end justify-end w-full header-text-color md:justify-between">
+      <div class="hidden md:block">
+        <ul class="flex flex-row items-center gap-8 text-3xl">
+          <li><a href="./index.html#ubytovani" data-i18n="nav.accommodation">Ubytování</a></li>
+          <li><a href="./rezervace.html" data-i18n="nav.reservation">Rezervace</a></li>
+          <li><a href="./index.html#ceny" data-i18n="nav.prices">Ceny</a></li>
+          <li><a href="./kontakt.html" data-i18n="nav.contact">Kontakt</a></li>
+        </ul>
+      </div>
+      <ul class="flex flex-row items-center justify-end gap-8 text-3xl">
+        <li><a href="#" onclick="languageManager.setLanguage('en')">EN</a></li>
+        <li><a href="#" onclick="languageManager.setLanguage('de')">DE</a></li>
+        <li><a href="#" onclick="languageManager.setLanguage('cs')">CZ</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="h-[3px] relative z-10 header-underline"></div>
 </header>

@@ -8,7 +8,7 @@ const translations = {
     },
     home: {
       title: "Hledáte klidné místo uprostřed přírody, kam se budete rádi vracet Vy i Vaše děti?",
-      description: "Náš rodinný penzion s jedinečnou atmosférou původní Jizerskohorské chalupy...",
+      description: "Náš rodinný penzion s jedinečnou atmosférou původní Jizerskohorské chalupy nabízí útulně zařízené komfortní pokoje a apartmány, společenskou místnost s krbem, bar, kuchyňku, dětskou hernu, lyžárnu, saunu a mnoho dalšího pro Vaši pohodovou dovolenou, víkend v přírodě nebo setkání s přáteli či rodinou."
       // ... další překlady
     }
     // ... další sekce

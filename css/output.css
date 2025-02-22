@@ -6,8 +6,8 @@
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
  * Kroc Camen, and the H5BP dev community and team.
  */
-@import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Alice&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
 
 *, ::before, ::after{
   --tw-border-spacing-x: 0;
@@ -535,17 +535,13 @@ video {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
 }
-.my-12{
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-}
-.my-16{
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-}
 .my-3{
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
+}
+.my-40{
+  margin-top: 10rem;
+  margin-bottom: 10rem;
 }
 .my-5{
   margin-top: 1.25rem;
@@ -555,17 +551,21 @@ video {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
-.mb-12{
-  margin-bottom: 3rem;
+.my-20{
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 .mb-16{
   margin-bottom: 4rem;
 }
-.mb-32{
-  margin-bottom: 8rem;
+.mb-20{
+  margin-bottom: 5rem;
 }
 .mb-40{
   margin-bottom: 10rem;
+}
+.mb-5{
+  margin-bottom: 1.25rem;
 }
 .ml-6{
   margin-left: 1.5rem;
@@ -576,8 +576,17 @@ video {
 .mt-20{
   margin-top: 5rem;
 }
+.mt-40{
+  margin-top: 10rem;
+}
 .mt-5{
   margin-top: 1.25rem;
+}
+.mt-10{
+  margin-top: 2.5rem;
+}
+.mb-10{
+  margin-bottom: 2.5rem;
 }
 .box-border{
   box-sizing: border-box;
@@ -597,6 +606,9 @@ video {
 .aspect-\[4\/3\]{
   aspect-ratio: 4/3;
 }
+.aspect-\[3\/2\]{
+  aspect-ratio: 3/2;
+}
 .size-10{
   width: 2.5rem;
   height: 2.5rem;
@@ -607,8 +619,8 @@ video {
 .h-20{
   height: 5rem;
 }
-.h-40{
-  height: 10rem;
+.h-60{
+  height: 15rem;
 }
 .h-\[2px\]{
   height: 2px;
@@ -616,14 +628,26 @@ video {
 .h-\[3px\]{
   height: 3px;
 }
-.h-\[400px\]{
-  height: 400px;
+.h-\[550px\]{
+  height: 550px;
 }
 .h-full{
   height: 100%;
 }
 .h-screen{
   height: 100vh;
+}
+.h-\[36px\]{
+  height: 36px;
+}
+.h-28{
+  height: 7rem;
+}
+.h-\[1200px\]{
+  height: 1200px;
+}
+.h-\[full\]{
+  height: full;
 }
 .w-1\/3{
   width: 33.333333%;
@@ -640,6 +664,9 @@ video {
 .w-4\/5{
   width: 80%;
 }
+.w-\[500px\]{
+  width: 500px;
+}
 .w-full{
   width: 100%;
 }
@@ -653,8 +680,8 @@ video {
 .max-w-\[1000px\]{
   max-width: 1000px;
 }
-.max-w-\[600px\]{
-  max-width: 600px;
+.max-w-\[800px\]{
+  max-width: 800px;
 }
 .translate-y-1{
   --tw-translate-y: 0.25rem;
@@ -671,6 +698,9 @@ video {
 }
 .flex-wrap{
   flex-wrap: wrap;
+}
+.content-center{
+  align-content: center;
 }
 .items-end{
   align-items: flex-end;
@@ -731,11 +761,24 @@ video {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+.py-8{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
 .pt-20{
   padding-top: 5rem;
 }
 .text-center{
   text-align: center;
+}
+.text-right{
+  text-align: right;
+}
+.text-justify{
+  text-align: justify;
+}
+.text-end{
+  text-align: end;
 }
 .align-middle{
   vertical-align: middle;
@@ -785,7 +828,7 @@ video {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: beige;
+  background-color: #f5f5dc;
   z-index: 1000;
   display: none; /* Hide by default */
   justify-content: center;
@@ -804,7 +847,9 @@ video {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 #slideshow {
@@ -827,7 +872,7 @@ video {
 
 #slide1 {
   opacity: 1;
-  background-image: url('../img/uvod/1.jpg');
+  background-image: url("../img/uvod/1.jpg");
 }
 
 .link {
@@ -861,13 +906,13 @@ video {
 }
 
 .link.close-icon img {
-  content: url('../img/x.svg');
+  content: url("../img/x.svg");
 }
 
-
-td, th {
-    padding: 1rem;
-    border: 2px solid black;
+td,
+th {
+  padding: 1rem;
+  border: 2px solid black;
 }
 
 .table_col_header {
@@ -878,7 +923,6 @@ td, th {
   border-top: 2px solid black;
   border-bottom: 2px solid black;
 }
-
 
 /* ==========================================================================
    Base styles: opinionated defaults
@@ -1141,6 +1185,10 @@ textarea {
     width: 100%;
   }
 
+  .md\:justify-center{
+    justify-content: center;
+  }
+
   .md\:justify-between{
     justify-content: space-between;
   }
@@ -1151,5 +1199,8 @@ textarea {
   .lg\:w-1\/4{
     width: 25%;
   }
-}
 
+  .lg\:justify-between{
+    justify-content: space-between;
+  }
+}
