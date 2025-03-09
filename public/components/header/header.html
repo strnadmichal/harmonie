@@ -46,15 +46,15 @@
 </style>
 
 <header class="z-50 px-10" data-header-color="light" data-header>
-  <nav class="relative z-10 flex flex-row items-end justify-between w-full gap-8 py-8 h-28">
-    <div class="relative flex items-center justify-center block md:hidden" data-dropdown>
-      <button class="z-50 flex link size-10" type="button" dropdown-button>
+  <nav class="flex relative z-10 flex-row gap-8 justify-between items-center py-8 w-full h-24">
+    <div class="flex relative justify-center items-center md:hidden" data-dropdown>
+      <button class="flex z-50 link size-10" type="button" dropdown-button>
         <img src="/../img/menu-dark.svg" class="w-full h-full dark-icon dropdown-icon-open" alt="Open dropdown" />
         <img src="/../img/menu-light.svg" class="w-full h-full light-icon dropdown-icon-open" alt="Open dropdown" />
         <img src="/../img/close.svg" class="w-full h-full dropdown-icon-close hiddenOveride" alt="Close dropdown" />
       </button>
       <div class="hidden w-screen h-screen dropdown-menu" dropdown-menu>
-        <ul class="relative z-50 flex flex-col justify-center gap-10 mt-16 ml-6 text-4xl text-white">
+        <ul class="flex relative z-50 flex-col gap-10 justify-center mt-16 ml-6 text-3xl text-white">
           <li><a href="./index.html#ubytovani" data-i18n="nav.accommodation">Ubytování</a></li>
           <li><a href="./rezervace.html" data-i18n="nav.reservation">Rezervace</a></li>
           <li><a href="./index.html#ceny" data-i18n="nav.prices">Ceny</a></li>
@@ -62,26 +62,26 @@
         </ul>
       </div>
     </div>
-    <a href="./index.html" class="flex items-center h-full translate-y-1 min-w-fit">
+    <a href="./index.html" class="flex items-center h-full min-w-fit">
       <!-- <p class="text-5xl bold header-text">Chata Harmonie</p> -->
       <img src="../img/harmonie_logo_light.svg" class="w-full light-icon h-[36px] logo-light" alt="Logo" />
       <img src="../img/harmonie_logo_dark.svg" class="w-full dark-icon h-[36px]" alt="Logo" />
     </a>
-    <div class="relative flex flex-row items-end justify-end w-full header-text-color md:justify-between">
+    <div class="flex relative flex-row justify-end items-center w-full header-text-color md:justify-between">
       <div class="hidden md:block">
-        <ul class="flex flex-row items-center gap-8 text-3xl">
+        <ul class="flex flex-row gap-8 items-center text-2xl">
           <li><a href="./index.html#ubytovani" data-i18n="nav.accommodation">Ubytování</a></li>
           <li><a href="./rezervace.html" data-i18n="nav.reservation">Rezervace</a></li>
           <li><a href="./index.html#ceny" data-i18n="nav.prices">Ceny</a></li>
           <li><a href="./kontakt.html" data-i18n="nav.contact">Kontakt</a></li>
         </ul>
       </div>
-      <ul class="flex flex-row items-center justify-end gap-8 text-3xl">
+      <ul class="flex flex-row gap-8 justify-end items-center text-2xl">
         <li><a href="#" onclick="languageManager.setLanguage('en')">EN</a></li>
         <li><a href="#" onclick="languageManager.setLanguage('de')">DE</a></li>
         <li><a href="#" onclick="languageManager.setLanguage('cs')">CZ</a></li>
       </ul>
     </div>
   </nav>
-  <div class="h-[3px] relative z-10 header-underline"></div>
+  <div class="h-[1.5px] relative z-10 header-underline"></div>
 </header>
