@@ -1,14 +1,22 @@
 <style>
+  body {
+    padding-top: 6rem;
+  }
+
   header[data-header-color="light"] {
     --theme: #ffffff;
     --menu_light: block;
     --menu_dark: none;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
   }
 
   header[data-header-color="dark"] {
     --theme: #000000;
     --menu_light: none;
     --menu_dark: block;
+    background-color: #f5f5dc;
+    transition: background-color 0.3s ease;
   }
 
   .dropdown-menu {
@@ -45,7 +53,7 @@
   }
 </style>
 
-<header class="z-50 px-10" data-header-color="light" data-header>
+<header class="fixed top-0 right-0 left-0 z-50 px-10" data-header-color="light" data-header>
   <nav class="flex relative z-10 flex-row gap-8 justify-between items-center py-8 w-full h-24">
     <div class="flex relative justify-center items-center md:hidden" data-dropdown>
       <button class="flex z-50 link size-10" type="button" dropdown-button>

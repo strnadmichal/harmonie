@@ -2,6 +2,7 @@ import { initializeDropdownMenu } from '../js/dropdown-menu.js';
 
 export function initializeHeader() {
   initializeDropdownMenu();
+  initializeScrollBehavior();
   return {
     initialized: true
   };
@@ -24,4 +25,38 @@ function updateLogoVisibility() {
     observer.observe(header, { attributes: true });
 }
 
-document.addEventListener('DOMContentLoaded', updateLogoVisibility);
+function initializeScrollBehavior() {
+    const header = document.querySelector('header');
+    
+    // If header has a static color attribute, we don't change it on scroll
+    if (window.location.pathname.includes('index.html')) {
+        // This function handles changing the header theme based on scroll position
+        function handleScroll() {
+            // Get the height of the hero image section - approximately 100vh
+            const scrollThreshold = window.innerHeight * 0.9; // 70% of viewport height
+            
+            if (window.scrollY > scrollThreshold) {
+                // User has scrolled past the hero image - switch to dark theme
+                if (header.getAttribute('data-header-color') !== 'dark') {
+                    header.setAttribute('data-header-color', 'dark');
+                }
+            } else {
+                // User is at the hero image - use light theme
+                if (header.getAttribute('data-header-color') !== 'light') {
+                    header.setAttribute('data-header-color', 'light');
+                }
+            }
+        }
+        
+        // Run once on load
+        handleScroll();
+        
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateLogoVisibility();
+    initializeScrollBehavior();
+});
