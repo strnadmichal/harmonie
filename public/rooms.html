@@ -30,9 +30,62 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 2rem;
+      padding: 1rem;
       color: white;
+      overflow: auto;
     }
+    
+    .room-details-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      height: 100%;
+      padding: 2rem;
+      font-size: 1.25rem;
+    }
+    
+    .room-details-item {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .room-details-icon {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    /*
+    @media (max-width: 640px) {
+      .room-details-list {
+        padding: 0.75rem;
+        font-size: 0.875rem;
+      }
+      .room-details-item {
+        gap: 1rem;
+      }
+      .room-details-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+    
+    @media (min-width: 641px) and (max-width: 1024px) {
+      .room-details-list {
+        padding: 1.5rem;
+        font-size: 1rem;
+      }
+      .room-details-item {
+        gap: 1.5rem;
+      }
+      .room-details-icon {
+        width: 1.75rem;
+        height: 1.75rem;
+      }
+    }
+    */
 
     .room-card:hover .room-details {
       opacity: 1;
@@ -80,7 +133,7 @@
   <main class="box-border px-10">
 
     <section>
-      <h2 class="my-10 text-5xl bold "> 
+      <h2 class="my-10 text-5xl bold"> 
         Pokoje 
       </h2>
 
@@ -89,29 +142,29 @@
           <div class="room-card">
             <img src="../img/pokoje/1.jpg" class="object-cover w-full imr" />
             <div class="room-details">
-              <ul class="flex flex-col items-start justify-between h-full p-8 text-2xl">
-                <li class="flex items-center gap-16">
-                  <i data-lucide="bed-double" class="size-8"></i>
+              <ul class="room-details-list">
+                <li class="room-details-item">
+                  <i data-lucide="bed-double" class="room-details-icon"></i>
                   3 lůžka
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="shower-head" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="shower-head" class="room-details-icon"></i>
                   sprcha + wc
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="tv" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="tv" class="room-details-icon"></i>
                   televize na pokoji
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="refrigerator" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="refrigerator" class="room-details-icon"></i>
                   lednice
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="wifi" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="wifi" class="room-details-icon"></i>
                   wifi na celém pokoji
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="car" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="car" class="room-details-icon"></i>
                   parkovací místo
                 </li>
               </ul>
@@ -124,29 +177,29 @@
           <div class="room-card">
             <img src="../img/pokoje/2.jpg" class="object-cover w-full imr" />
             <div class="room-details">
-              <ul class="flex flex-col items-start justify-between h-full p-8 text-2xl">
-                <li class="flex items-center gap-16">
-                  <i data-lucide="bed-double" class="size-8"></i>
+              <ul class="room-details-list">
+                <li class="room-details-item">
+                  <i data-lucide="bed-double" class="room-details-icon"></i>
                   3 lůžka
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="shower-head" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="shower-head" class="room-details-icon"></i>
                   sprcha + wc
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="tv" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="tv" class="room-details-icon"></i>
                   televize na pokoji
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="refrigerator" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="refrigerator" class="room-details-icon"></i>
                   lednice
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="wifi" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="wifi" class="room-details-icon"></i>
                   wifi na celém pokoji
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="car" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="car" class="room-details-icon"></i>
                   parkovací místo
                 </li>
               </ul>
@@ -159,29 +212,29 @@
           <div class="room-card">
             <img src="../img/pokoje/1.jpg" class="object-cover w-full imr" />
             <div class="room-details">
-              <ul class="flex flex-col items-start justify-between h-full p-8 text-2xl">
-                <li class="flex items-center gap-16">
-                  <i data-lucide="bed-double" class="size-8"></i>
+              <ul class="room-details-list">
+                <li class="room-details-item">
+                  <i data-lucide="bed-double" class="room-details-icon"></i>
                   3 lůžka
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="shower-head" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="shower-head" class="room-details-icon"></i>
                   sprcha + wc
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="tv" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="tv" class="room-details-icon"></i>
                   televize na pokoji
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="refrigerator" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="refrigerator" class="room-details-icon"></i>
                   lednice
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="wifi" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="wifi" class="room-details-icon"></i>
                   wifi na celém pokoji
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="car" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="car" class="room-details-icon"></i>
                   parkovací místo
                 </li>
               </ul>
@@ -194,29 +247,29 @@
           <div class="room-card">
             <img src="../img/pokoje/4.jpg" class="object-cover w-full imr" />
             <div class="room-details">
-              <ul class="flex flex-col items-start justify-between h-full p-8 text-2xl">
-                <li class="flex items-center gap-16">
-                  <i data-lucide="bed-double" class="size-8"></i>
+              <ul class="room-details-list">
+                <li class="room-details-item">
+                  <i data-lucide="bed-double" class="room-details-icon"></i>
                   2 lůžka
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="shower-head" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="shower-head" class="room-details-icon"></i>
                   sprcha + wc
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="tv" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="tv" class="room-details-icon"></i>
                   televize na pokoji
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="refrigerator" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="refrigerator" class="room-details-icon"></i>
                   lednice
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="wifi" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="wifi" class="room-details-icon"></i>
                   wifi na celém pokoji
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="car" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="car" class="room-details-icon"></i>
                   parkovací místo
                 </li>
               </ul>
@@ -229,29 +282,29 @@
           <div class="room-card">
             <img src="../img/pokoje/5.jpg" class="object-cover w-full imr" />
             <div class="room-details">
-              <ul class="flex flex-col items-start justify-between h-full p-8 text-2xl">
-                <li class="flex items-center gap-16">
-                  <i data-lucide="bed-double" class="size-8"></i>
+              <ul class="room-details-list">
+                <li class="room-details-item">
+                  <i data-lucide="bed-double" class="room-details-icon"></i>
                   2 lůžka
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="shower-head" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="shower-head" class="room-details-icon"></i>
                   sprcha + wc
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="tv" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="tv" class="room-details-icon"></i>
                   televize na pokoji
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="refrigerator" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="refrigerator" class="room-details-icon"></i>
                   lednice
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="wifi" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="wifi" class="room-details-icon"></i>
                   wifi na celém pokoji
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="car" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="car" class="room-details-icon"></i>
                   parkovací místo
                 </li>
               </ul>
@@ -264,29 +317,29 @@
           <div class="room-card">
             <img src="../img/pokoje/6.jpg" class="object-cover w-full imr" />
             <div class="room-details">
-              <ul class="flex flex-col items-start justify-between h-full p-8 text-2xl">
-                <li class="flex items-center gap-16">
-                  <i data-lucide="bed-double" class="size-8"></i>
+              <ul class="room-details-list">
+                <li class="room-details-item">
+                  <i data-lucide="bed-double" class="room-details-icon"></i>
                   2 lůžka
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="shower-head" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="shower-head" class="room-details-icon"></i>
                   sprcha + wc
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="tv" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="tv" class="room-details-icon"></i>
                   televize na pokoji
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="refrigerator" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="refrigerator" class="room-details-icon"></i>
                   lednice
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="wifi" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="wifi" class="room-details-icon"></i>
                   wifi na celém pokoji
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="car" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="car" class="room-details-icon"></i>
                   parkovací místo
                 </li>
               </ul>
@@ -299,29 +352,29 @@
           <div class="room-card">
             <img src="../img/pokoje/7.jpg" class="object-cover w-full imr" />
             <div class="room-details">
-              <ul class="flex flex-col items-start justify-between h-full p-8 text-2xl">
-                <li class="flex items-center gap-16">
-                  <i data-lucide="bed-double" class="size-8"></i>
+              <ul class="room-details-list">
+                <li class="room-details-item">
+                  <i data-lucide="bed-double" class="room-details-icon"></i>
                   4 lůžka
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="shower-head" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="shower-head" class="room-details-icon"></i>
                   sprcha + wc
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="tv" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="tv" class="room-details-icon"></i>
                   televize na pokoji
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="refrigerator" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="refrigerator" class="room-details-icon"></i>
                   lednice
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="wifi" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="wifi" class="room-details-icon"></i>
                   wifi na celém pokoji
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="car" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="car" class="room-details-icon"></i>
                   parkovací místo
                 </li>
               </ul>
@@ -348,39 +401,39 @@
 
     <section id="apartmany">
       <div class="h-[2px] bg-black"></div>
-      <h2 class="my-10 text-5xl bold "> 
+      <h2 class="my-10 text-5xl bold"> 
         Apartmány 
       </h2>
 
       <div class="flex flex-row flex-wrap justify-between w-full">
 
-        <div class="w-full p-2 md:w-1/2">
+        <div class="p-2 w-full md:w-1/2">
           <div class="room-card">
             <img src="../img/apartmany/67.jpg" class="object-cover w-full imr" />
             <div class="room-details">
-              <ul class="flex flex-col items-start justify-between h-full p-8 text-2xl">
-                <li class="flex items-center gap-16">
-                  <i data-lucide="bed-double" class="size-8"></i>
+              <ul class="room-details-list">
+                <li class="room-details-item">
+                  <i data-lucide="bed-double" class="room-details-icon"></i>
                   6 lůžka
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="shower-head" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="shower-head" class="room-details-icon"></i>
                   sprcha + wc
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="tv" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="tv" class="room-details-icon"></i>
                   televize na pokoji
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="refrigerator" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="refrigerator" class="room-details-icon"></i>
                   lednice
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="wifi" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="wifi" class="room-details-icon"></i>
                   wifi na celém pokoji
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="car" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="car" class="room-details-icon"></i>
                   parkovací místo
                 </li>
               </ul>
@@ -389,33 +442,33 @@
           </div>
         </div>
 
-        <div class="w-full p-2 md:w-1/2">
+        <div class="p-2 w-full md:w-1/2">
           <div class="room-card">
             <img src="../img/apartmany/68.jpg" class="object-cover w-full imr" />
             <div class="room-details">
-              <ul class="flex flex-col items-start justify-between h-full p-8 text-2xl">
-                <li class="flex items-center gap-16">
-                  <i data-lucide="bed-double" class="size-8"></i>
+              <ul class="room-details-list">
+                <li class="room-details-item">
+                  <i data-lucide="bed-double" class="room-details-icon"></i>
                   4 lůžka
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="shower-head" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="shower-head" class="room-details-icon"></i>
                   sprcha + wc
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="tv" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="tv" class="room-details-icon"></i>
                   televize na pokoji
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="refrigerator" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="refrigerator" class="room-details-icon"></i>
                   lednice
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="wifi" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="wifi" class="room-details-icon"></i>
                   wifi na celém pokoji
                 </li>
-                <li class="flex items-center gap-16">
-                  <i data-lucide="car" class="size-8"></i>
+                <li class="room-details-item">
+                  <i data-lucide="car" class="room-details-icon"></i>
                   parkovací místo
                 </li>
               </ul>
