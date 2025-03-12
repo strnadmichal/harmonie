@@ -5,94 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title> Chata Harmonie </title>
-  
-  <!-- Internal CSS styles -->
-  <style>
-    .imr {
-      height: 512px;
-    }
-    
-    .room-card {
-      position: relative;
-      height: 512px;
-      margin-bottom: 5rem; /* Add margin to create space for room number */
-    }
-
-    .room-details {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(10, 10, 35, 1);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 1rem;
-      color: white;
-      overflow: auto;
-    }
-    
-    .room-details-list {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: flex-start;
-      height: 100%;
-      padding: 2rem;
-      font-size: 1.25rem;
-    }
-    
-    .room-details-item {
-      display: flex;
-      align-items: center;
-      gap: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    .room-details-icon {
-      width: 2rem;
-      height: 2rem;
-    }
-
-    /*
-    @media (max-width: 640px) {
-      .room-details-list {
-        padding: 0.75rem;
-        font-size: 0.875rem;
-      }
-      .room-details-item {
-        gap: 1rem;
-      }
-      .room-details-icon {
-        width: 1.5rem;
-        height: 1.5rem;
-      }
-    }
-    
-    @media (min-width: 641px) and (max-width: 1024px) {
-      .room-details-list {
-        padding: 1.5rem;
-        font-size: 1rem;
-      }
-      .room-details-item {
-        gap: 1.5rem;
-      }
-      .room-details-icon {
-        width: 1.75rem;
-        height: 1.75rem;
-      }
-    }
-    */
-
-    .room-card:hover .room-details {
-      opacity: 1;
-    }
-  </style>
 
   <link rel="stylesheet" href="../css/output.css">
+  <link rel="stylesheet" href="../css/style.css">
   <meta name="description" content="">
 
   <meta property="og:title" content="">
@@ -110,17 +25,90 @@
   
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="./components/js/utils.js"></script>
+  <script type="module" src="../js/modalGallery.js"></script>
   <script type="module">
+    import { initModalGallery } from '../js/modalGallery.js';
+    
     document.addEventListener('DOMContentLoaded', async () => {
       await loadComponent('header', 'header');
       await loadComponent('footer', 'footer');
 
-        // Set header color based on page needs
+      // Set header color based on page needs
       const header = document.querySelector('header');
       header.setAttribute('data-header-color', 'dark'); // or 'light'
 
       // Initialize Lucide icons
       lucide.createIcons();
+      
+      // Room data with image paths - defined directly on this page
+      const roomData = [
+        {
+          id: 1,
+          name: "Pokoj č.1",
+          images: [
+            "../img/pokoje/1.jpg",
+            "../img/pokoje/2.jpg",
+          ]
+        },
+        {
+          id: 2,
+          name: "Pokoj č.2",
+          images: [
+            "../img/pokoje/2.jpg",
+            "../img/pokoje/1.jpg",
+          ]
+        },
+        {
+          id: 3,
+          name: "Pokoj č.3",
+          images: [
+            "../img/pokoje/4.jpg",
+            "../img/pokoje/5.jpg",
+          ]
+        },
+        {
+          id: 4,
+          name: "Pokoj č.4",
+          images: [
+            "../img/pokoje/5.jpg",
+            "../img/pokoje/4.jpg",
+          ]
+        },
+        {
+          id: 5,
+          name: "Pokoj č.5",
+          images: [
+            "../img/pokoje/6.jpg",
+            "../img/pokoje/7.jpg",
+          ]
+        },
+        {
+          id: 6,
+          name: "Pokoj č.6",
+          images: [
+            "../img/pokoje/7.jpg",
+            "../img/pokoje/6.jpg",
+          ]
+        },
+        {
+          id: 7,
+          name: "Pokoj č.7",
+          images: [
+            "../img/pokoje/7.jpg",
+            "../img/pokoje/6.jpg",
+          ]
+        },
+        {
+          id: "apartment-1",
+          name: "Apartmán 1",
+          images: [
+            "../img/apartmany/67.jpg",
+          ]
+        }
+      ];
+      
+      // Initialize modal gallery with room data
+      initModalGallery('.room-card', 'data-room-id', roomData);
     });
   </script>
   <!--  <script src="../js/priceSheets.js" defer></script>-->
@@ -139,7 +127,7 @@
 
       <div class="flex flex-row flex-wrap">
         <div class="p-2 sm:w-1/2 lg:w-1/4">
-          <div class="room-card">
+          <div class="room-card room-1" data-room-id="1">
             <img src="../img/pokoje/1.jpg" class="object-cover w-full imr" />
             <div class="room-details">
               <ul class="room-details-list">
@@ -174,7 +162,7 @@
         </div>
 
         <div class="p-2 sm:w-1/2 lg:w-1/4">
-          <div class="room-card">
+          <div class="room-card room-2" data-room-id="2">
             <img src="../img/pokoje/2.jpg" class="object-cover w-full imr" />
             <div class="room-details">
               <ul class="room-details-list">
@@ -209,8 +197,8 @@
         </div>
 
         <div class="p-2 sm:w-1/2 lg:w-1/4">
-          <div class="room-card">
-            <img src="../img/pokoje/1.jpg" class="object-cover w-full imr" />
+          <div class="room-card room-3" data-room-id="3">
+            <img src="../img/pokoje/5.jpg" class="object-cover w-full imr" />
             <div class="room-details">
               <ul class="room-details-list">
                 <li class="room-details-item">
@@ -244,7 +232,7 @@
         </div>
 
         <div class="p-2 sm:w-1/2 lg:w-1/4">
-          <div class="room-card">
+          <div class="room-card room-4" data-room-id="4">
             <img src="../img/pokoje/4.jpg" class="object-cover w-full imr" />
             <div class="room-details">
               <ul class="room-details-list">
@@ -279,7 +267,7 @@
         </div>
 
         <div class="p-2 sm:w-1/2 lg:w-1/4">
-          <div class="room-card">
+          <div class="room-card room-5" data-room-id="5">
             <img src="../img/pokoje/5.jpg" class="object-cover w-full imr" />
             <div class="room-details">
               <ul class="room-details-list">
@@ -314,7 +302,7 @@
         </div>
 
         <div class="p-2 sm:w-1/2 lg:w-1/4">
-          <div class="room-card">
+          <div class="room-card room-6" data-room-id="6">
             <img src="../img/pokoje/6.jpg" class="object-cover w-full imr" />
             <div class="room-details">
               <ul class="room-details-list">
@@ -349,7 +337,7 @@
         </div>
 
         <div class="p-2 sm:w-1/2 lg:w-1/4">
-          <div class="room-card">
+          <div class="room-card room-7" data-room-id="7">
             <img src="../img/pokoje/7.jpg" class="object-cover w-full imr" />
             <div class="room-details">
               <ul class="room-details-list">
@@ -408,7 +396,7 @@
       <div class="flex flex-row flex-wrap justify-between w-full">
 
         <div class="p-2 w-full md:w-1/2">
-          <div class="room-card">
+          <div class="room-card apartment-1" data-room-id="apartment-1">
             <img src="../img/apartmany/67.jpg" class="object-cover w-full imr" />
             <div class="room-details">
               <ul class="room-details-list">
