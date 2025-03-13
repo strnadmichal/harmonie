@@ -9,6 +9,156 @@ const translations = {
     home: {
       title: "Hledáte klidné místo uprostřed přírody, kam se budete rádi vracet Vy i Vaše děti?",
       description: "Náš rodinný penzion s jedinečnou atmosférou původní Jizerskohorské chalupy nabízí útulně zařízené komfortní pokoje a apartmány, společenskou místnost s krbem, bar, kuchyňku, dětskou hernu, lyžárnu, saunu a mnoho dalšího pro Vaši pohodovou dovolenou, víkend v přírodě nebo setkání s přáteli či rodinou."
+    },
+    accommodation: {
+      title: "Ubytování",
+      rooms: "Pokoje",
+      playroom: "Herna",
+      garden: "Zahrada",
+      apartments: "Apartmány"
+    },
+    services: {
+      title: "Služby",
+      breakfast: {
+        title: "Snídaně",
+        description: "Celoročně nabízíme našim hostům vydatné a vyvážené snídaně, bohaté na bílkoviny, zdravé tuky, vlákninu, vitamíny a minerály. Na našem bufetovém stole najdete sladké i slané pečivo, toastový chléb, domácí koláč nebo palačinky, marmelády, med, nutelu, mléko, džusy, jogurty, vejce, několik druhů sýra a šunky, zeleninu, ovoce, cereálie apod."
+      },
+      sauna: {
+        title: "Sauna",
+        description: "Pro příznivce saunování jsme před nedávnem vybudovali krásnou malou saunu s kamenným obložením, klenutým stropem, nápaditým osvětlením a dřevěnou ochlazovací kádí.Během správného saunování se uvolňuje napětí svalů, dýchací cesty, posílí se Vaše imunita a Váš organismus se celkově detoxikuje."
+      },
+      parking: {
+        title: "Parkování",
+        description: "Parkoviště s asfaltovým povrchem se nachází přímo před penzionem a hosté ho mohou využívat zcela zdarma."
+      },
+      playground: {
+        title: "Dětské hřiště",
+        description: "Děti se zcela jistě zabaví na zahradě, která je plná atrakcí právě pro ně. Hřiště, pískoviště, domečky, houpačky, lezecí stěna a síť, trampolína, bazén a další prvky pro dětskou zábavu ocení rodiče i prarodiče malých i větších dětí."
+      }
+    },
+    prices: {
+      title: "Ceny",
+      table: {
+        caption: "Ceny služeb",
+        winter: "Zimní sezóna",
+        summer: "Letní sezóna",
+        special: "Silvestr, Jiz50, atd.",
+        adults: "Dospělí",
+        adults_winter: "610 CZK osoba/noc",
+        adults_summer: "590 CZK osoba/noc",
+        adults_special: "690 CZK osoba/noc",
+        children_12: "Děti do 12 let",
+        children_12_winter: "410 CZK osoba/noc",
+        children_12_summer: "390 CZK osoba/noc",
+        children_12_special: "450 CZK osoba/noc",
+        children_2: "Děti do 2 let",
+        free: " zdarma",
+        extra_bed: "Extra Bed",
+        extra_bed_winter: "250 CZK osoba/noc",
+        extra_bed_summer: "250 CZK osoba/noc",
+        extra_bed_special: "400 CZK osoba/noc",
+        adults_1night: "Dospělí za 1 noc",
+        adults_1night_price: "760 CZK",
+        single_room: "Jednolůžkový pokoj",
+        single_room_winter: "800 CZK osoba/noc",
+        single_room_summer: "800 CZK osoba/noc",
+        single_room_special: "1000 CZK osoba/noc",
+        apartment_surcharge: "Příplatek za apartmán",
+        apartment_surcharge_price: "150 CZK osoba/noc",
+        breakfast_adults: "Snídaně dospělí",
+        breakfast_adults_price: "160 CZK",
+        breakfast_children: "Snídaně děti",
+        breakfast_children_price: "80 CZK",
+        sauna: "Sauna (2 osoby)",
+        sauna_price: "400 CZK"
+      },
+      included: {
+        title:"Ceny zahrnují: ",
+        description: "Wifi v celém objektu, energii, vodu, odvoz odpadků, závěrečný úklid, ručníky, povlečení, TV/SAT, skladování kol a lyží, parkování,využití areálu.",
+      },
+        notIncluded:{ 
+        title: "Ceny nezahrnují:",
+        description: "Rekreační poplatek obci - sazba poplatku činí za osobu starší 18 let a každý den pobytu 35,- Kč.",
+      },
+        paymentTerms: {
+        title: "Rezervace a platební podmínky:",
+        description: "Rezervace ubytování je platná po zaplacení zálohy 20% z celkové ceny ubytování. Doplatek se hradí v hotovosti nebo převodem na účet v dennástupu k pobytu."
+      },
+      cancellation: {
+        title: "Storno podnínky:",
+        rule1: "21 a více dní před příjdezdem vracíme celou zálohu",
+        rule2: "20-8 dní před příjezdem vracíme 25% ze zaplacené zálohy",
+        rule3: "7 a méně dní pře pžíjezdem zýlohu již nevracíme"
+      },
+      arrival: {
+        title:"Příjezd: ",
+        description: "Zahájení pobytu od 15:00 hod."
+      },
+      departure: {
+        title:"Odjezd: ",
+        description: "Vyklizení pokoje do 10:00 hod."
+      }
+    },
+    operating_rules: {
+      title: "Provozní řád",
+      rule1: "1. V penzionu může být ubytován pouze host, který je k ubytování přihlášen po předložení občanského průkazu, platného cestovního pasu nebo jiného dokladu o totožnosti.",
+      rule2: "2. Užívání hotelového zařízení je dovoleno osobám, které nejsou postiženi infekčními nemocemi.",
+      rule3: "3. Požádá-li ubytovaný host o prodloužení doby pobytu, může mu být nabídnutý jiný pokoj než ten, ve kterém byl původně ubytován.",
+      rule4: "4. Host užívá pokoj po dobu, kterou sjednal při příchodu. Nebyla-li doba pobytu sjednána jinak, pokoje jsou připraveny od 15:00 hod, poslední den pobytu host uvolní pokoj nejpozději do 10:00 hod. Pokud provoz penzionu dovoluje, je možno domluvit i pozdější hodinu pro uvolnění pokoje.",
+      rule5: "5. V době od 22:00 hod do 7:00 hod je host povinen dodržovat noční klid.",
+      rule6: "6. Za pobyt a poskytnuté služby je ubytovaný host povinen platit ceny v souladu s platným ceníkem zpravidla při příchodu.",
+      rule7: "7. Donášení a konzumace vlastních nápojů a potravin do prostor restaurace není dovoleno.",
+      rule8: "8. V pokoji a společných prostorách nesmí host bez souhlasu majitele přemisťovat zařízení, provádět opravy a jakékoliv zásahy do elektrické sítě nebo jiné instalace.",
+      rule9: "9. Není dovoleno užívat vlastních elektrospotřebičů (např. varné konvice, vařiče, toustovače apod.) Vyjímkou jsou holící a masážní strojky, vysoušeče vlasů, kulmy, rádia. Za použití povolených spotřebičů zodpovídá host a ručí za jakékoliv škody způsobené jejich provozem.",
+      rule10: "10. Při odchodu z pokoje je host povinen uzavřít vodovodníuzávěry, zhasnout světla, vypnout televizi, uzavřít okna a přiukončení pobytu odevzdat klíč.",
+      rule11: "11. Není dovoleno donášet na pokoje sportovní nářadí a předměty (lyže, sáňky, kola), pro jejichž uschování je vyhrazeno jiné místo.",
+      rule12: "12. Z bezpečnostních důvodů není dovoleno ponechávat děti bez dozoru dospělé osoby v pokoji a ostatních prostorách pensionu. Rodiče odpovídají za bezpečnost svých dětí ve všech prostorech penzionu i v jeho venkovní části.",
+      rule13: "13. Za škody způsobené na majetku penzionu odpovídá host v plném rozsahu.",
+      rule14: "14. Malá domácí zvířata mohou být umístěna v prostorách penzionu jen se souhlasem majitele.Majitel zvířete je povinen prokázat jeho nezávadný zdravotní stav předložením platného očkovacího průkazu. Psům a jiným zvířatům je zakázán vstup v těch prostorách, kde jsou skladovány potraviny, připravována nebo podávána jídla a nápoje. Ve všech veřejných prostorách mají psi mít náhubek a být na vodítku. Není dovoleno, aby zvířata byla ponechána v pokoji bez dozoru svého majitele Zvířata nesmí ležet na lůžku nebo ostatním zařízení pro hosty, musí mít svůj pelech. Nelze užívat vany, sprchy nebo umyvadla ke koupání nebo mytí zvířat. Ke krmení zvířat nesmí být používán inventář, který slouží hostům. Majitel zvířete odpovídá za dodržování nočního klidu od 22:00 hod do 07:00 hod.",
+      rule15: "15. Penzion odpovídá za věci vnesené hostem do pensionu, za škodu na odložených věcech, pokud tyto věci byly uloženy na místě k tomu vyhrazeném. Za peníze a cenné věci odpovídá penzion jen tehdy, převzal-li je do úschovy proti potvrzení.",
+      rule16: "16. Snídaně se podává v restaurace od 08:00 do 10:00 hod po předchozí domluvě s personálem.",
+      rule17: "17. Pokud host odchází z penzionu v nočních hodinách, kdy není v provozu restaurace, je povinen zhasnout světla na schodišti a zamknout budovu.",
+      rule18: "18. Každý ubytovaný host je povinen dodržovat tento ubytovací řád i požární řád.V případě, že jej závažným způsobem poruší, má majitel penzionu právo smluvní poměr s ním ukončit bez náhrady.",
+    },
+    rooms: {
+      title: "Pokoje",
+      room: "Pokoj",
+      three_beds: "3 lůžka",
+      two_beds: "2 lůžka",
+      four_beds: "4 lůžka",
+      six_beds: "6 lůžka",
+      wc: "sprcha + wc",
+      tv: "televize na pokoji",
+      refrigerator: "lednice",
+      wifi: "wifi na celém pokoji",
+      parking: "parkovací místo",
+      rooms_text: "Dvoulůžkové a třílůžkové pokoje, tak jako i čtyřlůžkový pokoj se nacházejí v prvním patře našeho penzionu a jsou tak dostatečně vzdálené od společenské místnosti a ostatních společných prostor, což umožňuje našim hostům klidný a nerušený pobyt. Všechny pokoje jsou zařízené nábytkem z masivu v přírodním odstínu, manželskou postelí, šatní skříní, stolkem a židlemi, nočními stolky a poličkami. Třílůžkové pokoje mají ještě jednolůžkovou postel, čtyřlůžkový pokoj je vybaven palandou taktéž z masivního dřeva. Pro Váš komfort je v každém pokoji malá hotelová lednička, rychlovarná konvice, hrnečky na čaj, TV a fén na vlasy. Do každého pokoje je možné na vyžádání přidat dětskou dřevěnou postýlku s peřinkami, dětské prkénko, nočník nebo stupátko pod umyvadlo.",
+      apartments:"Apartments",
+      apartment: "Apartment",
+      apartments_text: "Oba nadstandardně zařízené apartmány se nacházejí v podkroví našeho penzionu a umožňují tak krásný výhled na okolní krajinu. Každý apartmán je dvoupokojový a je vybavený nábytkem z masivu v přírodním odstínu, manželskou postelí, jednolůžko ze stejného materiálu, šatní skříní, jídelním stolem, židlemi, křeslem nebo gaučem, TV, moderní kuchyní a prostornou koupelnou. Do každého apartmánu je možné na vyžádání přidat dětskou dřevěnou postýlku s peřinkami, dětskou jídelní židličku, dětské prkénko, nočník, vaničku nebo stupátko pod umyvadlo.",
+    },
+    playroom: {
+      title: "Herna",
+      text: "Náš penzion je často vyhledáván rodinami s malými dětmi a to především díky veliké a dobře vybavené dětské herně. Herna je od jídelny oddělena prosklenými dveřmi, takže rodiče, kteří si chtějí v klidu vychutnat šálek kávy nebo čaje u stolu v jídelně  mají své ratolesti stále na dohled."
+    },
+    garden: {
+      title: "Zahrada",
+      text: "Zahrada penzionu je ideální pro rodinné pobyty s dětmi. Na zahradě se nachází dětské houpačky, pískoviště, dětský hrad, hrazdy, lezecí síť,  trampolína, lehátka a bazén. Celá zahrada je pokryta přírodním travnatým povrchem, na kterém je možnost provozovat spousty aktivit od klasických dětských her a radovánek, až po ping-pong, badminton, petang, frisbee apod. Terasa před penzionem vybízí především v horkých letních dnech k večernímu posezení, ohniště v dolní části zahrady láká k opékání buřtů a trávení krásných chvil u večerního táboráku."
+    },
+    contact: {
+      title: "Kontakty",
+      address: "Adresa",
+      telephone: "Telefon"
+    },
+    reservation: {
+      title: "Rezervace",
+      name: "Jméno a příjmení",
+      email: "Email",
+      phone: "Telefon",
+      date: "Datum",
+      guests: "Počet hostů",
+      message: "Zpráva",
+      submit: "Submit"
     }
   },
   en: {
