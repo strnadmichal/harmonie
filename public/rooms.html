@@ -27,6 +27,9 @@
   <script src="./components/js/utils.js"></script>
   <script type="module" src="../js/modalGallery.js"></script>
   <script type="module">
+    import "./js/languageManager.js";
+    window.languageManager.updateContent();
+    
     import { initModalGallery } from '../js/modalGallery.js';
     
     document.addEventListener('DOMContentLoaded', async () => {
@@ -36,6 +39,7 @@
       // Set header color based on page needs
       const header = document.querySelector('header');
       header.setAttribute('data-header-color', 'dark'); // or 'light'
+
 
       // Initialize Lucide icons
       lucide.createIcons();
@@ -121,7 +125,7 @@
   <main class="box-border px-10">
 
     <section>
-      <h2 class="my-10 text-5xl bold"> 
+      <h2 class="my-10 text-5xl bold" data-i18n="rooms.title"> 
         Pokoje 
       </h2>
 
@@ -133,31 +137,34 @@
               <ul class="room-details-list">
                 <li class="room-details-item">
                   <i data-lucide="bed-double" class="room-details-icon"></i>
-                  3 lůžka
+                  <span data-i18n="rooms.three_beds">3 lůžka</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="shower-head" class="room-details-icon"></i>
-                  sprcha + wc
+                  <span data-i18n="rooms.wc">sprcha + wc</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="tv" class="room-details-icon"></i>
-                  televize na pokoji
+                  <span data-i18n="rooms.tv">televize na pokoji</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="refrigerator" class="room-details-icon"></i>
-                  lednice
+                  <span data-i18n="rooms.refrigerator">lednice</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="wifi" class="room-details-icon"></i>
-                  wifi na celém pokoji
+                  <span data-i18n="rooms.wifi">wifi na celém pokoji</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="car" class="room-details-icon"></i>
-                  parkovací místo
+                  <span data-i18n="rooms.parking">parkovací místo</span>
                 </li>
               </ul>
             </div>
-            <div class="mt-5 mb-10"><p class="text-3xl">Pokoj č.1</p></div>
+            <div class="mt-5 mb-10 text-3xl">
+              <span data-i18n="rooms.room">Pokoj</span> 
+              <span>1</span>
+            </div>
           </div>
         </div>
 
@@ -168,31 +175,34 @@
               <ul class="room-details-list">
                 <li class="room-details-item">
                   <i data-lucide="bed-double" class="room-details-icon"></i>
-                  3 lůžka
+                  <span data-i18n="rooms.three_beds">3 lůžka</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="shower-head" class="room-details-icon"></i>
-                  sprcha + wc
+                  <span data-i18n="rooms.wc">sprcha + wc</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="tv" class="room-details-icon"></i>
-                  televize na pokoji
+                  <span data-i18n="rooms.tv">televize na pokoji</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="refrigerator" class="room-details-icon"></i>
-                  lednice
+                  <span data-i18n="rooms.refrigerator">lednice</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="wifi" class="room-details-icon"></i>
-                  wifi na celém pokoji
+                  <span data-i18n="rooms.wifi">wifi na celém pokoji</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="car" class="room-details-icon"></i>
-                  parkovací místo
+                  <span data-i18n="rooms.parking">parkovací místo</span>
                 </li>
               </ul>
             </div>
-            <div class="mt-5 mb-10"><p class="text-3xl">Pokoj č.2</p></div>
+            <div class="mt-5 mb-10 text-3xl">
+              <span data-i18n="rooms.room">Pokoj</span> 
+              <span>2</span>
+            </div>
           </div>
         </div>
 
@@ -203,31 +213,34 @@
               <ul class="room-details-list">
                 <li class="room-details-item">
                   <i data-lucide="bed-double" class="room-details-icon"></i>
-                  3 lůžka
+                  <span data-i18n="rooms.three_beds">3 lůžka</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="shower-head" class="room-details-icon"></i>
-                  sprcha + wc
+                  <span data-i18n="rooms.wc">sprcha + wc</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="tv" class="room-details-icon"></i>
-                  televize na pokoji
+                  <span data-i18n="rooms.tv">televize na pokoji</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="refrigerator" class="room-details-icon"></i>
-                  lednice
+                  <span data-i18n="rooms.refrigerator">lednice</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="wifi" class="room-details-icon"></i>
-                  wifi na celém pokoji
+                  <span data-i18n="rooms.wifi">wifi na celém pokoji</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="car" class="room-details-icon"></i>
-                  parkovací místo
+                  <span data-i18n="rooms.parking">parkovací místo</span>
                 </li>
               </ul>
             </div>
-            <div class="mt-5 mb-10"><p class="text-3xl">Pokoj č.3</p></div>
+            <div class="mt-5 mb-10 text-3xl">
+              <span data-i18n="rooms.room">Pokoj</span> 
+              <span>3</span>
+            </div>
           </div>
         </div>
 
@@ -238,31 +251,34 @@
               <ul class="room-details-list">
                 <li class="room-details-item">
                   <i data-lucide="bed-double" class="room-details-icon"></i>
-                  2 lůžka
+                  <span data-i18n="rooms.two_beds">2 lůžka</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="shower-head" class="room-details-icon"></i>
-                  sprcha + wc
+                  <span data-i18n="rooms.wc">sprcha + wc</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="tv" class="room-details-icon"></i>
-                  televize na pokoji
+                  <span data-i18n="rooms.tv">televize na pokoji</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="refrigerator" class="room-details-icon"></i>
-                  lednice
+                  <span data-i18n="rooms.refrigerator">lednice</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="wifi" class="room-details-icon"></i>
-                  wifi na celém pokoji
+                  <span data-i18n="rooms.wifi">wifi na celém pokoji</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="car" class="room-details-icon"></i>
-                  parkovací místo
+                  <span data-i18n="rooms.parking">parkovací místo</span>
                 </li>
               </ul>
             </div>
-            <div class="mt-5 mb-10"><p class="text-3xl">Pokoj č.4</p></div>
+            <div class="mt-5 mb-10 text-3xl">
+              <span data-i18n="rooms.room">Pokoj</span> 
+              <span>4</span>
+            </div>
           </div>
         </div>
 
@@ -273,31 +289,34 @@
               <ul class="room-details-list">
                 <li class="room-details-item">
                   <i data-lucide="bed-double" class="room-details-icon"></i>
-                  2 lůžka
+                  <span data-i18n="rooms.two_beds">2 lůžka</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="shower-head" class="room-details-icon"></i>
-                  sprcha + wc
+                  <span data-i18n="rooms.wc">sprcha + wc</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="tv" class="room-details-icon"></i>
-                  televize na pokoji
+                  <span data-i18n="rooms.tv">televize na pokoji</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="refrigerator" class="room-details-icon"></i>
-                  lednice
+                  <span data-i18n="rooms.refrigerator">lednice</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="wifi" class="room-details-icon"></i>
-                  wifi na celém pokoji
+                  <span data-i18n="rooms.wifi">wifi na celém pokoji</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="car" class="room-details-icon"></i>
-                  parkovací místo
+                  <span data-i18n="rooms.parking">parkovací místo</span>
                 </li>
               </ul>
             </div>
-            <div class="mt-5 mb-10"><p class="text-3xl">Pokoj č.5</p></div>
+            <div class="mt-5 mb-10 text-3xl">
+              <span data-i18n="rooms.room">Pokoj</span> 
+              <span>5</span>
+            </div>
           </div>
         </div>
 
@@ -308,31 +327,34 @@
               <ul class="room-details-list">
                 <li class="room-details-item">
                   <i data-lucide="bed-double" class="room-details-icon"></i>
-                  2 lůžka
+                  <span data-i18n="rooms.two_beds">2 lůžka</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="shower-head" class="room-details-icon"></i>
-                  sprcha + wc
+                  <span data-i18n="rooms.wc">sprcha + wc</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="tv" class="room-details-icon"></i>
-                  televize na pokoji
+                  <span data-i18n="rooms.tv">televize na pokoji</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="refrigerator" class="room-details-icon"></i>
-                  lednice
+                  <span data-i18n="rooms.refrigerator">lednice</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="wifi" class="room-details-icon"></i>
-                  wifi na celém pokoji
+                  <span data-i18n="rooms.wifi">wifi na celém pokoji</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="car" class="room-details-icon"></i>
-                  parkovací místo
+                  <span data-i18n="rooms.parking">parkovací místo</span>
                 </li>
               </ul>
             </div>
-            <div class="mt-5 mb-10"><p class="text-3xl">Pokoj č.6</p></div>
+            <div class="mt-5 mb-10 text-3xl">
+              <span data-i18n="rooms.room">Pokoj</span> 
+              <span>6</span>
+            </div>
           </div>
         </div>
 
@@ -343,45 +365,48 @@
               <ul class="room-details-list">
                 <li class="room-details-item">
                   <i data-lucide="bed-double" class="room-details-icon"></i>
-                  4 lůžka
+                  <span data-i18n="rooms.four_beds">4 lůžka</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="shower-head" class="room-details-icon"></i>
-                  sprcha + wc
+                  <span data-i18n="rooms.wc">sprcha + wc</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="tv" class="room-details-icon"></i>
-                  televize na pokoji
+                  <span data-i18n="rooms.tv">televize na pokoji</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="refrigerator" class="room-details-icon"></i>
-                  lednice
+                  <span data-i18n="rooms.refrigerator">lednice</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="wifi" class="room-details-icon"></i>
-                  wifi na celém pokoji
+                  <span data-i18n="rooms.wifi">wifi na celém pokoji</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="car" class="room-details-icon"></i>
-                  parkovací místo
+                  <span data-i18n="rooms.parking">parkovací místo</span>
                 </li>
               </ul>
             </div>
-            <div class="mt-5 mb-10"><p class="text-3xl">Pokoj č.7</p></div>
+            <div class="mt-5 mb-10 text-3xl">
+              <span data-i18n="rooms.room">Pokoj</span> 
+              <span>7</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <p class="mb-40 mt-20 max-w-[1000px] text-2xl">
-        Dvoulůžkové a třílůžkové pokoje, tak jako i čtyřlůžkový pokoj se nacházejí 
-        v prvním patře našeho penzionu a jsou tak dostatečně vzdálené od společenské 
-        místnosti a ostatních společných prostor, což umožňuje našim hostům klidný a nerušený pobyt.
-        Všechny pokoje jsou zařízené nábytkem z masivu v přírodním odstínu, manželskou 
-        postelí, šatní skříní, stolkem a židlemi, nočními stolky a poličkami. Třílůžkové 
+      <p class="mb-40 mt-20 max-w-[1000px] text-2xl" data-i18n="rooms.rooms_text">
+        Dvoulůžkové a třílůžkové pokoje, tak jako i čtyřlůžkový pokoj se nacházejí 
+        v prvním patře našeho penzionu a jsou tak dostatečně vzdálené od společenské 
+        místnosti a ostatních společných prostor, což umožňuje našim hostům klidný a nerušený pobyt.
+        Všechny pokoje jsou zařízené nábytkem z masivu v přírodním odstínu, manželskou 
+        postelí, šatní skříní, stolkem a židlemi, nočními stolky a poličkami. Třílůžkové 
         pokoje mají ještě jednolůžkovou postel, čtyřlůžkový pokoj je vybaven palandou taktéž 
-        z masivního dřeva. Pro Váš komfort je v každém pokoji malá hotelová lednička, 
-        rychlovarná konvice, hrnečky na čaj, TV a fén na vlasy.Do každého pokoje je možné 
-        na vyžádání přidat dětskou dřevěnou postýlku s peřinkami, dětské prkénko, nočník nebo 
+        z masivního dřeva. Pro Váš komfort je v každém pokoji malá hotelová lednička, 
+        rychlovarná konvice, hrnečky na čaj, TV a fén na vlasy. Do každého pokoje je možné 
+        na vyžádání přidat dětskou dřevěnou postýlku s peřinkami, dětské prkénko, nočník nebo 
         stupátko pod umyvadlo.
       </p>
 
@@ -389,7 +414,7 @@
 
     <section id="apartmany">
       <div class="h-[2px] bg-black"></div>
-      <h2 class="my-10 text-5xl bold"> 
+      <h2 class="my-10 text-5xl bold" data-i18n="rooms.apartments"> 
         Apartmány 
       </h2>
 
@@ -402,31 +427,34 @@
               <ul class="room-details-list">
                 <li class="room-details-item">
                   <i data-lucide="bed-double" class="room-details-icon"></i>
-                  6 lůžka
+                  <span data-i18n="rooms.six_beds">6 lůžka</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="shower-head" class="room-details-icon"></i>
-                  sprcha + wc
+                  <span data-i18n="rooms.wc">sprcha + wc</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="tv" class="room-details-icon"></i>
-                  televize na pokoji
+                  <span data-i18n="rooms.tv">televize na pokoji</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="refrigerator" class="room-details-icon"></i>
-                  lednice
+                  <span data-i18n="rooms.refrigerator">lednice</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="wifi" class="room-details-icon"></i>
-                  wifi na celém pokoji
+                  <span data-i18n="rooms.wifi">wifi na celém pokoji</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="car" class="room-details-icon"></i>
-                  parkovací místo
+                  <span data-i18n="rooms.parking">parkovací místo</span>
                 </li>
               </ul>
             </div>
-            <div class="mt-5 mb-10"><p class="text-3xl">Apartmán č.67</p></div>
+            <div class="mt-5 mb-10 text-3xl">
+              <span data-i18n="rooms.apartment">Apartmán</span> 
+              <span>67</span>
+            </div>
           </div>
         </div>
 
@@ -437,36 +465,39 @@
               <ul class="room-details-list">
                 <li class="room-details-item">
                   <i data-lucide="bed-double" class="room-details-icon"></i>
-                  4 lůžka
+                  <span data-i18n="rooms.four_beds">4 lůžka</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="shower-head" class="room-details-icon"></i>
-                  sprcha + wc
+                  <span data-i18n="rooms.wc">sprcha + wc</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="tv" class="room-details-icon"></i>
-                  televize na pokoji
+                  <span data-i18n="rooms.tv">televize na pokoji</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="refrigerator" class="room-details-icon"></i>
-                  lednice
+                  <span data-i18n="rooms.refrigerator">lednice</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="wifi" class="room-details-icon"></i>
-                  wifi na celém pokoji
+                  <span data-i18n="rooms.wifi">wifi na celém pokoji</span>
                 </li>
                 <li class="room-details-item">
                   <i data-lucide="car" class="room-details-icon"></i>
-                  parkovací místo
+                  <span data-i18n="rooms.parking">parkovací místo</span>
                 </li>
               </ul>
             </div>
-            <div class="mt-5 mb-10"><p class="text-3xl">Apartmán č.68</p></div>
+            <div class="mt-5 mb-10 text-3xl">
+              <span data-i18n="rooms.apartment">Apartmán</span> 
+              <span>68</span>
+            </div>
           </div>
         </div>
 
       </div>
-        <p class="mb-40 mt-20 max-w-[1000px] text-2xl">
+        <p class="mb-40 mt-20 max-w-[1000px] text-2xl" data-i18n="rooms.apartments_text">
           Oba nadstandardně zařízené apartmány se nacházejí v podkroví našeho penzionu 
           a umožňují tak krásný výhled na okolní krajinu.Každý apartmán je dvoupokojový 
           a je vybavený nábytkem z masivu v přírodním odstínu, manželskou postelí, jednolůžko 

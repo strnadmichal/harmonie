@@ -63,6 +63,9 @@
 
   <script src="./components/js/utils.js"></script>
   <script type="module">
+    import "./js/languageManager.js";
+    window.languageManager.updateContent();
+
     document.addEventListener('DOMContentLoaded', async () => {
       await loadComponent('header', 'header');
       await loadComponent('footer', 'footer');
@@ -83,47 +86,42 @@
 
     <section>
       <div class="h-[2px] bg-black"></div>
-      <h2 class="my-10 bold text-5xl "> 
+      <h2 class="my-10 bold text-5xl" data-i18n="reservation.title"> 
         Rezervace 
       </h2>
 
       <form action="https://formsubmit.co/your-email@example.com" method="POST" class="reservation-form">
         <div class="form-group">
-          <label for="name">Jméno a příjmení:</label>
+          <label for="name" data-i18n="reservation.name">Jméno a příjmení:</label>
           <input type="text" id="name" name="name" required>
         </div>
         
         <div class="form-group">
-          <label for="email">Email:</label>
+          <label for="email" data-i18n="reservation.email">Email:</label>
           <input type="email" id="email" name="email" required>
         </div>
         
         <div class="form-group">
-          <label for="phone">Telefon:</label>
+          <label for="phone" data-i18n="reservation.phone">Telefon:</label>
           <input type="tel" id="phone" name="phone">
         </div>
         
         <div class="form-group">
-          <label for="date">Požadované datum:</label>
+          <label for="date" data-i18n="reservation.date">Požadované datum:</label>
           <input type="date" id="date" name="date" required>
         </div>
         
         <div class="form-group">
-          <label for="time">Čas:</label>
-          <input type="time" id="time" name="time" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="guests">Počet osob:</label>
+          <label for="guests" data-i18n="reservation.guests">Počet osob:</label>
           <input type="number" id="guests" name="guests" min="1" required>
         </div>
         
         <div class="form-group">
-          <label for="message">Poznámka:</label>
+          <label for="message" data-i18n="reservation.message">Poznámka:</label>
           <textarea id="message" name="message" rows="4"></textarea>
         </div>
         
-        <button type="submit">Odeslat poptávku</button>
+        <button type="submit" data-i18n="reservation.submit">Odeslat poptávku</button>
       </form>
 
     </section>

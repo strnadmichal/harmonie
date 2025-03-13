@@ -31,6 +31,9 @@
 
   <script src="./components/js/utils.js"></script>
   <script type="module">
+    import "./js/languageManager.js";
+    window.languageManager.updateContent();
+    
     document.addEventListener('DOMContentLoaded', async () => {
       await loadComponent('header', 'header');
       await loadComponent('footer', 'footer');
@@ -51,7 +54,7 @@
 
     <section>
       <div class="h-[2px] bg-black"></div>
-      <h2 class="my-10 text-5xl bold "> 
+      <h2 class="my-10 text-5xl bold" data-i18n="garden.title"> 
         Zahrada 
       </h2>
 
@@ -65,7 +68,7 @@
           </div>
         </div>
 
-        <p class="mb-40 mt-20 max-w-[1000px] text-2xl">
+        <p class="mb-40 mt-20 max-w-[1000px] text-2xl" data-i18n="garden.text">
           Zahrada penzionu je ideální pro rodinné pobyty s dětmi. 
           Na zahradě se nachází dětské houpačky, pískoviště, dětský hrad, 
           hrazdy, lezecí síť, trampolína, lehátka a bazén. Celá zahrada je 

@@ -131,6 +131,46 @@ const translations = {
       rule16: "16. Breakfast is served in the restaurant from 08:00 to 10:00 by prior arrangement with the staff.",
       rule17: "17. If a guest leaves the guesthouse at night when the restaurant is not open, he/she is obliged to turn off the lights in the staircase and lock the building.",
       rule18: "18. Each guest is obliged to comply with these accommodation rules and fire regulations.In the event of a serious breach of these rules and regulations, the owner of the guesthouse has the right to terminate the contractual relationship with the guest without compensation.",
+    },
+    rooms: {
+      title: "Rooms",
+      room: "Room",
+      three_beds: "3 beds",
+      two_beds: "2 beds",
+      four_beds: "4 beds",
+      six_beds: "6 beds",
+      wc: "shower + wc",
+      tv: "TV in the room",
+      refrigerator: "refrigerator",
+      wifi: "wifi in the room",
+      parking: "parking space",
+      rooms_text: "Double and triple rooms, as well as a quadruple room are located on the first floor of our guesthouse and are thus far enough away from the social room and other common areas, allowing our guests a quiet and undisturbed stay.All rooms are furnished with solid wood furniture in a natural shade, a double bed, wardrobe, table and chairs, bedside tables and shelves. Triple rooms have a single bed, the quadruple room is equipped with a bunk bed as well made of solid wood. For your comfort there is a small hotel fridge in each room, electric kettle, tea cups, TV and hairdryer. Each room can be on request, a wooden cot with blankets, a child's bed, a potty or step stool under the sink.",
+      apartments:"Apartments",
+      apartment: "Apartment",
+      apartments_text: "Both luxuriously furnished apartments are located in the attic of our guesthouse and allow a beautiful view of the surrounding countryside.Each apartment is a two-room of the same material, wardrobe, dining table, chairs, armchair or sofa, TV, a modern kitchen and a spacious bathroom.Each apartment can be On request, a wooden cot with blankets, a highchair for children can be added to each apartment, A baby board, potty, bath tub or step stool under the sink.",
+    },
+    playroom: {
+      title: "Playroom",
+      text: "Our guesthouse is often popular with families with small children, especially thanks to the large and well-equipped children's playroom. The playroom is separated from the dining room by a glass door, so parents who want to enjoy a cup of coffee or tea at the dining room table can always keep their little ones in sight. "
+    },
+    garden: {
+      title: "Garden",
+      text: "The garden is ideal for family stays with children. In the garden there are children's swings, sandpit, children's castle, trapeze, climbing net, trampoline, deck chairs and swimming pool. The entire garden is covered with natural grass surface, on which there is a possibility to practice a lot of activities from classic children's games and fun, to ping-pong, badminton, petanque, frisbee, etc. The terrace in front of the guesthouse invites especially on hot summer days for evening sitting, the fireplace in the lower part of the garden invites to roasting sausages and spending beautiful moments at the evening campfire. "
+    },
+    contact: {
+      title: "Contact",
+      address: "Address",
+      telephone: "Telephone"
+    },
+    reservation: {
+      title: "Reservation",
+      name: "Name and Surname",
+      email: "Email",
+      phone: "Phone",
+      date: "Date",
+      guests: "Number of Guests",
+      message: "Message",
+      submit: "Submit"
     }
   },
   de: {

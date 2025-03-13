@@ -31,6 +31,9 @@
 
   <script src="./components/js/utils.js"></script>
   <script type="module">
+    import "./js/languageManager.js";
+    window.languageManager.updateContent();
+    
     document.addEventListener('DOMContentLoaded', async () => {
       await loadComponent('header', 'header');
       await loadComponent('footer', 'footer');
@@ -50,7 +53,7 @@
 
     <section>
       <div class="h-[2px] bg-black"></div>
-      <h2 class="my-10 text-5xl bold "> 
+      <h2 class="my-10 text-5xl bold" data-i18n="playroom.title"> 
         Herna 
       </h2>
 
@@ -64,7 +67,7 @@
           </div>
         </div>
 
-        <p class="mb-40 mt-20 max-w-[1000px] text-2xl">
+        <p class="mb-40 mt-20 max-w-[1000px] text-2xl" data-i18n="playroom.text">
           Náš penzion je často vyhledáván rodinami s malými dětmi a to především 
           díky veliké a dobře vybavené dětské herně. Herna je od jídelny oddělena 
           prosklenými dveřmi, takže rodiče, kteří si chtějí v klidu vychutnat šálek 
