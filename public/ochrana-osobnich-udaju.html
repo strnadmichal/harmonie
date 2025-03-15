@@ -1,0 +1,135 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ochrana dat - Chata Harmonie</title>
+  
+  <link rel="stylesheet" href="../css/output.css">
+  <meta name="description" content="Prohlášení o ochraně osobních údajů - Chata Harmonie">
+
+  <meta property="og:title" content="Ochrana dat - Chata Harmonie">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../icon.png">
+
+  <link rel="manifest" href="../site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+
+  <script src="./components/js/utils.js"></script>
+  <script type="module">
+    import "./js/languageManager.js";
+    window.languageManager.updateContent();
+    
+    document.addEventListener('DOMContentLoaded', async () => {
+      await loadComponent('header', 'header');
+      await loadComponent('footer', 'footer');
+
+      // Set header color based on page needs
+      const header = document.querySelector('header');
+      header.setAttribute('data-header-color', 'dark');
+    });
+  </script>
+</head>
+
+<body>
+
+  <div id="header"></div>
+
+  <main class="box-border px-10">
+
+    <section class="mb-20">
+      <div class="h-[2px] bg-black"></div>
+      <h2 class="my-10 text-5xl bold" data-i18n="privacy.title">Ochrana dat</h2>
+
+      <div class="my-10 text-2xl">
+        <div class="grid grid-cols-1 gap-y-8 gap-x-16 lg:grid-cols-2">
+          <!-- First row of titles -->
+          <div>
+            <h3 class="mb-6 text-3xl underline" data-i18n="privacy.whatDataTitle">Jaké osobní údaje shromažďujeme?</h3>
+          </div>
+          <div>
+            <h3 class="mb-6 text-3xl underline" data-i18n="privacy.whyDataTitle">Proč tyto údaje shromažďujeme?</h3>
+          </div>
+          
+          <!-- First row of content -->
+          <div>
+            <p class="mb-4" data-i18n="privacy.whatDataIntro">Prostřednictvím našeho formuláře pro nezávaznou rezervaci shromažďujeme následující osobní údaje:</p>
+            <ul class="pl-6 mb-4 list-disc">
+              <li data-i18n="privacy.dataName">Jméno a příjmení</li>
+              <li data-i18n="privacy.dataEmail">E-mailová adresa</li>
+              <li data-i18n="privacy.dataPhone">Telefonní číslo</li>
+            </ul>
+          </div>
+          <div>
+            <p class="mb-4" data-i18n="privacy.whyDataText">Údaje shromažďujeme výhradně za účelem zpracování vaší nezávazné rezervace a případné komunikace s vámi. Právním základem pro zpracování osobních údajů je čl. 6 odst. 1 písm. b) GDPR – plnění smlouvy nebo předsmluvních opatření.</p>
+          </div>
+          
+          <!-- Second row of titles -->
+          <div>
+            <h3 class="mb-6 text-3xl underline" data-i18n="privacy.howLongTitle">Jak dlouho údaje uchováváme?</h3>
+          </div>
+          <div>
+            <h3 class="mb-6 text-3xl underline" data-i18n="privacy.whoShareTitle">Komu údaje poskytujeme?</h3>
+          </div>
+          
+          <!-- Second row of content -->
+          <div>
+            <p class="mb-4" data-i18n="privacy.howLongText">Vaše údaje uchováváme po dobu nezbytnou k vyřízení rezervace, maximálně však 6 měsíců. Poté budou bezpečně smazány.</p>
+          </div>
+          <div>
+            <p class="mb-4" data-i18n="privacy.whoShareText">Vaše osobní údaje nejsou poskytovány žádné třetí straně.</p>
+          </div>
+          
+          <!-- Third row of titles -->
+          <div>
+            <h3 class="mb-6 text-3xl underline" data-i18n="privacy.securityTitle">Jak údaje chráníme?</h3>
+          </div>
+          <div>
+            <h3 class="mb-6 text-3xl underline" data-i18n="privacy.rightsTitle">Jaká jsou vaše práva?</h3>
+          </div>
+          
+          <!-- Third row of content -->
+          <div>
+            <p class="mb-4" data-i18n="privacy.securityText">Osobní údaje jsou uchovávány v zabezpečeném systému a nejsou zpřístupněny neoprávněným osobám.</p>
+          </div>
+          <div>
+            <p class="mb-4" data-i18n="privacy.rightsText">Máte právo požádat o:</p>
+            <ul class="pl-6 mb-4 list-disc">
+              <li data-i18n="privacy.rightsAccess">přístup k vašim údajům,</li>
+              <li data-i18n="privacy.rightsCorrection">opravu nepřesných údajů,</li>
+              <li data-i18n="privacy.rightsDeletion">výmaz údajů, pokud již nejsou potřebné.</li>
+            </ul>
+            <p data-i18n="privacy.rightsContact">Kontaktujte nás našem e-mailu a vaši žádost vyřídíme.</p>
+          </div>
+          
+          <!-- Fourth row of titles -->
+          <div>
+            <h3 class="mb-6 text-3xl underline" data-i18n="privacy.complaintTitle">Možnost podání stížnosti</h3>
+          </div>
+          <div>
+            <h3 class="mb-6 text-3xl underline" data-i18n="privacy.contactTitle">Kontakt</h3>
+          </div>
+          
+          <!-- Fourth row of content -->
+          <div>
+            <p class="mb-4" data-i18n="privacy.complaintText">Pokud se domníváte, že bylo s vašimi osobními údaji nakládáno v rozporu s právními předpisy, máte právo podat stížnost u Úřadu pro ochranu osobních údajů (<a href="https://www.uoou.cz" class="underline" target="_blank">www.uoou.cz</a>).</p>
+          </div>
+          <div>
+            <p class="mb-4" data-i18n="privacy.contactText">Pokud máte jakékoli dotazy ohledně zpracování vašich osobních údajů, neváhejte nás kontaktovat na našem emailu harmonie-bedrichov@centrum.cz</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer"></div>
+
+  </main>
+</body>
+</html>
