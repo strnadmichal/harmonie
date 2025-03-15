@@ -1,133 +1,272 @@
-<!doctype html>
-<html class="no-js" lang=""></html>
+<!DOCTYPE html>
+<html class="no-js" lang="">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Chata Harmonie </title>
-  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chata Harmonie</title>
+
   <!-- Internal CSS styles -->
   <style>
     .reservation-form {
-        max-width: 500px;
-        margin: 0 auto;
-        padding: 20px;
+      max-width: 650px;
+      margin: 0;
+      padding: 20px 0;
     }
-    
+
+    .form-row {
+      display: flex;
+      margin-bottom: 25px;
+    }
+
+    .form-column {
+      flex: 1;
+      padding-right: 30px;
+    }
+
+    .form-column:last-child {
+      padding-right: 0;
+    }
+
     .form-group {
-        margin-bottom: 15px;
+      margin-bottom: 20px;
     }
-    
+
     .form-group label {
-        display: block;
-        margin-bottom: 5px;
+      display: block;
+      margin-bottom: 8px;
+      font-size: 24px;
+      text-decoration: underline;
     }
-    
+
     .form-group input,
+    .form-group select,
     .form-group textarea {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #000;
+      border-radius: 0;
+      background-color: transparent;
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .captcha-button {
+      background-color: #10162b;
+      color: white;
+      padding: 15px 20px;
+      border: none;
+      width: 100px;
+      text-align: center;
+      display: inline-block;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .consent-group {
+      display: flex;
+      align-items: flex-start;
+      font-size: 20px;
+      margin: 30px 0;
+    }
+
+    .consent-group input[type="checkbox"] {
+      margin-left: 10px;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      background-color: transparent;
+      -webkit-appearance: none;
+      appearance: none;
+      border: 1px solid #000;
+      position: relative;
     }
     
-    button {
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
+    .consent-group input[type="checkbox"]:checked::after {
+      content: "✓";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
     }
-    
-    button:hover {
-        background-color: #45a049;
+
+    .submit-button {
+      background-color: #10162b;
+      color: white;
+      padding: 10px 30px;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .privacy-notice {
+      margin: 15px 0;
     }
   </style>
 
-  <link rel="stylesheet" href="../css/output.css">
-  <meta name="description" content="">
+  <link rel="stylesheet" href="../css/output.css" />
+  <meta name="description" content="" />
 
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
+  <meta property="og:title" content="" />
+  <meta property="og:type" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:image:alt" content="" />
 
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="../icon.png">
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="../icon.png" />
 
-  <link rel="manifest" href="../site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
+  <link rel="manifest" href="../site.webmanifest" />
+  <meta name="theme-color" content="#fafafa" />
 
   <script src="./components/js/utils.js"></script>
   <script type="module">
     import "./js/languageManager.js";
     window.languageManager.updateContent();
 
-    document.addEventListener('DOMContentLoaded', async () => {
-      await loadComponent('header', 'header');
-      await loadComponent('footer', 'footer');
+    document.addEventListener("DOMContentLoaded", async () => {
+      await loadComponent("header", "header");
+      await loadComponent("footer", "footer");
 
-        // Set header color based on page needs
-      const header = document.querySelector('header');
-      header.setAttribute('data-header-color', 'dark'); // or 'light'
+      // Set header color based on page needs
+      const header = document.querySelector("header");
+      header.setAttribute("data-header-color", "dark"); // or 'light'
     });
   </script>
   <!--  <script src="../js/priceSheets.js" defer></script>-->
 </head>
 
 <body>
-
   <div id="header"></div>
 
-  <main class="px-10 box-border">
-
+  <main class="box-border px-10">
     <section>
       <div class="h-[2px] bg-black"></div>
-      <h2 class="my-10 bold text-5xl" data-i18n="reservation.title"> 
-        Rezervace 
+      <h2 class="my-10 text-5xl bold" data-i18n="reservation.title">
+        Rezervace
       </h2>
 
       <form action="https://formsubmit.co/your-email@example.com" method="POST" class="reservation-form">
-        <div class="form-group">
-          <label for="name" data-i18n="reservation.name">Jméno a příjmení:</label>
-          <input type="text" id="name" name="name" required>
+        <div class="form-row">
+          <div class="form-column">
+            <div class="form-group">
+              <label for="firstname" data-i18n="reservation.firstname">Jméno</label>
+              <input type="text" id="firstname" name="firstname" required />
+            </div>
+          </div>
+
+          <div class="form-column">
+            <div class="form-group">
+              <label for="lastname" data-i18n="reservation.lastname">Příjmení</label>
+              <input type="text" id="lastname" name="lastname" required />
+            </div>
+          </div>
         </div>
-        
-        <div class="form-group">
-          <label for="email" data-i18n="reservation.email">Email:</label>
-          <input type="email" id="email" name="email" required>
+
+        <div class="form-row">
+          <div class="form-column">
+            <div class="form-group">
+              <label for="phone" data-i18n="reservation.phone">Telefon</label>
+              <input type="tel" id="phone" name="phone" required />
+            </div>
+          </div>
+
+          <div class="form-column">
+            <div class="form-group">
+              <label for="email" data-i18n="reservation.email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
         </div>
-        
-        <div class="form-group">
-          <label for="phone" data-i18n="reservation.phone">Telefon:</label>
-          <input type="tel" id="phone" name="phone">
+
+        <div class="form-row">
+          <div class="form-column">
+            <div class="form-group">
+              <label for="adults" data-i18n="reservation.adults">Dospělí</label>
+              <input type="text" id="adults" name="adults" value="" required />
+            </div>
+          </div>
+
+          <div class="form-column">
+            <div class="form-group">
+              <label for="children" data-i18n="reservation.children">Děti</label>
+              <input type="text" id="children" name="children" value="0" />
+            </div>
+          </div>
         </div>
-        
-        <div class="form-group">
-          <label for="date" data-i18n="reservation.date">Požadované datum:</label>
-          <input type="date" id="date" name="date" required>
+
+        <div class="form-row">
+          <div class="form-column">
+            <div class="form-group">
+              <label for="arrival" data-i18n="reservation.arrival">Příjezd</label>
+              <input type="text" id="arrival" name="arrival" placeholder="den/měsíc/rok" required />
+            </div>
+          </div>
+
+          <div class="form-column">
+            <div class="form-group">
+              <label for="departure" data-i18n="reservation.departure">Odjezd</label>
+              <input type="text" id="departure" name="departure" placeholder="den/měsíc/rok" required />
+            </div>
+          </div>
         </div>
-        
+
         <div class="form-group">
-          <label for="guests" data-i18n="reservation.guests">Počet osob:</label>
-          <input type="number" id="guests" name="guests" min="1" required>
+          <label for="room" data-i18n="reservation.room">Vyberte pokoj</label>
+          <select id="room" name="room" required>
+            <option value="" disabled selected>-- Vyberte pokoj --</option>
+            <option value="1">Pokoj č.1</option>
+            <option value="2">Pokoj č.2</option>
+            <option value="3">Pokoj č.3</option>
+            <option value="4">Pokoj č.4</option>
+            <option value="5">Pokoj č.5</option>
+            <option value="6">Pokoj č.6</option>
+            <option value="7">Pokoj č.7</option>
+            <option value="apartment-67">Apartmán 67</option>
+            <option value="apartment-68">Apartmán 68</option>
+          </select>
         </div>
-        
+
         <div class="form-group">
-          <label for="message" data-i18n="reservation.message">Poznámka:</label>
+          <label for="message" data-i18n="reservation.message">Vaše zpráva</label>
           <textarea id="message" name="message" rows="4"></textarea>
         </div>
-        
-        <button type="submit" data-i18n="reservation.submit">Odeslat poptávku</button>
-      </form>
 
+        <div class="privacy-notice">
+          <p>
+            Prosíme, přečtěte si naše
+            <a href="prohlášení o ochraně osobních údajů" class="underline">
+              Prohlášení o ochraně osobních údajů</a>.
+          </p>
+        </div>
+
+        <div class="consent-group">
+          <label for="consent">
+            Přečetl jsem si a souhlasím se zpracováním osobních údajů
+          </label>
+          <input type="checkbox" id="consent" name="consent" required />
+          <span style="margin-left: 5px;">*</span>
+        </div>
+
+        <div class="captcha-button">Captcha</div>
+
+        <button type="submit" class="submit-button" data-i18n="reservation.submit">
+          Odeslat
+        </button>
+      </form>
     </section>
 
     <div id="footer"></div>
-
   </main>
 </body>
+
 </html>

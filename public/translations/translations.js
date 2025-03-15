@@ -151,14 +151,19 @@ const translations = {
       telephone: "Telefon"
     },
     reservation: {
+      arrival: "Příjezd",
+      departure: "Odjezd",
+      adults: "Dospělí",
+      children: "Děti",
       title: "Rezervace",
-      name: "Jméno a příjmení",
+      firstname: "Jméno",
+      lastname: "Příjmení",
       email: "Email",
       phone: "Telefon",
       date: "Datum",
-      guests: "Počet hostů",
+      room: "Pokoj",
       message: "Zpráva",
-      submit: "Submit"
+      submit: "Poslat"
     }
   },
   en: {
@@ -314,13 +319,19 @@ const translations = {
     },
     reservation: {
       title: "Reservation",
-      name: "Name and Surname",
+      arrival: "Arrival",
+      departure: "Departure",
+      adults: "Adults",
+      children: "Children",
+      room: "Room",
+      firstname: "First name",
+      lastname: "Last name",
       email: "Email",
       phone: "Phone",
       date: "Date",
       guests: "Number of Guests",
       message: "Message",
-      submit: "Submit"
+      submit: "Submit",
     }
   },
   de: {
