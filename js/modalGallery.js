@@ -139,12 +139,12 @@ function openGallery(room) {
   // Show the first image
   if (modalImg && room.images.length > 0) {
     modalImg.src = room.images[0];
-    modalImg.alt = `${room.name} - obrázek 1`;
+    modalImg.alt = `${room.name} - picture 1`;
   }
   
   // Set the caption
   if (modalCaption) {
-    modalCaption.textContent = `${room.name} - obrázek 1/${room.images.length}`;
+    modalCaption.textContent = `${room.name} - picture 1/${room.images.length}`;
   }
   
   // Generate thumbnails
