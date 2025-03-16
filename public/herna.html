@@ -30,17 +30,41 @@
   <meta name="theme-color" content="#fafafa">
 
   <script src="./components/js/utils.js"></script>
+  <script type="module" src="../js/modalGallery.js"></script>
   <script type="module">
     import "./js/languageManager.js";
     window.languageManager.updateContent();
+    
+    import { initModalGallery } from '../js/modalGallery.js';
     
     document.addEventListener('DOMContentLoaded', async () => {
       await loadComponent('header', 'header');
       await loadComponent('footer', 'footer');
 
-        // Set header color based on page needs
+      // Set header color based on page needs
       const header = document.querySelector('header');
       header.setAttribute('data-header-color', 'dark'); // or 'light'
+      
+      // Playroom gallery data
+      const playroomData = [
+        {
+          id: 1,
+          name: "Herna",
+          images: [
+            "../img/herna/Playroom/1.jpg",
+            "../img/herna/Playroom/2.jpg",
+            "../img/herna/Playroom/3.jpg",
+            "../img/herna/Playroom/4.jpg",
+            "../img/herna/Playroom/5.jpg",
+            "../img/herna/Playroom/6.jpg",
+            "../img/herna/Playroom/7.jpg",
+            "../img/herna/Playroom/8.jpg"
+          ]
+        }
+      ];
+      
+      // Initialize modal gallery with playroom data
+      initModalGallery('.playroom-image', 'data-gallery-id', playroomData);
     });
   </script>
 </head>
@@ -60,7 +84,7 @@
       <div class="flex flex-row flex-wrap justify-between w-full">
 
         <div class="w-full p-2 md:w-full">
-          <div class="aspect-[4/3] w-full overflow-hidden">
+          <div class="aspect-[4/3] w-full overflow-hidden playroom-image" data-gallery-id="1" style="cursor: pointer;">
             <img 
               src="../img/ubytovani/herna.jpg" 
               class="object-cover w-full h-full" />
