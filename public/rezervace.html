@@ -144,26 +144,26 @@
       const header = document.querySelector("header");
       header.setAttribute("data-header-color", "dark"); // or 'light'
       
-      // Form validation with reCAPTCHA
-      const form = document.getElementById('reservationForm');
-      const captchaError = document.querySelector('.captcha-error');
+      // // Form validation with reCAPTCHA
+      // const form = document.getElementById('reservationForm');
+      // const captchaError = document.querySelector('.captcha-error');
       
-      if (form) {
-        form.addEventListener('submit', function(event) {
-          // Verify reCAPTCHA
-          const recaptchaResponse = grecaptcha.getResponse();
+      // if (form) {
+      //   form.addEventListener('submit', function(event) {
+      //     // Verify reCAPTCHA
+      //     const recaptchaResponse = grecaptcha.getResponse();
           
-          if (!recaptchaResponse) {
-            event.preventDefault();
-            captchaError.style.display = 'block';
-            return false;
-          }
+      //     if (!recaptchaResponse) {
+      //       event.preventDefault();
+      //       captchaError.style.display = 'block';
+      //       return false;
+      //     }
           
-          // Hide error message if captcha is completed
-          captchaError.style.display = 'none';
-          return true;
-        });
-      }
+      //     // Hide error message if captcha is completed
+      //     captchaError.style.display = 'none';
+      //     return true;
+      //   });
+      // }
     });
   </script>
 
@@ -198,7 +198,17 @@
         Rezervace
       </h2>
 
-      <form action="https://formsubmit.co/michalstrnad18@seznam.cz" method="POST" class="reservation-form" id="reservationForm">
+      <form 
+        action="https://formsubmit.co/michalstrnad18@seznam.cz" 
+        method="POST" 
+        class="reservation-form" 
+        id="reservationForm"
+      >
+
+        <input type="hidden" name="_subject" value="Nová rezervace">
+        <input type="hidden" name="_next" value="https://strnadmichal.github.io/harmonie/public/">
+        <input type="hidden" name="_template" value="table">
+
         <div class="form-row">
           <div class="form-column">
             <div class="form-group">
@@ -300,8 +310,8 @@
           <span style="margin-left: 5px;">*</span>
         </div>
 
-        <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
-        <div class="captcha-error" style="color: red; margin-top: 10px; display: none;" data-i18n="reservation.captcha_error">Please complete the captcha</div>
+        <!-- <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+        <div class="captcha-error" style="color: red; margin-top: 10px; display: none;" data-i18n="reservation.captcha_error">Please complete the captcha</div> -->
 
         <button type="submit" class="submit-button" data-i18n="reservation.submit">
           Odeslat
