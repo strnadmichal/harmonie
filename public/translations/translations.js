@@ -123,6 +123,13 @@ const translations = {
     rooms: {
       title: "Pokoje",
       room: "Pokoj",
+      room1: "Pokoj č.1",
+      room2: "Pokoj č.2",
+      room3: "Pokoj č.3",
+      room4: "Pokoj č.4",
+      room5: "Pokoj č.5",
+      room6: "Pokoj č.6",
+      room7: "Pokoj č.7",
       three_beds: "3 lůžka",
       two_beds: "2 lůžka",
       four_beds: "4 lůžka",
@@ -135,6 +142,8 @@ const translations = {
       rooms_text: "Dvoulůžkové a třílůžkové pokoje, tak jako i čtyřlůžkový pokoj se nacházejí v prvním patře našeho penzionu a jsou tak dostatečně vzdálené od společenské místnosti a ostatních společných prostor, což umožňuje našim hostům klidný a nerušený pobyt. Všechny pokoje jsou zařízené nábytkem z masivu v přírodním odstínu, manželskou postelí, šatní skříní, stolkem a židlemi, nočními stolky a poličkami. Třílůžkové pokoje mají ještě jednolůžkovou postel, čtyřlůžkový pokoj je vybaven palandou taktéž z masivního dřeva. Pro Váš komfort je v každém pokoji malá hotelová lednička, rychlovarná konvice, hrnečky na čaj, TV a fén na vlasy. Do každého pokoje je možné na vyžádání přidat dětskou dřevěnou postýlku s peřinkami, dětské prkénko, nočník nebo stupátko pod umyvadlo.",
       apartments:"Apartments",
       apartment: "Apartment",
+      apartment67: "Apartmán č.67",
+      apartment68: "Apartmán č.68",
       apartments_text: "Oba nadstandardně zařízené apartmány se nacházejí v podkroví našeho penzionu a umožňují tak krásný výhled na okolní krajinu. Každý apartmán je dvoupokojový a je vybavený nábytkem z masivu v přírodním odstínu, manželskou postelí, jednolůžko ze stejného materiálu, šatní skříní, jídelním stolem, židlemi, křeslem nebo gaučem, TV, moderní kuchyní a prostornou koupelnou. Do každého apartmánu je možné na vyžádání přidat dětskou dřevěnou postýlku s peřinkami, dětskou jídelní židličku, dětské prkénko, nočník, vaničku nebo stupátko pod umyvadlo.",
     },
     playroom: {
@@ -163,7 +172,8 @@ const translations = {
       date: "Datum",
       room: "Pokoj",
       message: "Zpráva",
-      submit: "Poslat"
+      submit: "Poslat",
+      select_room: "-- Vyberte pokoj --"
     },
     privacy: {
       title: "Ochrana dat",
@@ -316,6 +326,13 @@ const translations = {
     rooms: {
       title: "Rooms",
       room: "Room",
+      room1: "Room No.1",
+      room2: "Room No.2",
+      room3: "Room No.3",
+      room4: "Room No.4",
+      room5: "Room No.5",
+      room6: "Room No.6",
+      room7: "Room No.7",
       three_beds: "3 beds",
       two_beds: "2 beds",
       four_beds: "4 beds",
@@ -328,6 +345,8 @@ const translations = {
       rooms_text: "Double and triple rooms, as well as a quadruple room are located on the first floor of our guesthouse and are thus far enough away from the social room and other common areas, allowing our guests a quiet and undisturbed stay.All rooms are furnished with solid wood furniture in a natural shade, a double bed, wardrobe, table and chairs, bedside tables and shelves. Triple rooms have a single bed, the quadruple room is equipped with a bunk bed as well made of solid wood. For your comfort there is a small hotel fridge in each room, electric kettle, tea cups, TV and hairdryer. Each room can be on request, a wooden cot with blankets, a child's bed, a potty or step stool under the sink.",
       apartments:"Apartments",
       apartment: "Apartment",
+      apartment67: "Apartment No.67",
+      apartment68: "Apartment No.68",
       apartments_text: "Both luxuriously furnished apartments are located in the attic of our guesthouse and allow a beautiful view of the surrounding countryside.Each apartment is a two-room of the same material, wardrobe, dining table, chairs, armchair or sofa, TV, a modern kitchen and a spacious bathroom.Each apartment can be On request, a wooden cot with blankets, a highchair for children can be added to each apartment, A baby board, potty, bath tub or step stool under the sink.",
     },
     playroom: {
@@ -357,7 +376,8 @@ const translations = {
       date: "Date",
       guests: "Number of Guests",
       message: "Message",
-      submit: "Submit"
+      submit: "Submit",
+      select_room: "-- Select room --"
     },
     privacy: {
       title: "Data Protection",
@@ -434,6 +454,22 @@ const translations = {
       },
       arrival: "Check-in: Ab 15:00 Uhr",
       departure: "Check-out: Bis 10:00 Uhr"
+    },
+    reservation: {
+      title: "Reservierung",
+      arrival: "Ankunft",
+      departure: "Abreise",
+      adults: "Erwachsene",
+      children: "Kinder",
+      room: "Zimmer",
+      firstname: "Vorname",
+      lastname: "Nachname",
+      email: "E-Mail",
+      phone: "Telefon",
+      date: "Datum",
+      message: "Nachricht",
+      submit: "Absenden",
+      select_room: "-- Zimmer auswählen --"
     }
   }
 };

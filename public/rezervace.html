@@ -166,6 +166,26 @@
       }
     });
   </script>
+
+  <script>
+    // Set min date for arrival and departure to today
+    document.addEventListener('DOMContentLoaded', function() {
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('arrival').setAttribute('min', today);
+      document.getElementById('departure').setAttribute('min', today);
+      
+      // Update departure min date when arrival date changes
+      document.getElementById('arrival').addEventListener('change', function() {
+        document.getElementById('departure').setAttribute('min', this.value);
+        
+        // If departure date is before new arrival date, update it
+        const departureInput = document.getElementById('departure');
+        if (departureInput.value && departureInput.value < this.value) {
+          departureInput.value = this.value;
+        }
+      });
+    });
+  </script>
   <!--  <script src="../js/priceSheets.js" defer></script>-->
 </head>
 
@@ -173,13 +193,12 @@
   <div id="header"></div>
 
   <main class="box-border px-10">
-    <section>
-      <div class="h-[2px] bg-black"></div>
+    <section class="mb-40">
       <h2 class="my-10 text-5xl bold" data-i18n="reservation.title">
         Rezervace
       </h2>
 
-      <form action="https://formsubmit.co/michal.strnad@seznam.cz" method="POST" class="reservation-form" id="reservationForm">
+      <form action="https://formsubmit.co/michalstrnad18@seznam.cz" method="POST" class="reservation-form" id="reservationForm">
         <div class="form-row">
           <div class="form-column">
             <div class="form-group">
@@ -216,14 +235,14 @@
           <div class="form-column">
             <div class="form-group">
               <label for="adults" data-i18n="reservation.adults">Dospělí</label>
-              <input type="text" id="adults" name="adults" value="" required />
+              <input type="number" id="adults" name="adults" value="0" required />
             </div>
           </div>
 
           <div class="form-column">
             <div class="form-group">
               <label for="children" data-i18n="reservation.children">Děti</label>
-              <input type="text" id="children" name="children" value="0" />
+              <input type="number" id="children" name="children" value="0" />
             </div>
           </div>
         </div>
@@ -232,31 +251,31 @@
           <div class="form-column">
             <div class="form-group">
               <label for="arrival" data-i18n="reservation.arrival">Příjezd</label>
-              <input type="text" id="arrival" name="arrival" placeholder="den/měsíc/rok" required />
+              <input type="date" id="arrival" name="arrival" required />
             </div>
           </div>
 
           <div class="form-column">
             <div class="form-group">
               <label for="departure" data-i18n="reservation.departure">Odjezd</label>
-              <input type="text" id="departure" name="departure" placeholder="den/měsíc/rok" required />
+              <input type="date" id="departure" name="departure" required />
             </div>
           </div>
         </div>
-
+        
         <div class="form-group">
-          <label for="room" data-i18n="reservation.room">Vyberte pokoj</label>
+          <label for="room" data-i18n="reservation.room">Pokoj</label>
           <select id="room" name="room" required>
-            <option value="" disabled selected>-- Vyberte pokoj --</option>
-            <option value="1">Pokoj č.1</option>
-            <option value="2">Pokoj č.2</option>
-            <option value="3">Pokoj č.3</option>
-            <option value="4">Pokoj č.4</option>
-            <option value="5">Pokoj č.5</option>
-            <option value="6">Pokoj č.6</option>
-            <option value="7">Pokoj č.7</option>
-            <option value="apartment-67">Apartmán 67</option>
-            <option value="apartment-68">Apartmán 68</option>
+            <option value="" disabled selected data-i18n="reservation.select_room">-- Vyberte pokoj --</option>
+            <option value="1" data-i18n="rooms.room1">Pokoj č.1</option>
+            <option value="2" data-i18n="rooms.room2">Pokoj č.2</option>
+            <option value="3" data-i18n="rooms.room3">Pokoj č.3</option>
+            <option value="4" data-i18n="rooms.room4">Pokoj č.4</option>
+            <option value="5" data-i18n="rooms.room5">Pokoj č.5</option>
+            <option value="6" data-i18n="rooms.room6">Pokoj č.6</option>
+            <option value="7" data-i18n="rooms.room7">Pokoj č.7</option>
+            <option value="apartment-67" data-i18n="rooms.apartment67">Apartmán 67</option>
+            <option value="apartment-68" data-i18n="rooms.apartment68">Apartmán 68</option>
           </select>
         </div>
 
