@@ -29,7 +29,15 @@ function initializeScrollBehavior() {
     const header = document.querySelector('header');
     
     // If header has a static color attribute, we don't change it on scroll
-    if (window.location.pathname.includes('index.html')) {
+    // Check if we're on the home page (index.html, root path, or domain root)
+    const isHomePage = window.location.pathname.includes('index.html') || 
+                      window.location.pathname === '/' || 
+                      window.location.pathname === '/public/' || 
+                      window.location.pathname === '' || 
+                      window.location.href === 'https://www.harmonie-bedrichov.cz/' || 
+                      window.location.href === 'https://www.harmonie-bedrichov.cz';
+    
+    if (isHomePage) {
         // This function handles changing the header theme based on scroll position
         function handleScroll() {
             // Get the height of the hero image section - approximately 100vh

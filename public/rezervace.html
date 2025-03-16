@@ -128,6 +128,9 @@
   <link rel="manifest" href="../site.webmanifest" />
   <meta name="theme-color" content="#fafafa" />
 
+  <!-- Google reCAPTCHA API -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
   <script src="./components/js/utils.js"></script>
   <script type="module">
     import "./js/languageManager.js";
@@ -140,6 +143,27 @@
       // Set header color based on page needs
       const header = document.querySelector("header");
       header.setAttribute("data-header-color", "dark"); // or 'light'
+      
+      // Form validation with reCAPTCHA
+      const form = document.getElementById('reservationForm');
+      const captchaError = document.querySelector('.captcha-error');
+      
+      if (form) {
+        form.addEventListener('submit', function(event) {
+          // Verify reCAPTCHA
+          const recaptchaResponse = grecaptcha.getResponse();
+          
+          if (!recaptchaResponse) {
+            event.preventDefault();
+            captchaError.style.display = 'block';
+            return false;
+          }
+          
+          // Hide error message if captcha is completed
+          captchaError.style.display = 'none';
+          return true;
+        });
+      }
     });
   </script>
   <!--  <script src="../js/priceSheets.js" defer></script>-->
@@ -155,7 +179,7 @@
         Rezervace
       </h2>
 
-      <form action="https://formsubmit.co/your-email@example.com" method="POST" class="reservation-form">
+      <form action="https://formsubmit.co/michal.strnad@seznam.cz" method="POST" class="reservation-form" id="reservationForm">
         <div class="form-row">
           <div class="form-column">
             <div class="form-group">
@@ -257,7 +281,8 @@
           <span style="margin-left: 5px;">*</span>
         </div>
 
-        <div class="captcha-button">Captcha</div>
+        <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+        <div class="captcha-error" style="color: red; margin-top: 10px; display: none;" data-i18n="reservation.captcha_error">Please complete the captcha</div>
 
         <button type="submit" class="submit-button" data-i18n="reservation.submit">
           Odeslat
