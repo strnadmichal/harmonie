@@ -562,10 +562,6 @@ video {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
-.mx-auto{
-  margin-left: auto;
-  margin-right: auto;
-}
 .my-20{
   margin-top: 5rem;
   margin-bottom: 5rem;
@@ -579,11 +575,17 @@ video {
 .mb-20{
   margin-bottom: 5rem;
 }
+.mb-4{
+  margin-bottom: 1rem;
+}
 .mb-40{
   margin-bottom: 10rem;
 }
 .mb-5{
   margin-bottom: 1.25rem;
+}
+.mb-6{
+  margin-bottom: 1.5rem;
 }
 .ml-6{
   margin-left: 1.5rem;
@@ -602,12 +604,6 @@ video {
 }
 .mt-5{
   margin-top: 1.25rem;
-}
-.mb-4{
-  margin-bottom: 1rem;
-}
-.mb-6{
-  margin-bottom: 1.5rem;
 }
 .box-border{
   box-sizing: border-box;
@@ -658,15 +654,6 @@ video {
 .h-screen{
   height: 100vh;
 }
-.h-\[500px\]{
-  height: 500px;
-}
-.h-\[700px\]{
-  height: 700px;
-}
-.h-\[900px\]{
-  height: 900px;
-}
 .w-1\/3{
   width: 33.333333%;
 }
@@ -697,9 +684,6 @@ video {
 }
 .max-w-\[90vw\]{
   max-width: 90vw;
-}
-.max-w-\[1200px\]{
-  max-width: 1200px;
 }
 .transform{
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -770,6 +754,10 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(226 232 240 / var(--tw-bg-opacity, 1));
 }
+.bg-amber-50{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 251 235 / var(--tw-bg-opacity, 1));
+}
 .object-cover{
   -o-object-fit: cover;
      object-fit: cover;
@@ -785,20 +773,17 @@ video {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
-.pt-20{
-  padding-top: 5rem;
-}
 .pl-6{
   padding-left: 1.5rem;
+}
+.pt-20{
+  padding-top: 5rem;
 }
 .text-center{
   text-align: center;
 }
 .text-right{
   text-align: right;
-}
-.text-justify{
-  text-align: justify;
 }
 .align-middle{
   vertical-align: middle;
@@ -818,13 +803,6 @@ video {
 .text-xl{
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-.text-4xl{
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-.font-bold{
-  font-weight: 700;
 }
 .text-black{
   --tw-text-opacity: 1;
@@ -1370,10 +1348,6 @@ textarea {
 
   .md\:w-full{
     width: 100%;
-  }
-
-  .md\:grid-cols-2{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .md\:justify-between{
