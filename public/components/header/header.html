@@ -3,12 +3,20 @@
     padding-top: 6rem;
   }
 
+  header {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+
+  header.header-hidden {
+    transform: translateY(-100%);
+  }
+
   header[data-header-color="light"] {
     --theme: #ffffff;
     --menu_light: block;
     --menu_dark: none;
     background-color: transparent;
-    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
   }
 
   header[data-header-color="dark"] {
@@ -16,7 +24,7 @@
     --menu_light: none;
     --menu_dark: block;
     background-color: #f5f5dc;
-    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
   }
 
   .dropdown-menu {

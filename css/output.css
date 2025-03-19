@@ -515,9 +515,6 @@ video {
 [hidden]:where(:not([hidden="until-found"])) {
   display: none;
 }
-.static{
-  position: static;
-}
 .fixed{
   position: fixed;
 }
@@ -550,6 +547,10 @@ video {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
 }
+.my-20{
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
 .my-40{
   margin-top: 10rem;
   margin-bottom: 10rem;
@@ -561,10 +562,6 @@ video {
 .my-6{
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-}
-.my-20{
-  margin-top: 5rem;
-  margin-bottom: 5rem;
 }
 .mb-10{
   margin-bottom: 2.5rem;
@@ -753,10 +750,6 @@ video {
 .bg-slate-200{
   --tw-bg-opacity: 1;
   background-color: rgb(226 232 240 / var(--tw-bg-opacity, 1));
-}
-.bg-amber-50{
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 251 235 / var(--tw-bg-opacity, 1));
 }
 .object-cover{
   -o-object-fit: cover;
