@@ -17,6 +17,11 @@ async function loadComponent(name, targetId) {
     if (config) {
       await config.init();
     }
+    
+    // Apply language translations immediately after component is loaded
+    if (window.languageManager) {
+      window.languageManager.updateContent();
+    }
   } catch (error) {
     console.error(`Error loading component ${name}:`, error);
   }

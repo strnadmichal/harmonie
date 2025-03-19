@@ -173,7 +173,10 @@ const translations = {
       room: "Pokoj",
       message: "Zpráva",
       submit: "Poslat",
-      select_room: "-- Vyberte pokoj --"
+      select_room: "-- Vyberte pokoj --",
+      privacy_notice: "Prosíme, přečtěte si naše",
+      privacy_policy: "Prohlášení o ochraně osobních údajů",
+      consent_text: "Přečetl jsem si a souhlasím se zpracováním osobních údajů"
     },
     privacy: {
       title: "Ochrana dat",
@@ -377,7 +380,10 @@ const translations = {
       guests: "Number of Guests",
       message: "Message",
       submit: "Submit",
-      select_room: "-- Select room --"
+      select_room: "-- Select room --",
+      privacy_notice: "Please read our",
+      privacy_policy: "Privacy Policy",
+      consent_text: "I have read and agree to the processing of personal data"
     },
     privacy: {
       title: "Data Protection",
@@ -414,50 +420,162 @@ const translations = {
       contact: "Kontakt"
     },
     home: {
-      title: "Suchen Sie einen ruhigen Ort in der Natur, an den Sie und Ihre Kinder gerne zurückkehren?",
-      description: "Unsere Familienpension mit der einzigartigen Atmosphäre eines ursprünglichen Isergebirgshauses bietet gemütlich eingerichtete, komfortable Zimmer und Apartments, einen Gemeinschaftsraum mit Kamin, Bar, Küche, Kinderspielzimmer, Skiaufbewahrung, Sauna und vieles mehr für Ihren erholsamen Urlaub, Wochenende in der Natur oder Treffen mit Freunden und Familie."
+      title: "Suchen Sie einen friedlichen Ort in der Natur, an den Sie und Ihre Kinder gerne zurückkehren werden?",
+      description: "Unsere Familienpension mit der einzigartigen Atmosphäre einer originalen Isergebirgs-Hütte bietet gemütliche und komfortable Zimmer und Apartments, einen Gemeinschaftsraum mit Kamin, Bar, Küche, Kinderspielzimmer, Skilager, Sauna und vieles mehr für Ihren erholsamen Urlaub, Wochenende in der Natur oder Treffen mit Freunden und Familie."
+    },
+    accommodation: {
+      title: "Unterkunft",
+      rooms: "Zimmer",
+      playroom: "Spielzimmer",
+      garden: "Garten",
+      apartments: "Apartments"
     },
     services: {
       title: "Dienstleistungen",
       breakfast: {
         title: "Frühstück",
-        description: "Das ganze Jahr über bieten wir unseren Gästen ein reichhaltiges und ausgewogenes Frühstück, reich an Proteinen, gesunden Fetten, Ballaststoffen, Vitaminen und Mineralien. Auf unserem Buffettisch finden Sie süße und herzhafte Gebäcke, Toastbrot, hausgemachten Kuchen oder Pfannkuchen, Marmeladen, Honig, Nutella, Milch, Säfte, Joghurt, Eier, verschiedene Käse- und Schinkensorten, Gemüse, Obst, Müsli usw."
+        description: "Ganzjährig bieten wir unseren Gästen ein herzhaftes und ausgewogenes Frühstück, reich an Proteinen, gesunden Fetten, Ballaststoffen, Vitaminen und Mineralstoffen. Auf unserem Buffet finden Sie süße und herzhafte Backwaren, Toastbrot, hausgemachten Kuchen oder Pfannkuchen, Marmeladen, Honig, Nutella, Milch, Säfte, Joghurts, Eier, mehrere Käse- und Schinkensorten, Gemüse, Obst, Müsli usw."
       },
       sauna: {
         title: "Sauna",
-        description: "Für Saunaliebhaber haben wir kürzlich eine schöne kleine Sauna mit Steinverkleidung, Gewölbedecke, kreativer Beleuchtung und einem hölzernen Abkühlbecken gebaut. Während der richtigen Saunanutzung löst sich die Muskelspannung, die Atemwege werden frei, Ihr Immunsystem wird gestärkt und Ihr Körper wird insgesamt entgiftet."
+        description: "Für Saunaenthusiasten haben wir kürzlich eine schöne kleine Sauna mit Steinverkleidung, Gewölbedecke, kreativer Beleuchtung und einem hölzernen Abkühlbecken gebaut. Bei richtiger Saunanutzung lösen sich Muskelverspannungen, die Atemwege werden gereinigt, Ihre Immunität gestärkt und der Körper entgiftet."
       },
       parking: {
         title: "Parkplatz",
-        description: "Der asphaltierte Parkplatz befindet sich direkt vor der Pension und kann von den Gästen kostenlos genutzt werden."
+        description: "Der asphaltierte Parkplatz befindet sich direkt vor der Pension und kann von Gästen kostenlos genutzt werden."
       },
       playground: {
         title: "Kinderspielplatz",
-        description: "Kinder werden sich sicherlich im Garten vergnügen, der voller Attraktionen speziell für sie ist. Spielplatz, Sandkasten, Spielhäuser, Schaukeln, Kletterwand und -netz, Trampolin, Pool und weitere Elemente für Kinderspaß werden von Eltern und Großeltern kleiner und größerer Kinder geschätzt."
+        description: "Kinder werden sich sicherlich im Garten vergnügen, der voller Attraktionen speziell für sie ist. Spielplatz, Sandkasten, Spielhäuschen, Schaukeln, Kletterwand und -netz, Trampolin, Pool und andere Elemente zur Kinderunterhaltung werden von Eltern und Großeltern sowohl kleiner als auch größerer Kinder geschätzt."
       }
     },
     prices: {
       title: "Preise",
-      included: "Die Preise beinhalten: WLAN im gesamten Objekt, Energie, Wasser, Müllabfuhr, Endreinigung, Handtücher, Bettwäsche, TV/SAT, Fahrrad- und Skiaufbewahrung, Parkplatz, Nutzung des Geländes.",
-      notIncluded: "Die Preise beinhalten nicht: Kommunale Kurtaxe - die Gebühr beträgt 35 CZK pro Person über 18 Jahre pro Aufenthaltstag.",
-      paymentTerms: {
-        title: "Reservierungs- und Zahlungsbedingungen",
-        description: "Die Unterkunftsreservierung ist nach Zahlung einer Anzahlung von 20% des Gesamtpreises der Unterkunft gültig. Der Restbetrag wird am Anreisetag in bar oder per Überweisung bezahlt."
+      table: {
+        caption: "Servicepreise",
+        winter: "Wintersaison",
+        summer: "Sommersaison",
+        special: "Silvester, Jiz50, etc.",
+        adults: "Erwachsene",
+        adults_winter: "610 CZK pro Person/Nacht",
+        adults_summer: "590 CZK pro Person/Nacht",
+        adults_special: "690 CZK pro Person/Nacht",
+        children_12: "Kinder unter 12",
+        children_12_winter: "410 CZK pro Person/Nacht",
+        children_12_summer: "390 CZK pro Person/Nacht",
+        children_12_special: "450 CZK pro Person/Nacht",
+        children_2: "Kinder unter 2",
+        free: "kostenlos",
+        extra_bed: "Zusatzbett",
+        extra_bed_winter: "250 CZK pro Person/Nacht",
+        extra_bed_summer: "250 CZK pro Person/Nacht",
+        extra_bed_special: "400 CZK pro Person/Nacht",
+        adults_1night: "Erwachsene für 1 Nacht",
+        adults_1night_price: "760 CZK",
+        single_room: "Einzelzimmer",
+        single_room_winter: "800 CZK pro Person/Nacht",
+        single_room_summer: "800 CZK pro Person/Nacht",
+        single_room_special: "1000 CZK pro Person/Nacht",
+        apartment_surcharge: "Apartment-Zuschlag",
+        apartment_surcharge_price: "150 CZK pro Person/Nacht",
+        breakfast_adults: "Frühstück Erwachsene",
+        breakfast_adults_price: "160 CZK",
+        breakfast_children: "Frühstück Kinder",
+        breakfast_children_price: "80 CZK",
+        sauna: "Sauna (2 Personen)",
+        sauna_price: "400 CZK"
+      },
+      included: {
+        title:"Preise inklusive:",
+        description: "WLAN im gesamten Objekt, Energie, Wasser, Müllentsorgung, Endreinigung, Handtücher, Bettwäsche, TV/SAT, Fahrrad- und Skilager, Parkplatz, Nutzung der Räumlichkeiten.",
+      },
+        notIncluded:{ 
+        title: "Preise exklusive:",
+        description: "Gemeindetourismussteuer - Der Gebührensatz beträgt 35 CZK pro Person über 18 Jahre pro Aufenthaltstag.",
+      },
+        paymentTerms: {
+        title: "Reservierungs- und Zahlungsbedingungen:",
+        description: "Die Unterkunftsreservierung wird nach Zahlung einer Anzahlung von 20% des Gesamtpreises gültig. Der Restbetrag wird bar oder per Überweisung am Anreisetag beglichen."
       },
       cancellation: {
-        title: "Stornobedingungen",
-        conditions: [
-          "21 oder mehr Tage vor Anreise - volle Rückerstattung der Anzahlung",
-          "20-8 Tage vor Anreise - 25% Rückerstattung der Anzahlung",
-          "7 Tage oder weniger vor Anreise - keine Rückerstattung"
-        ]
+        title: "Stornierungsbedingungen: ",
+        rule1: "21 oder mehr Tage vor Anreise - volle Rückerstattung der Anzahlung",
+        rule2: "20-8 Tage vor Anreise - 25% der Anzahlung Rückerstattung",
+        rule3:"7 Tage oder weniger vor Anreise - keine Rückerstattung der Anzahlung"
       },
-      arrival: "Check-in: Ab 15:00 Uhr",
-      departure: "Check-out: Bis 10:00 Uhr"
+      arrival: {
+        title:"Anreise:",
+        description: "Ab 15:00 Uhr"
+      },
+      departure: {
+        title:"Abreise:",
+        description: "Bis 10:00 Uhr"
+      }
+    },
+    operating_rules: {
+      title: "Hausordnung",
+      rule1: "1. Nur Gäste, die zur Unterkunft angemeldet sind, dürfen in der Pension unter Vorlage eines Personalausweises, gültigen Reisepasses oder anderem Identitätsnachweis untergebracht werden.",
+      rule2: "2. Personen, die nicht von ansteckenden Krankheiten betroffen sind, dürfen die Hotelanlagen nutzen.",
+      rule3: "3. Wenn ein Gast eine Verlängerung seines Aufenthalts wünscht, kann ihm ein anderes Zimmer als das ursprünglich zugewiesene angeboten werden.",
+      rule4: "4. Der Gast nutzt das Zimmer für den bei der Ankunft vereinbarten Zeitraum. Sofern nicht anders vereinbart, sind die Zimmer ab 15:00 Uhr bereit. Am letzten Aufenthaltstag räumt der Gast das Zimmer spätestens bis 10:00 Uhr. Falls der Betrieb es zulässt, kann eine spätere Räumungszeit vereinbart werden.",
+      rule5: "5. Der Gast ist verpflichtet, die Nachtruhe zwischen 22:00 und 07:00 Uhr einzuhalten.",
+      rule6: "6. Der Gast ist verpflichtet, die Unterkunft und in Anspruch genommene Dienstleistungen gemäß der gültigen Preisliste zu bezahlen, in der Regel bei Ankunft.",
+      rule7: "7. Das Mitbringen und Verzehren eigener Getränke und Speisen im Restaurant ist nicht gestattet.",
+      rule8: "8. In Zimmern und Gemeinschaftsbereichen ist das Verschieben von Einrichtungen, Reparaturen oder Eingriffe in elektrische Anlagen ohne Zustimmung des Besitzers untersagt.",
+      rule9: "9. Die Nutzung eigener Elektrogeräte (z.B. Wasserkocher, Kochplatten, Toaster etc.) ist nicht gestattet. Ausnahmen sind Rasierer, Massagegeräte, Haartrockner, Lockenstäbe, Radios. Der Gast haftet für Schäden durch die Nutzung erlaubter Geräte.",
+      rule10: "10. Beim Verlassen des Zimmers ist der Gast verpflichtet, Wasserhähne zu schließen, Licht auszuschalten, TV zu deaktivieren, Fenster zu schließen und den Schlüssel bei Abreise abzugeben.",
+      rule11: "11. Das Mitbringen von Sportgeräten (Skier, Schlitten, Fahrräder) in die Zimmer ist nicht gestattet, hierfür sind separate Lagerplätze vorgesehen.",
+      rule12: "12. Aus Sicherheitsgründen dürfen Kinder in Zimmern und anderen Bereichen nicht ohne Aufsicht bleiben. Eltern haften für die Sicherheit ihrer Kinder in allen Bereichen der Pension.",
+      rule13: "13. Der Gast haftet vollumfänglich für von ihm verursachte Schäden am Pensionseigentum.",
+      rule14: "14. Kleine Haustiere dürfen nur mit Zustimmung des Besitzers in der Pension untergebracht werden. Der Tierhalter muss einen gültigen Impfausweis vorlegen. Hunde und andere Tiere sind in Lebensmittelbereichen nicht gestattet. Hunde sind in öffentlichen Bereichen anzuleinen und zu maulkorbieren. Tiere dürfen nicht unbeaufsichtigt im Zimmer bleiben. Sie dürfen nicht auf Betten oder Möbeln liegen und müssen ihr eigenes Bett haben. Badezimmerutensilien dürfen nicht zur Tierpflege verwendet werden. Der Tierhalter ist für die Einhaltung der Nachtruhe (22:00-07:00 Uhr) verantwortlich.",
+      rule15: "15. Die Pension haftet für eingebrachte Gegenstände nur, wenn diese an dafür vorgesehenen Orten gelagert wurden. Für Geld und Wertsachen besteht Haftung nur bei schriftlicher Verwahrung.",
+      rule16: "16. Frühstück wird nach Absprache von 08:00 bis 10:00 Uhr im Restaurant serviert.",
+      rule17: "17. Verlässt ein Gast nachts das Gebäude, ist er verpflichtet, das Treppenhauslicht auszuschalten und das Gebäude zu verschließen.",
+      rule18: "18. Jeder Gast ist verpflichtet, diese Hausordnung und Brandschutzbestimmungen einzuhalten. Bei schwerwiegenden Verstößen behält sich der Besitzer das Recht vor, den Vertrag ohne Entschädigung zu kündigen.",
+    },
+    rooms: {
+      title: "Zimmer",
+      room: "Zimmer",
+      room1: "Zimmer Nr.1",
+      room2: "Zimmer Nr.2",
+      room3: "Zimmer Nr.3",
+      room4: "Zimmer Nr.4",
+      room5: "Zimmer Nr.5",
+      room6: "Zimmer Nr.6",
+      room7: "Zimmer Nr.7",
+      three_beds: "3 Betten",
+      two_beds: "2 Betten",
+      four_beds: "4 Betten",
+      six_beds: "6 Betten",
+      wc: "Dusche + WC",
+      tv: "TV im Zimmer",
+      refrigerator: "Kühlschrank",
+      wifi: "WLAN im Zimmer",
+      parking: "Parkplatz",
+      rooms_text: "Doppel- und Dreibettzimmer sowie ein Vierbettzimmer befinden sich im ersten Stock unserer Pension und sind damit weit genug entfernt vom Gesellschaftsraum und anderen Gemeinschaftsbereichen, was unseren Gästen einen ruhigen Aufenthalt ermöglicht. Alle Zimmer sind mit Massivholzmöbeln in Naturfarbe ausgestattet, mit Doppelbett, Schrank, Tisch und Stühlen, Nachttischen und Regalen. Dreibettzimmer haben ein Einzelbett, das Vierbettzimmer ist mit einem Massivholz-Etagenbett ausgestattet. Für Ihren Komfort gibt es in jedem Zimmer einen kleinen Hotelkühlschrank, Wasserkocher, Teetassen, TV und Haartrockner. Auf Wunsch können jedes Zimmer mit einem Holzreisebett mit Decken, Kinderbett, Töpfchen oder Tritthocker unter dem Waschbecken ausgestattet werden.",
+      apartments:"Apartments",
+      apartment: "Apartment",
+      apartment67: "Apartment Nr.67",
+      apartment68: "Apartment Nr.68",
+      apartments_text: "Beide luxuriös eingerichteten Apartments befinden sich im Dachgeschoss unserer Pension und bieten einen schönen Blick auf die umliegende Landschaft. Jedes Apartment besteht aus zwei Räumen mit gleicher Ausstattung: Schrank, Esstisch, Stühlen, Sessel oder Sofa, TV, moderner Küche und geräumigem Badezimmer. Auf Wunsch kann jedes Apartment mit einem Holzreisebett mit Decken, einem Kinderhochstuhl, Baby-Wickelauflage, Töpfchen, Badewanne oder Tritthocker ausgestattet werden.",
+      operating_rules_link: "Hausordnung"
+    },
+    playroom: {
+      title: "Spielzimmer",
+      text: "Unsere Pension ist besonders bei Familien mit kleinen Kindern beliebt, nicht zuletzt dank des großen und gut ausgestatteten Kinderspielzimmers. Das Spielzimmer ist durch eine Glastür vom Speiseraum getrennt, sodass Eltern, die sich gerne an den Esstisch setzen und Kaffee oder Tee trinken möchten, ihre Kleinen immer im Blick behalten können."
+    },
+    garden: {
+      title: "Garten",
+      text: "Der Garten ist ideal für Familienaufenthalte mit Kindern. Im Garten befinden sich Kinderschaukeln, Sandkasten, Spielburg, Trapez, Kletternetz, Trampolin, Liegestühle und Pool. Der gesamte Garten ist mit natürlichem Gras bewachsen und bietet Platz für zahlreiche Aktivitäten von klassischen Kinderspielen bis hin zu Tischtennis, Badminton, Petanque, Frisbee etc. Die Terrasse lädt besonders an heißen Sommertagen zum abendlichen Verweilen ein, der Feuerplatz im unteren Gartenteil zum Würstchengrillen und gemütlichen Beisammensein am Lagerfeuer."
+    },
+    contact: {
+      title: "Kontakt",
+      address: "Adresse",
+      telephone: "Telefon"
     },
     reservation: {
       title: "Reservierung",
-      arrival: "Ankunft",
+      arrival: "Anreise",
       departure: "Abreise",
       adults: "Erwachsene",
       children: "Kinder",
@@ -467,11 +585,41 @@ const translations = {
       email: "E-Mail",
       phone: "Telefon",
       date: "Datum",
+      guests: "Anzahl der Gäste",
       message: "Nachricht",
       submit: "Absenden",
-      select_room: "-- Zimmer auswählen --"
+      select_room: "-- Zimmer auswählen --",
+      privacy_notice: "Bitte lesen Sie unsere",
+      privacy_policy: "Datenschutzerklärung",
+      consent_text: "Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung personenbezogener Daten zu"
+    },
+    privacy: {
+      title: "Datenschutz",
+      whatDataTitle: "Welche personenbezogenen Daten erheben wir?",
+      whatDataIntro: "Über unser unverbindliches Reservierungsformular erheben wir folgende Daten:",
+      dataName: "Vor- und Nachname",
+      dataEmail: "E-Mail-Adresse",
+      dataPhone: "Telefonnummer",
+      whyDataTitle: "Warum erheben wir diese Daten?",
+      whyDataText: "Wir erheben Daten ausschließlich zur Bearbeitung Ihrer unverbindlichen Reservierung und möglicher Kommunikation. Rechtsgrundlage ist Art. 6 Abs. 1 Buchstabe b) DSGVO – Vertragserfüllung oder vorvertragliche Maßnahmen.",
+      howLongTitle: "Wie lange speichern wir Ihre Daten?",
+      howLongText: "Wir speichern Ihre Daten für die zur Bearbeitung notwendige Dauer, maximal jedoch 6 Monate. Danach werden sie sicher gelöscht.",
+      whoShareTitle: "An wen geben wir Ihre Daten weiter?",
+      whoShareText: "Ihre Daten werden nicht an Dritte weitergegeben.",
+      securityTitle: "Wie schützen wir Ihre Daten?",
+      securityText: "Daten werden in einem sicheren System gespeichert und sind Unbefugten nicht zugänglich.",
+      rightsTitle: "Welche Rechte haben Sie?",
+      rightsText: "Sie haben das Recht auf:",
+      rightsAccess: "Auskunft über Ihre Daten,",
+      rightsCorrection: "Berichtigung unrichtiger Daten,",
+      rightsDeletion: "Löschung, sofern nicht mehr erforderlich.",
+      rightsContact: "Kontaktieren Sie uns per E-Mail, wir bearbeiten Ihr Anliegen.",
+      complaintTitle: "Beschwerderecht",
+      complaintText: "Falls Sie der Ansicht sind, dass Ihre Daten unrechtmäßig verarbeitet werden, können Sie sich bei der Datenschutzbehörde (www.uoou.cz) beschweren.",
+      contactTitle: "Kontakt",
+      contactText: "Bei Fragen zur Datenverarbeitung kontaktieren Sie uns bitte unter harmonie-bedrichov@centrum.cz"
     }
-  }
+  },
 };
 
 export default translations;
