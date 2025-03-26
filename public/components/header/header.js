@@ -75,38 +75,96 @@ function initializeScrollBehavior() {
     const header = document.querySelector('header');
     
     // Check if we're on the index page by looking for the slideshow element
-    // This is unique to the index page and more reliable than checking URLs
     const slideshow = document.getElementById('slideshow');
     
     if (slideshow) {
-        // This function handles changing the header theme based on scroll position
+        // Check if the header has static-color attribute
+        if (header.hasAttribute('static-color')) {
+            // Remove the static-color attribute to allow dynamic changes
+            const staticColor = header.getAttribute('static-color');
+            header.removeAttribute('static-color');
+            
+            // Then immediately check scroll position
+            const scrollThreshold = window.innerHeight * 0.9;
+            if (window.scrollY > scrollThreshold) {
+                header.setAttribute('data-header-color', 'dark');
+            }
+        }
+        
+        // Rest of the function remains the same
         function handleScroll() {
-            // Get the height of the hero image section - approximately 100vh
-            const scrollThreshold = window.innerHeight * 0.9; // 90% of viewport height
+            const scrollThreshold = window.innerHeight * 0.9;
             
             if (window.scrollY > scrollThreshold) {
-                // User has scrolled past the hero image - switch to dark theme
                 if (header.getAttribute('data-header-color') !== 'dark') {
                     header.setAttribute('data-header-color', 'dark');
                 }
             } else {
-                // User is at the hero image - use light theme
                 if (header.getAttribute('data-header-color') !== 'light') {
                     header.setAttribute('data-header-color', 'light');
                 }
             }
         }
         
-        // Run once on load
-        handleScroll();
+        // Use all the event handlers we added before
+        requestAnimationFrame(handleScroll);
+        setTimeout(handleScroll, 0);
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener('load', handleScroll);
+        document.addEventListener('DOMContentLoaded', handleScroll);
+        document.addEventListener('visibilitychange', handleScroll);
         
-        // Add scroll event listener
-        window.addEventListener('scroll', handleScroll);
+        // Add a MutationObserver to watch for static-color being added
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes' && 
+                    mutation.attributeName === 'static-color' ||
+                    mutation.attributeName === 'data-header-color') {
+                    
+                    // If static-color was added, remove it and check scroll
+                    if (header.hasAttribute('static-color')) {
+                        header.removeAttribute('static-color');
+                        handleScroll();
+                    }
+                }
+            });
+        });
+        
+        observer.observe(header, { attributes: true });
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+// IIFE to run immediately - highest priority execution
+(function() {
+    // Try to initialize as early as possible
+    try {
+        if (document.getElementById('slideshow')) {
+            const header = document.querySelector('header');
+            if (header) {
+                const scrollThreshold = window.innerHeight * 0.9;
+                if (window.scrollY > scrollThreshold) {
+                    header.setAttribute('data-header-color', 'dark');
+                } else {
+                    header.setAttribute('data-header-color', 'light');
+                }
+            }
+        }
+    } catch (e) {
+        console.log('Early header init failed:', e);
+    }
+})();
+
+// Run the scroll behavior initialization immediately to set correct initial state
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        updateLogoVisibility();
+        initializeHeaderHideOnScroll();
+    });
+    // Initialize scroll behavior immediately 
+    initializeScrollBehavior();
+} else {
+    // Document already loaded
     updateLogoVisibility();
     initializeScrollBehavior();
     initializeHeaderHideOnScroll();
-});
+}
