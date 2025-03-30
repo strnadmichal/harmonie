@@ -251,99 +251,83 @@
         <div class="h-[2px] bg-black"></div>
         <h2 class="my-10 text-5xl bold" data-i18n="prices.title">Ceny</h2>
 
-        <div class="flex justify-center mb-16 w-full text-2xl align-middle">
-          <!--Manual Table -->
-          <table class="w-4/5 text-xl text-center">
-            <caption class="hidden" data-i18n="prices.table.caption">
-              Ceny služeb
-            </caption>
-            <thead>
-              <tr>
-                <th scope="col"></th>
-                <th scope="col" data-i18n="prices.table.winter">Zimní sezóna</th>
-                <th scope="col" data-i18n="prices.table.summer">Letní sezóna</th>
-                <th scope="col" data-i18n="prices.table.special">Silvestr, Jiz50, atd.</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row" data-i18n="prices.table.adults">Dospělí</th>
-                <td data-i18n="prices.table.adults_winter">610 Kč osoba / noc</td>
-                <td data-i18n="prices.table.adults_summer">590 Kč osoba / noc</td>
-                <td data-i18n="prices.table.adults_special">690 Kč osoba / noc</td>
-              </tr>
-              <tr>
-                <th scope="row" data-i18n="prices.table.children_12">Děti do 12 let</th>
-                <td data-i18n="prices.table.children_12_winter">410 Kč osoba / noc</td>
-                <td data-i18n="prices.table.children_12_summer">390 Kč osoba / noc</td>
-                <td data-i18n="prices.table.children_12_special">450 Kč osoba / noc</td>
-              </tr>
-              <tr>
-                <th scope="row" data-i18n="prices.table.children_2">Děti do 2 let</th>
-                <td data-i18n="prices.table.free">zdarma</td>
-                <td data-i18n="prices.table.free">zdarma</td>
-                <td data-i18n="prices.table.free">zdarma</td>
-              </tr>
-              <tr>
-                <th scope="row" data-i18n="prices.table.extra_bed">Přistýlka</th>
-                <td data-i18n="prices.table.extra_bed_winter">250 Kč osoba/noc</td>
-                <td data-i18n="prices.table.extra_bed_summer">250 Kč osoba/noc</td>
-                <td data-i18n="prices.table.extra_bed_special">400 Kč osoba/noc</td>
-              </tr>
-              <tr>
-                <th scope="row" data-i18n="prices.table.adults_1night">Dospělí na 1 noc</th>
-                <td data-i18n="prices.table.adults_1night_price">760 Kč</td>
-                <td data-i18n="prices.table.adults_1night_price">760 Kč</td>
-                <td data-i18n="prices.table.adults_1night_price">760 Kč</td>
-              </tr>
-              <tr>
-                <th scope="row" data-i18n="prices.table.single_room">Jednolůžkový pokoj</th>
-                <td data-i18n="prices.table.single_room_winter">800 Kč osoba/noc</td>
-                <td data-i18n="prices.table.single_room_summer">800 Kč osoba/noc</td>
-                <td data-i18n="prices.table.single_room_special">1000 Kč osoba/noc</td>
-              </tr>
-              <tr>
-                <th scope="row" data-i18n="prices.table.apartment_surcharge">Příplatek za apartmán</th>
-                <td data-i18n="prices.table.apartment_surcharge_price">150 Kč osoba/noc</td>
-                <td data-i18n="prices.table.apartment_surcharge_price">150 Kč osoba/noc</td>
-                <td data-i18n="prices.table.apartment_surcharge_price">150 Kč osoba/noc</td>
-              </tr>
-              <tr>
-                <th scope="row" data-i18n="prices.table.breakfast_adults">Snídaně dospělí</th>
-                <td data-i18n="prices.table.breakfast_adults_price">160 Kč</td>
-                <td data-i18n="prices.table.breakfast_adults_price">160 Kč</td>
-                <td data-i18n="prices.table.breakfast_adults_price">160 Kč</td>
-              </tr>
-              <tr>
-                <th scope="row" data-i18n="prices.table.breakfast_children">Snídaně děti</th>
-                <td data-i18n="prices.table.breakfast_children_price">80 Kč</td>
-                <td data-i18n="prices.table.breakfast_children_price">80 Kč</td>
-                <td data-i18n="prices.table.breakfast_children_price">80 Kč</td>
-              </tr>
-              <tr>
-                <th scope="row" data-i18n="prices.table.sauna">Sauna 2 osoby</th>
-                <td data-i18n="prices.table.sauna_price">400 Kč</td>
-                <td data-i18n="prices.table.sauna_price">400 Kč</td>
-                <td data-i18n="prices.table.sauna_price">400 Kč</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <!--Google Sheets Fetch Table -->
-          <!--
-        <table id="myTable" class="w-4/5 text-center">
-          <thead>
-          <tr>
-            <th>Column 1</th>
-            <th>Column 2</th>
-            <th>Column 3</th>
-            <th>Column 4</th>
-          </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-        --></div>
+        <div class="hidden md:flex justify-center mb-16 w-full text-2xl align-middle">
+            <table class="w-4/5 text-xl text-center">
+              <caption class="hidden" data-i18n="prices.table.caption">
+                Ceny služeb
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" data-i18n="prices.table.winter">Zimní sezóna</th>
+                  <th scope="col" data-i18n="prices.table.summer">Letní sezóna</th>
+                  <th scope="col" data-i18n="prices.table.special">Silvestr, Jiz50, atd.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" data-i18n="prices.table.adults">Dospělí</th>
+                  <td data-i18n="prices.table.adults_winter">610 Kč osoba / noc</td>
+                  <td data-i18n="prices.table.adults_summer">590 Kč osoba / noc</td>
+                  <td data-i18n="prices.table.adults_special">690 Kč osoba / noc</td>
+                </tr>
+                <tr>
+                  <th scope="row" data-i18n="prices.table.children_12">Děti do 12 let</th>
+                  <td data-i18n="prices.table.children_12_winter">410 Kč osoba / noc</td>
+                  <td data-i18n="prices.table.children_12_summer">390 Kč osoba / noc</td>
+                  <td data-i18n="prices.table.children_12_special">450 Kč osoba / noc</td>
+                </tr>
+                <tr>
+                  <th scope="row" data-i18n="prices.table.children_2">Děti do 2 let</th>
+                  <td data-i18n="prices.table.free">zdarma</td>
+                  <td data-i18n="prices.table.free">zdarma</td>
+                  <td data-i18n="prices.table.free">zdarma</td>
+                </tr>
+                <tr>
+                  <th scope="row" data-i18n="prices.table.extra_bed">Přistýlka</th>
+                  <td data-i18n="prices.table.extra_bed_winter">250 Kč osoba/noc</td>
+                  <td data-i18n="prices.table.extra_bed_summer">250 Kč osoba/noc</td>
+                  <td data-i18n="prices.table.extra_bed_special">400 Kč osoba/noc</td>
+                </tr>
+                <tr>
+                  <th scope="row" data-i18n="prices.table.adults_1night">Dospělí na 1 noc</th>
+                  <td data-i18n="prices.table.adults_1night_price">760 Kč</td>
+                  <td data-i18n="prices.table.adults_1night_price">760 Kč</td>
+                  <td data-i18n="prices.table.adults_1night_price">760 Kč</td>
+                </tr>
+                <tr>
+                  <th scope="row" data-i18n="prices.table.single_room">Jednolůžkový pokoj</th>
+                  <td data-i18n="prices.table.single_room_winter">800 Kč osoba/noc</td>
+                  <td data-i18n="prices.table.single_room_summer">800 Kč osoba/noc</td>
+                  <td data-i18n="prices.table.single_room_special">1000 Kč osoba/noc</td>
+                </tr>
+                <tr>
+                  <th scope="row" data-i18n="prices.table.apartment_surcharge">Příplatek za apartmán</th>
+                  <td data-i18n="prices.table.apartment_surcharge_price">150 Kč osoba/noc</td>
+                  <td data-i18n="prices.table.apartment_surcharge_price">150 Kč osoba/noc</td>
+                  <td data-i18n="prices.table.apartment_surcharge_price">150 Kč osoba/noc</td>
+                </tr>
+                <tr>
+                  <th scope="row" data-i18n="prices.table.breakfast_adults">Snídaně dospělí</th>
+                  <td data-i18n="prices.table.breakfast_adults_price">160 Kč</td>
+                  <td data-i18n="prices.table.breakfast_adults_price">160 Kč</td>
+                  <td data-i18n="prices.table.breakfast_adults_price">160 Kč</td>
+                </tr>
+                <tr>
+                  <th scope="row" data-i18n="prices.table.breakfast_children">Snídaně děti</th>
+                  <td data-i18n="prices.table.breakfast_children_price">80 Kč</td>
+                  <td data-i18n="prices.table.breakfast_children_price">80 Kč</td>
+                  <td data-i18n="prices.table.breakfast_children_price">80 Kč</td>
+                </tr>
+                <tr>
+                  <th scope="row" data-i18n="prices.table.sauna">Sauna 2 osoby</th>
+                  <td data-i18n="prices.table.sauna_price">400 Kč</td>
+                  <td data-i18n="prices.table.sauna_price">400 Kč</td>
+                  <td data-i18n="prices.table.sauna_price">400 Kč</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
       </section>
 
       <section class="flex flex-col justify-center items-center my-40">

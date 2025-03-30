@@ -17,19 +17,17 @@
     .form-row {
       display: flex;
       margin-bottom: 25px;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
     .form-column {
-      flex: 1;
-      padding-right: 30px;
-    }
-
-    .form-column:last-child {
-      padding-right: 0;
+      flex: 1 0 315px;
+      margin-bottom: 15px;
     }
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .form-group label {
@@ -85,6 +83,7 @@
       appearance: none;
       border: 1px solid #000;
       position: relative;
+      flex-shrink: 0;
     }
     
     .consent-group input[type="checkbox"]:checked::after {
@@ -99,7 +98,7 @@
     .submit-button {
       background-color: #10162b;
       color: white;
-      padding: 10px 30px;
+      padding: 20px 80px;
       border: none;
       cursor: pointer;
       text-align: center;
@@ -193,7 +192,7 @@
   <div id="header"></div>
 
   <main class="box-border px-10">
-    <section class="mb-40">
+    <section class="mb-20">
       <h2 class="my-10 text-5xl bold" data-i18n="reservation.title">
         Rezervace
       </h2>
@@ -289,9 +288,9 @@
           </select>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mt-10">
           <label for="message" data-i18n="reservation.message">Vaše zpráva</label>
-          <textarea id="message" name="message" rows="4"></textarea>
+          <textarea id="message" name="message" rows="8"></textarea>
         </div>
 
         <div class="privacy-notice">
@@ -313,7 +312,7 @@
         <!-- <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
         <div class="captcha-error" style="color: red; margin-top: 10px; display: none;" data-i18n="reservation.captcha_error">Please complete the captcha</div> -->
 
-        <button type="submit" class="submit-button" data-i18n="reservation.submit">
+        <button type="submit" class="submit-button text-2xl" data-i18n="reservation.submit">
           Odeslat
         </button>
       </form>

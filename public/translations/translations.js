@@ -172,7 +172,7 @@ const translations = {
       date: "Datum",
       room: "Pokoj",
       message: "Zpráva",
-      submit: "Poslat",
+      submit: "Odeslat",
       select_room: "-- Vyberte pokoj --",
       privacy_notice: "Prosíme, přečtěte si naše",
       privacy_policy: "Prohlášení o ochraně osobních údajů",
