@@ -85,7 +85,7 @@ function initializeScrollBehavior() {
             header.removeAttribute('static-color');
             
             // Then immediately check scroll position
-            const scrollThreshold = window.innerHeight * 0.9;
+                const scrollThreshold = window.innerHeight * 0.9;
             if (window.scrollY > scrollThreshold) {
                 header.setAttribute('data-header-color', 'dark');
             }

@@ -28,16 +28,21 @@
   }
 
   .dropdown-menu {
-    position: absolute;
-    /* left: -40px;
-  top: -24px; */
-    /*top: calc(100% + 0.25rem);*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: hsl(240, 56%, 9%);
     padding: 5rem 1rem 1rem;
-    /*box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);*/
     opacity: 1;
-    /* transform: translateY(-10px);
-  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out; */
+    z-index: 5; /* Below the logo and burger button z-index */
+  }
+
+  /* Add a new class for the header content to ensure it stays above the menu */
+  .header-content {
+    position: relative;
+    z-index: 10; /* Higher than dropdown-menu */
   }
 
   .dark-icon {
@@ -62,36 +67,43 @@
 </style>
 
 <header class="fixed top-0 right-0 left-0 z-50 px-10" data-header-color="light" data-header>
-  <nav class="flex relative z-10 flex-row gap-8 justify-between items-center py-8 w-full h-24">
-    <div class="flex relative justify-center items-center lg:hidden" data-dropdown>
+  <nav class="flex relative z-10 flex-row justify-between items-center py-8 w-full h-24">
+    <div class="flex relative justify-center items-center lg:hidden header-content" data-dropdown>
       <button class="flex z-50 link size-8" type="button" dropdown-button>
         <img src="/../img/menu-dark.svg" class="w-full h-full dark-icon dropdown-icon-open" alt="Otevřít menu navigace - tmavá verze" />
         <img src="/../img/menu-light.svg" class="w-full h-full light-icon dropdown-icon-open" alt="Otevřít menu navigace - světlá verze" />
         <img src="/../img/close.svg" class="w-full h-full dropdown-icon-close hiddenOveride" alt="Zavřít menu navigace" />
       </button>
       <div class="hidden w-screen h-screen dropdown-menu" dropdown-menu>
-        <ul class="flex relative z-50 flex-col gap-10 justify-center mt-16 ml-6 text-3xl text-white">
-          <li><a href="./index.html#ubytovani" data-i18n="nav.accommodation">Ubytování</a></li>
-          <li><a href="./rezervace.html" data-i18n="nav.reservation">Rezervace</a></li>
-          <li><a href="./index.html#ceny" data-i18n="nav.prices">Ceny</a></li>
-          <li><a href="./kontakt.html" data-i18n="nav.contact">Kontakt</a></li>
-        </ul>
+        <div class="flex flex-col justify-between h-full pb-10">
+          <ul class="flex relative z-50 flex-col gap-4 justify-center mt-10 ml-6 text-2xl text-white">
+            <li><a href="./index.html#ubytovani" data-i18n="nav.accommodation">Ubytování</a></li>
+            <li><a href="./rezervace.html" data-i18n="nav.reservation">Rezervace</a></li>
+            <li><a href="./index.html#ceny" data-i18n="nav.prices">Ceny</a></li>
+            <li><a href="./kontakt.html" data-i18n="nav.contact">Kontakt</a></li>
+          </ul>
+          
+          <!-- Language switcher at bottom -->
+          <ul class="flex flex-row gap-8 ml-6 text-2xl text-white">
+            <li><a href="#" onclick="languageManager.setLanguage('cs')">CZ</a></li>
+            <li><a href="#" onclick="languageManager.setLanguage('en')">EN</a></li>
+            <li><a href="#" onclick="languageManager.setLanguage('de')">DE</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-    <a href="./index.html" class="flex items-center h-full min-w-fit">
+    <a href="./index.html" class="flex items-center h-full min-w-fit header-content">
       <!-- <p class="text-5xl bold header-text">Chata Harmonie</p> -->
       <img src="../img/harmonie_logo_light.svg" class="light-icon w-[200px] sm:w-[240px] h-[27px] sm:h-[36px] logo-light" alt="Chata Harmonie - logo světlá verze" />
       <img src="../img/harmonie_logo_dark.svg" class="dark-icon w-[200px] sm:w-[240px] h-[27px] sm:h-[36px]" alt="Chata Harmonie - logo tmavá verze" />
     </a>
-    <div class="flex relative flex-row justify-end items-center w-full header-text-color lg:justify-between">
-      <div class="hidden lg:block">
+    <div class="hidden lg:flex relative flex-row justify-end items-center w-full header-text-color lg:justify-between ml-10">
         <ul class="flex flex-row gap-4 items-center text-2xl">
           <li><a href="./index.html#ubytovani" data-i18n="nav.accommodation">Ubytování</a></li>
           <li><a href="./rezervace.html" data-i18n="nav.reservation">Rezervace</a></li>
           <li><a href="./index.html#ceny" data-i18n="nav.prices">Ceny</a></li>
           <li><a href="./kontakt.html" data-i18n="nav.contact">Kontakt</a></li>
         </ul>
-      </div>
         <ul class="hidden lg:flex flex-row gap-4 justify-end items-center text-2xl">
           <li><a href="#" onclick="languageManager.setLanguage('en')">EN</a></li>
           <li><a href="#" onclick="languageManager.setLanguage('de')">DE</a></li>
