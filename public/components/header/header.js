@@ -33,6 +33,12 @@ function initializeHeaderHideOnScroll() {
     const minScrollBeforeHide = 50; // Minimum scroll before we start hiding
 
     function handleHeaderVisibility() {
+        // Skip hiding header if dropdown is open
+        if (window.isDropdownOpen === true) {
+            header.classList.remove('header-hidden');
+            return;
+        }
+        
         const currentScrollY = window.scrollY;
         
         // Skip if we're at the very top of the page
@@ -93,6 +99,11 @@ function initializeScrollBehavior() {
         
         // Rest of the function remains the same
         function handleScroll() {
+            // Skip changing header color if dropdown is open
+            if (window.isDropdownOpen === true) {
+                return;
+            }
+            
             const scrollThreshold = window.innerHeight * 0.9;
             
             if (window.scrollY > scrollThreshold) {
