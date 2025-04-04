@@ -36,7 +36,6 @@
           max-height: 1000px; /* Large enough to contain any text */
           opacity: 1;
           transition: max-height 0.6s ease-in, opacity 0.5s ease-in 0.1s;
-          margin-bottom: 64px;
         }
         
         /* Style for the title container */
@@ -62,55 +61,43 @@
           aspect-ratio: 1 / 1; /* Set aspect ratio to 1:1 (square) */
         }
         
-        /* Hide description text on small screens by default */
-        .service-description {
-          max-height: 0;
-          overflow: hidden;
-          transition: max-height 0.4s ease-out;
-          opacity: 0;
-        }
-        
-        /* Expanded state */
-        .service-description.expanded {
-          max-height: 1000px; /* Large enough to contain any text */
-          opacity: 1;
-          transition: max-height 0.6s ease-in, opacity 0.5s ease-in 0.1s;
-        }
-        
-        /* Style for the title container */
-        .service-title-container {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          cursor: pointer;
-        }
-        
-        /* Simple text toggle */
-        .toggle-btn {
-          font-size: 40px;
-          font-weight: bold;
-          color: #10162b;
-          margin-right: 5px;
-          transition: transform 0.4s ease;
-        }
-        
-        /* Rotate the toggle button when active */
-        .toggle-btn.active {
-          transform: rotate(45deg);
-        }
-        
-        /* Price accordion styles */
+        /* ===== UNIFIED ACCORDION STYLES ===== */
+        /* Hidden content styles */
+        .service-description,
         .price-content {
           max-height: 0;
           overflow: hidden;
-          transition: max-height 0.4s ease-out, opacity 0.3s ease-out;
+          transition: max-height 0.4s ease-out, opacity 0.3s ease-out, margin-bottom 0.2s ease-out;
           opacity: 0;
+          margin-bottom: 0; /* Start with no margin */
         }
         
+        /* Expanded state */
+        .service-description.expanded,
         .price-content.expanded {
-          max-height: 1000px;
+          max-height: 1000px; /* Large enough to contain any text */
           opacity: 1;
-          transition: max-height 0.6s ease-in, opacity 0.4s ease-in;
+          transition: max-height 0.4s ease-in, opacity 0.4s ease-in, margin-bottom 0.2s ease-in;
+          margin-bottom: 2rem; /* Add space below expanded content */
+        }
+        
+        /* Title container styles */
+        .service-title-container,
+        .price-title-container {
+          cursor: pointer;
+        }
+        
+        /* Toggle button styles */
+        .toggle-btn {
+          font-size: 30px;
+          font-weight: bold;
+          color: #10162b;
+          transition: transform 0.4s ease;
+        }
+        
+        /* Active state for toggle buttons */
+        .toggle-btn.active {
+          transform: rotate(45deg);
         }
       }
 
@@ -178,44 +165,28 @@
     
     <!-- JavaScript for toggle functionality with animation -->
     <script>
-      function toggleServiceDescription(element) {
-        // Only run this function on small screens
-        if (window.innerWidth >= 640) return;
-        
-        // Get the toggle button and description
-        const toggleBtn = element.querySelector('.toggle-btn');
-        const description = element.nextElementSibling;
-        
-        // Toggle the button text between + and -
-        if (toggleBtn.textContent === '+') {
-          toggleBtn.textContent = '-';
-        } else {
-          toggleBtn.textContent = '+';
-        }
-        
-        // We use + symbol always, but rotate it 45 degrees to make it look like -
-        if (description.classList.contains('expanded')) {
-          // Closing
-          description.classList.remove('expanded');
-        } else {
-          // Opening
-          description.classList.add('expanded');
-        }
-      }
-      
-      function togglePriceSection(element) {
+      // Unified toggle function for both service descriptions and price sections
+      function toggleAccordion(element, contentSelector) {
         // Only run this function on small screens
         if (window.innerWidth >= 768) return;
         
-        // Get the toggle button and content
+        // Get the toggle button and content element
         const toggleBtn = element.querySelector('.toggle-btn');
         const content = element.nextElementSibling;
         
-        // Toggle the active class on the button
+        // Toggle the active class on button for rotation
         toggleBtn.classList.toggle('active');
         
         // Toggle the expanded class on the content
         content.classList.toggle('expanded');
+      }
+      
+      function toggleServiceDescription(element) {
+        toggleAccordion(element, '.service-description');
+      }
+      
+      function togglePriceSection(element) {
+        toggleAccordion(element, '.price-content');
       }
     </script>
   </head>
@@ -321,11 +292,11 @@
               class="object-cover imr"
             />
             <div>
-              <div class="service-title-container" onclick="toggleServiceDescription(this)">
+              <div class="service-title-container flex justify-between items-center w-full" onclick="toggleServiceDescription(this)">
                 <p class="my-5 text-2xl md:text-3xl" data-i18n="services.breakfast.title">
                   Snídaně
                 </p>
-                <span class="toggle-btn sm:hidden">+</span>
+                <span class="toggle-btn md:hidden">+</span>
               </div>
               <p class="text-base sm:text-xl service-description" data-i18n="services.breakfast.description">
                 Celoročně nabízíme našim hostům vydatné a vyvážené snídaně,
@@ -344,13 +315,13 @@
               class="object-cover imr"
             />
             <div>
-              <div class="service-title-container" onclick="toggleServiceDescription(this)">
+              <div class="service-title-container flex justify-between items-center w-full" onclick="toggleServiceDescription(this)">
                 <p class="my-5 text-2xl md:text-3xl" data-i18n="services.sauna.title">
                   Sauna
                 </p>
-                <span class="toggle-btn sm:hidden">+</span>
+                <span class="toggle-btn md:hidden">+</span>
               </div>
-              <p class="text-xl service-description" data-i18n="services.sauna.description">
+              <p class="text-base md:text-xl service-description" data-i18n="services.sauna.description">
                 Pro příznivce saunování jsme před nedávnem vybudovali krásnou
                 malou saunu s kamenným obložením, klenutým stropem, nápaditým
                 osvětlením a dřevěnou ochlazovací kádí.Během správného saunování
@@ -366,11 +337,11 @@
               class="object-cover imr"
             />
             <div>
-              <div class="service-title-container" onclick="toggleServiceDescription(this)">
+              <div class="service-title-container flex justify-between items-center w-full" onclick="toggleServiceDescription(this)">
                 <p class="my-5 text-2xl md:text-3xl" data-i18n="services.parking.title">
                   Parkování
                 </p>
-                <span class="toggle-btn sm:hidden">+</span>
+                <span class="toggle-btn md:hidden">+</span>
               </div>
               <p class="text-base sm:text-xl service-description" data-i18n="services.parking.description">
                 Parkoviště s asfaltovým povrchem se nachází přímo před penzionem
@@ -385,11 +356,11 @@
               class="object-cover imr"
             />
             <div>
-              <div class="service-title-container" onclick="toggleServiceDescription(this)">
+              <div class="service-title-container flex justify-between items-center w-full" onclick="toggleServiceDescription(this)">
                 <p class="my-5 text-2xl md:text-3xl" data-i18n="services.playground.title">
                   Dětské hřiště
                 </p>
-                <span class="toggle-btn sm:hidden">+</span>
+                <span class="toggle-btn md:hidden">+</span>
               </div>
               <p class="text-base sm:text-xl service-description" data-i18n="services.playground.description">
                 Děti se zcela jistě zabaví na zahradě, která je plná atrakcí
@@ -489,11 +460,9 @@
         <div class="md:hidden mb-16 w-full text-xl">
           <!-- Winter Season Section -->
           <div class="py-6">
-            <div class="price-title-container" onclick="togglePriceSection(this)">
-              <div class="flex justify-between items-center">
-                <h3 class="text-2xl" data-i18n="prices.table.winter">Zimní sezóna</h3>
-                <span class="toggle-btn">+</span>
-              </div>
+            <div class="price-title-container flex justify-between items-center w-full" onclick="togglePriceSection(this)">
+              <h3 class="text-2xl" data-i18n="prices.table.winter">Zimní sezóna</h3>
+              <span class="toggle-btn">+</span>
             </div>
             <div class="price-content text-base">
               <ul class="mt-4 space-y-2 pl-2">
@@ -543,11 +512,9 @@
           
           <!-- Summer Season Section -->
           <div class="py-6">
-            <div class="price-title-container" onclick="togglePriceSection(this)">
-              <div class="flex justify-between items-center">
-                <h3 class="text-2xl" data-i18n="prices.table.summer">Letní sezóna</h3>
-                <span class="toggle-btn">+</span>
-              </div>
+            <div class="price-title-container flex justify-between items-center w-full" onclick="togglePriceSection(this)">
+              <h3 class="text-2xl" data-i18n="prices.table.summer">Letní sezóna</h3>
+              <span class="toggle-btn">+</span>
             </div>
             <div class="price-content text-base">
               <ul class="mt-4 space-y-2 pl-2">
@@ -597,11 +564,9 @@
           
           <!-- Special Season Section -->
           <div class="py-6">
-            <div class="price-title-container" onclick="togglePriceSection(this)">
-              <div class="flex justify-between items-center">
-                <h3 class="text-2xl" data-i18n="prices.table.special">Silvestr, Jiz50, atd.</h3>
-                <span class="toggle-btn">+</span>
-              </div>
+            <div class="price-title-container flex justify-between items-center w-full" onclick="togglePriceSection(this)">
+              <h3 class="text-2xl" data-i18n="prices.table.special">Silvestr, Jiz50, atd.</h3>
+              <span class="toggle-btn">+</span>
             </div>
             <div class="price-content text-base">
               <ul class="mt-4 space-y-2 pl-2">
