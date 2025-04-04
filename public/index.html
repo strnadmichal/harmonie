@@ -9,9 +9,51 @@
 
     <!-- Internal CSS styles -->
     <style>
+      /* Default styles for imr images */
       .imr {
-        height: 512px;
+        height: 512px; /* Default height for larger screens */
         width: 100%;
+        object-fit: cover; /* Ensure the image covers the area */
+      }
+
+      /* Styles for smaller screens (less than 768px wide) */
+      @media (max-width: 767px) {
+        .imr {
+          height: auto !important; /* Reset height to allow aspect ratio to work */
+          aspect-ratio: 1 / 1; /* Set aspect ratio to 1:1 (square) */
+        }
+        
+        /* Hide description text on small screens by default */
+        .service-description {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.4s ease-out;
+          opacity: 0;
+        }
+        
+        /* Expanded state */
+        .service-description.expanded {
+          max-height: 1000px; /* Large enough to contain any text */
+          opacity: 1;
+          transition: max-height 0.6s ease-in, opacity 0.5s ease-in 0.1s;
+          margin-bottom: 64px;
+        }
+        
+        /* Style for the title container */
+        .service-title-container {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          cursor: pointer;
+        }
+        
+        /* Simple text toggle */
+        .toggle-btn {
+          font-size: 40px;
+          font-weight: bold;
+          color: #10162b;
+          margin-right: 5px;
+        }
       }
 
       #slideshow {
@@ -75,6 +117,34 @@
     </script>
     <script src="../js/loadingScreen.js"></script>
     <!--  <script src="../js/priceSheets.js" defer></script>-->
+    
+    <!-- JavaScript for toggle functionality with animation -->
+    <script>
+      function toggleServiceDescription(element) {
+        // Only run this function on small screens
+        if (window.innerWidth >= 768) return;
+        
+        // Get the toggle button and description
+        const toggleBtn = element.querySelector('.toggle-btn');
+        const description = element.nextElementSibling;
+        
+        // Toggle the button text between + and -
+        if (toggleBtn.textContent === '+') {
+          toggleBtn.textContent = '-';
+        } else {
+          toggleBtn.textContent = '+';
+        }
+        
+        // We use + symbol always, but rotate it 45 degrees to make it look like -
+        if (description.classList.contains('expanded')) {
+          // Closing
+          description.classList.remove('expanded');
+        } else {
+          // Opening
+          description.classList.add('expanded');
+        }
+      }
+    </script>
   </head>
 
   <body>
@@ -178,15 +248,18 @@
               class="object-cover imr"
             />
             <div>
-              <p class="my-5 text-2xl md:text-3xl" data-i18n="services.breakfast.title">
-                Snídaně
-              </p>
-              <p class="text-xl" data-i18n="services.breakfast.description">
-                Celoročně nabízíme našim hostům vydatné a vyvážené snídaně,
-                bohaté na bílkoviny, zdravé tuky, vlákninu, vitamíny a minerály.
-                Na našem bufetovém stole najdete sladké i slané pečivo, toastový
+              <div class="service-title-container" onclick="toggleServiceDescription(this)">
+                <p class="my-5 text-2xl md:text-3xl" data-i18n="services.breakfast.title">
+                  Snídaně
+                </p>
+                <span class="toggle-btn md:hidden">+</span>
+              </div>
+              <p class="text-base sm:text-xl service-description" data-i18n="services.breakfast.description">
+                Celoročně nabízíme našim hostům vydatné a vyvážené snídaně,
+                bohaté na bílkoviny, zdravé tuky, vlákninu, vitamíny a minerály.
+                Na našem bufetovém stole najdete sladké i slané pečivo, toastový
                 chléb, domácí koláč nebo palačinky, marmelády, med, nutelu,
-                mléko, džusy, jogurty, vejce, několik druhů sýra a šunky,
+                mléko, džusy, jogurty, vejce, několik druhů sýra a šunky,
                 zeleninu, ovoce, cereálie apod.
               </p>
             </div>
@@ -198,15 +271,18 @@
               class="object-cover imr"
             />
             <div>
-              <p class="my-5 text-2xl md:text-3xl" data-i18n="services.sauna.title">
-                Sauna
-              </p>
-              <p class="text-xl" data-i18n="services.sauna.description">
+              <div class="service-title-container" onclick="toggleServiceDescription(this)">
+                <p class="my-5 text-2xl md:text-3xl" data-i18n="services.sauna.title">
+                  Sauna
+                </p>
+                <span class="toggle-btn md:hidden">+</span>
+              </div>
+              <p class="text-xl service-description" data-i18n="services.sauna.description">
                 Pro příznivce saunování jsme před nedávnem vybudovali krásnou
-                malou saunu s kamenným obložením, klenutým stropem, nápaditým
-                osvětlením a dřevěnou ochlazovací kádí.Během správného saunování
-                se uvolňuje napětí svalů, dýchací cesty, posílí se Vaše imunita
-                a Váš organismus se celkově detoxikuje.
+                malou saunu s kamenným obložením, klenutým stropem, nápaditým
+                osvětlením a dřevěnou ochlazovací kádí.Během správného saunování
+                se uvolňuje napětí svalů, dýchací cesty, posílí se Vaše imunita
+                a Váš organismus se celkově detoxikuje.
               </p>
             </div>
           </div>
@@ -217,12 +293,15 @@
               class="object-cover imr"
             />
             <div>
-              <p class="my-5 text-2xl md:text-3xl" data-i18n="services.parking.title">
-                Parkování
-              </p>
-              <p class="text-xl" data-i18n="services.parking.description">
-                Parkoviště s asfaltovým povrchem se nachází přímo před penzionem
-                a hosté ho mohou využívat zcela zdarma.
+              <div class="service-title-container" onclick="toggleServiceDescription(this)">
+                <p class="my-5 text-2xl md:text-3xl" data-i18n="services.parking.title">
+                  Parkování
+                </p>
+                <span class="toggle-btn md:hidden">+</span>
+              </div>
+              <p class="text-base sm:text-xl service-description" data-i18n="services.parking.description">
+                Parkoviště s asfaltovým povrchem se nachází přímo před penzionem
+                a hosté ho mohou využívat zcela zdarma.
               </p>
             </div>
           </div>
@@ -233,21 +312,24 @@
               class="object-cover imr"
             />
             <div>
-              <p class="my-5 text-2xl md:text-3xl" data-i18n="services.playground.title">
-                Dětské hřiště
-              </p>
-              <p class="text-xl" data-i18n="services.playground.description">
-                Děti se zcela jistě zabaví na zahradě, která je plná atrakcí
+              <div class="service-title-container" onclick="toggleServiceDescription(this)">
+                <p class="my-5 text-2xl md:text-3xl" data-i18n="services.playground.title">
+                  Dětské hřiště
+                </p>
+                <span class="toggle-btn md:hidden">+</span>
+              </div>
+              <p class="text-base sm:text-xl service-description" data-i18n="services.playground.description">
+                Děti se zcela jistě zabaví na zahradě, která je plná atrakcí
                 právě pro ně. Hřiště, pískoviště, domečky, houpačky, lezecí
-                stěna a síť, trampolína, bazén a další prvky pro dětskou zábavu
-                ocení rodiče i prarodiče malých i větších dětí.
+                stěna a síť, trampolína, bazén a další prvky pro dětskou zábavu
+                ocení rodiče i prarodiče malých i větších dětí.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="ceny" class="mt-40">
+      <section id="ceny" class="mt-10 sm:mt-40">
         <div class="h-[2px] bg-black"></div>
         <h2 class="my-10 text-5xl bold" data-i18n="prices.title">Ceny</h2>
 
