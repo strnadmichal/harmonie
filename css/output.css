@@ -599,6 +599,10 @@ video {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
+.my-2{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 .mb-10{
   margin-bottom: 2.5rem;
 }
@@ -640,6 +644,9 @@ video {
 }
 .mb-2{
   margin-bottom: 0.5rem;
+}
+.mt-4{
+  margin-top: 1rem;
 }
 .box-border{
   box-sizing: border-box;
@@ -779,15 +786,27 @@ video {
 .gap-y-8{
   row-gap: 2rem;
 }
+.space-y-2 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
 .overflow-hidden{
   overflow: hidden;
 }
 .border{
   border-width: 1px;
 }
+.border-b{
+  border-bottom-width: 1px;
+}
 .border-gray-300{
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+}
+.border-black{
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity, 1));
 }
 .bg-black{
   --tw-bg-opacity: 1;
@@ -823,11 +842,22 @@ video {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+.py-3{
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.py-6{
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
 .pb-10{
   padding-bottom: 2.5rem;
 }
 .pl-6{
   padding-left: 1.5rem;
+}
+.pl-2{
+  padding-left: 0.5rem;
 }
 .text-left{
   text-align: left;
@@ -868,6 +898,9 @@ video {
 .text-base{
   font-size: 1rem;
   line-height: 1.5rem;
+}
+.font-semibold{
+  font-weight: 600;
 }
 .text-black{
   --tw-text-opacity: 1;
@@ -1395,8 +1428,22 @@ textarea {
 
 @media (min-width: 640px){
 
+  .sm\:my-40{
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+  }
+
+  .sm\:my-10{
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
   .sm\:mt-40{
     margin-top: 10rem;
+  }
+
+  .sm\:hidden{
+    display: none;
   }
 
   .sm\:h-\[36px\]{
@@ -1428,12 +1475,26 @@ textarea {
 
 @media (min-width: 890px){
 
+  .md\:my-40{
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+  }
+
+  .md\:mx-2{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
   .md\:mb-40{
     margin-bottom: 10rem;
   }
 
   .md\:mb-0{
     margin-bottom: 0px;
+  }
+
+  .md\:mb-10{
+    margin-bottom: 2.5rem;
   }
 
   .md\:flex{
@@ -1460,6 +1521,14 @@ textarea {
     flex-direction: row;
   }
 
+  .md\:items-center{
+    align-items: center;
+  }
+
+  .md\:justify-center{
+    justify-content: center;
+  }
+
   .md\:justify-between{
     justify-content: space-between;
   }
@@ -1475,6 +1544,10 @@ textarea {
 
   .md\:text-left{
     text-align: left;
+  }
+
+  .md\:text-center{
+    text-align: center;
   }
 
   .md\:text-right{

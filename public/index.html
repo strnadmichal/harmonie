@@ -17,7 +17,7 @@
       }
 
       /* Styles for smaller screens (less than 768px wide) */
-      @media (max-width: 767px) {
+      @media (max-width: 640px) {
         .imr {
           height: auto !important; /* Reset height to allow aspect ratio to work */
           aspect-ratio: 1 / 1; /* Set aspect ratio to 1:1 (square) */
@@ -53,6 +53,64 @@
           font-weight: bold;
           color: #10162b;
           margin-right: 5px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .imr {
+          height: auto !important; /* Reset height to allow aspect ratio to work */
+          aspect-ratio: 1 / 1; /* Set aspect ratio to 1:1 (square) */
+        }
+        
+        /* Hide description text on small screens by default */
+        .service-description {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.4s ease-out;
+          opacity: 0;
+        }
+        
+        /* Expanded state */
+        .service-description.expanded {
+          max-height: 1000px; /* Large enough to contain any text */
+          opacity: 1;
+          transition: max-height 0.6s ease-in, opacity 0.5s ease-in 0.1s;
+        }
+        
+        /* Style for the title container */
+        .service-title-container {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          cursor: pointer;
+        }
+        
+        /* Simple text toggle */
+        .toggle-btn {
+          font-size: 40px;
+          font-weight: bold;
+          color: #10162b;
+          margin-right: 5px;
+          transition: transform 0.4s ease;
+        }
+        
+        /* Rotate the toggle button when active */
+        .toggle-btn.active {
+          transform: rotate(45deg);
+        }
+        
+        /* Price accordion styles */
+        .price-content {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.4s ease-out, opacity 0.3s ease-out;
+          opacity: 0;
+        }
+        
+        .price-content.expanded {
+          max-height: 1000px;
+          opacity: 1;
+          transition: max-height 0.6s ease-in, opacity 0.4s ease-in;
         }
       }
 
@@ -122,7 +180,7 @@
     <script>
       function toggleServiceDescription(element) {
         // Only run this function on small screens
-        if (window.innerWidth >= 768) return;
+        if (window.innerWidth >= 640) return;
         
         // Get the toggle button and description
         const toggleBtn = element.querySelector('.toggle-btn');
@@ -143,6 +201,21 @@
           // Opening
           description.classList.add('expanded');
         }
+      }
+      
+      function togglePriceSection(element) {
+        // Only run this function on small screens
+        if (window.innerWidth >= 768) return;
+        
+        // Get the toggle button and content
+        const toggleBtn = element.querySelector('.toggle-btn');
+        const content = element.nextElementSibling;
+        
+        // Toggle the active class on the button
+        toggleBtn.classList.toggle('active');
+        
+        // Toggle the expanded class on the content
+        content.classList.toggle('expanded');
       }
     </script>
   </head>
@@ -252,7 +325,7 @@
                 <p class="my-5 text-2xl md:text-3xl" data-i18n="services.breakfast.title">
                   Snídaně
                 </p>
-                <span class="toggle-btn md:hidden">+</span>
+                <span class="toggle-btn sm:hidden">+</span>
               </div>
               <p class="text-base sm:text-xl service-description" data-i18n="services.breakfast.description">
                 Celoročně nabízíme našim hostům vydatné a vyvážené snídaně,
@@ -275,7 +348,7 @@
                 <p class="my-5 text-2xl md:text-3xl" data-i18n="services.sauna.title">
                   Sauna
                 </p>
-                <span class="toggle-btn md:hidden">+</span>
+                <span class="toggle-btn sm:hidden">+</span>
               </div>
               <p class="text-xl service-description" data-i18n="services.sauna.description">
                 Pro příznivce saunování jsme před nedávnem vybudovali krásnou
@@ -297,7 +370,7 @@
                 <p class="my-5 text-2xl md:text-3xl" data-i18n="services.parking.title">
                   Parkování
                 </p>
-                <span class="toggle-btn md:hidden">+</span>
+                <span class="toggle-btn sm:hidden">+</span>
               </div>
               <p class="text-base sm:text-xl service-description" data-i18n="services.parking.description">
                 Parkoviště s asfaltovým povrchem se nachází přímo před penzionem
@@ -316,7 +389,7 @@
                 <p class="my-5 text-2xl md:text-3xl" data-i18n="services.playground.title">
                   Dětské hřiště
                 </p>
-                <span class="toggle-btn md:hidden">+</span>
+                <span class="toggle-btn sm:hidden">+</span>
               </div>
               <p class="text-base sm:text-xl service-description" data-i18n="services.playground.description">
                 Děti se zcela jistě zabaví na zahradě, která je plná atrakcí
@@ -333,6 +406,7 @@
         <div class="h-[2px] bg-black"></div>
         <h2 class="my-10 text-5xl bold" data-i18n="prices.title">Ceny</h2>
 
+        <!-- Desktop price table - hidden on mobile -->
         <div class="hidden md:flex justify-center mb-16 w-full text-2xl align-middle">
             <table class="w-4/5 text-xl text-center">
               <caption class="hidden" data-i18n="prices.table.caption">
@@ -410,10 +484,176 @@
               </tbody>
             </table>
         </div>
+        
+        <!-- Mobile price accordion - visible only on small screens -->
+        <div class="md:hidden mb-16 w-full text-xl">
+          <!-- Winter Season Section -->
+          <div class="py-6">
+            <div class="price-title-container" onclick="togglePriceSection(this)">
+              <div class="flex justify-between items-center">
+                <h3 class="text-2xl" data-i18n="prices.table.winter">Zimní sezóna</h3>
+                <span class="toggle-btn">+</span>
+              </div>
+            </div>
+            <div class="price-content text-base">
+              <ul class="mt-4 space-y-2 pl-2">
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.adults">Dospělí</span>
+                  <span data-i18n="prices.table.adults_winter">610 Kč osoba / noc</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.children_12">Děti do 12 let</span>
+                  <span data-i18n="prices.table.children_12_winter">410 Kč osoba / noc</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.children_2">Děti do 2 let</span>
+                  <span data-i18n="prices.table.free">zdarma</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.extra_bed">Přistýlka</span>
+                  <span data-i18n="prices.table.extra_bed_winter">250 Kč osoba/noc</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.adults_1night">Dospělí na 1 noc</span>
+                  <span data-i18n="prices.table.adults_1night_price">760 Kč</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.single_room">Jednolůžkový pokoj</span>
+                  <span data-i18n="prices.table.single_room_winter">800 Kč osoba/noc</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.apartment_surcharge">Příplatek za apartmán</span>
+                  <span data-i18n="prices.table.apartment_surcharge_price">150 Kč osoba/noc</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.breakfast_adults">Snídaně dospělí</span>
+                  <span data-i18n="prices.table.breakfast_adults_price">160 Kč</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.breakfast_children">Snídaně děti</span>
+                  <span data-i18n="prices.table.breakfast_children_price">80 Kč</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.sauna">Sauna 2 osoby</span>
+                  <span data-i18n="prices.table.sauna_price">400 Kč</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Summer Season Section -->
+          <div class="py-6">
+            <div class="price-title-container" onclick="togglePriceSection(this)">
+              <div class="flex justify-between items-center">
+                <h3 class="text-2xl" data-i18n="prices.table.summer">Letní sezóna</h3>
+                <span class="toggle-btn">+</span>
+              </div>
+            </div>
+            <div class="price-content text-base">
+              <ul class="mt-4 space-y-2 pl-2">
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.adults">Dospělí</span>
+                  <span data-i18n="prices.table.adults_summer">590 Kč osoba / noc</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.children_12">Děti do 12 let</span>
+                  <span data-i18n="prices.table.children_12_summer">390 Kč osoba / noc</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.children_2">Děti do 2 let</span>
+                  <span data-i18n="prices.table.free">zdarma</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.extra_bed">Přistýlka</span>
+                  <span data-i18n="prices.table.extra_bed_summer">250 Kč osoba/noc</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.adults_1night">Dospělí na 1 noc</span>
+                  <span data-i18n="prices.table.adults_1night_price">760 Kč</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.single_room">Jednolůžkový pokoj</span>
+                  <span data-i18n="prices.table.single_room_summer">800 Kč osoba/noc</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.apartment_surcharge">Příplatek za apartmán</span>
+                  <span data-i18n="prices.table.apartment_surcharge_price">150 Kč osoba/noc</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.breakfast_adults">Snídaně dospělí</span>
+                  <span data-i18n="prices.table.breakfast_adults_price">160 Kč</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.breakfast_children">Snídaně děti</span>
+                  <span data-i18n="prices.table.breakfast_children_price">80 Kč</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.sauna">Sauna 2 osoby</span>
+                  <span data-i18n="prices.table.sauna_price">400 Kč</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Special Season Section -->
+          <div class="py-6">
+            <div class="price-title-container" onclick="togglePriceSection(this)">
+              <div class="flex justify-between items-center">
+                <h3 class="text-2xl" data-i18n="prices.table.special">Silvestr, Jiz50, atd.</h3>
+                <span class="toggle-btn">+</span>
+              </div>
+            </div>
+            <div class="price-content text-base">
+              <ul class="mt-4 space-y-2 pl-2">
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.adults">Dospělí</span>
+                  <span data-i18n="prices.table.adults_special">690 Kč osoba / noc</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.children_12">Děti do 12 let</span>
+                  <span data-i18n="prices.table.children_12_special">450 Kč osoba / noc</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.children_2">Děti do 2 let</span>
+                  <span data-i18n="prices.table.free">zdarma</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.extra_bed">Přistýlka</span>
+                  <span data-i18n="prices.table.extra_bed_special">400 Kč osoba/noc</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.adults_1night">Dospělí na 1 noc</span>
+                  <span data-i18n="prices.table.adults_1night_price">760 Kč</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.single_room">Jednolůžkový pokoj</span>
+                  <span data-i18n="prices.table.single_room_special">1000 Kč osoba/noc</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.apartment_surcharge">Příplatek za apartmán</span>
+                  <span data-i18n="prices.table.apartment_surcharge_price">150 Kč osoba/noc</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.breakfast_adults">Snídaně dospělí</span>
+                  <span data-i18n="prices.table.breakfast_adults_price">160 Kč</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.breakfast_children">Snídaně děti</span>
+                  <span data-i18n="prices.table.breakfast_children_price">80 Kč</span>
+                </li>
+                <li class="flex justify-between">
+                  <span data-i18n="prices.table.sauna">Sauna 2 osoby</span>
+                  <span data-i18n="prices.table.sauna_price">400 Kč</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section class="flex flex-col justify-center items-center my-40">
-        <div class="my-10 max-w-[1000px] text-center text-2xl">
+      <section class="flex flex-col justify-center md:items-center my-2 md:my-40">
+
+        <div class="mb-10 max-w-[1000px] md:text-center text-base md:text-2xl">
           <b data-i18n="prices.included.title"> Ceny zahrnují: </b>
           <p data-i18n="prices.included.description">
             Wifi v celém objektu, energii, vodu, odvoz odpadků, závěrečný úklid,
@@ -422,7 +662,7 @@
           </p>
         </div>
 
-        <div class="my-10 max-w-[1000px] text-center text-2xl">
+        <div class="mb-10 max-w-[1000px] md:text-center text-base md:text-2xl">
           <b data-i18n="prices.notIncluded.title"> Ceny nezahrnují: </b>
           <p data-i18n="prices.notIncluded.description">
             Rekreační poplatek obci - sazba poplatku činí za osobu starší 18 let
@@ -430,7 +670,7 @@
           </p>
         </div>
 
-        <div class="my-10 max-w-[1000px] text-center text-2xl">
+        <div class="mb-10 max-w-[1000px] md:text-center text-base md:text-2xl">
           <b data-i18n="prices.paymentTerms.title">
             Rezervace a platební podmínky:
           </b>
@@ -442,7 +682,7 @@
           </p>
         </div>
 
-        <div class="my-10 max-w-[1000px] text-center text-2xl">
+        <div class="mb-10 max-w-[1000px] md:text-center text-base md:text-2xl">
           <b data-i18n="prices.cancellation.title"> Storno podnínky: </b> <br />
           <div>
             <p data-i18n="prices.cancellation.rule1">
@@ -457,14 +697,14 @@
           </div>
         </div>
 
-        <div class="flex flex-row justify-between my-10 w-3/4">
-          <div class="text-2xl">
+        <div class="flex flex-col md:flex-row justify-between w-3/4">
+          <div class="text-base md:text-2xl mb-10">
             <b data-i18n="prices.arrival.title">Příjezd:</b>
             <p data-i18n="prices.arrival.description">
               Zahájení pobytu od 15:00 hod.
             </p>
           </div>
-          <div class="text-2xl text-right">
+          <div class="text-base md:text-2xl md:text-right ">
             <b data-i18n="prices.departure.title">Odjezd:</b>
             <p data-i18n="prices.departure.description">
               Vyklizení pokoje do 10:00 hod.
