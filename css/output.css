@@ -640,6 +640,9 @@ video {
 .mb-8{
   margin-bottom: 2rem;
 }
+.mt-6{
+  margin-top: 1.5rem;
+}
 .box-border{
   box-sizing: border-box;
 }
@@ -663,6 +666,9 @@ video {
 }
 .aspect-square{
   aspect-ratio: 1 / 1;
+}
+.aspect-\[3\/4\]{
+  aspect-ratio: 3/4;
 }
 .size-8{
   width: 2rem;
@@ -1415,6 +1421,11 @@ textarea {
     margin-bottom: 10rem;
   }
 
+  .md\:my-10{
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
   .md\:mb-40{
     margin-bottom: 10rem;
   }
@@ -1435,12 +1446,20 @@ textarea {
     margin-bottom: 2.5rem;
   }
 
+  .md\:mt-20{
+    margin-top: 5rem;
+  }
+
   .md\:flex{
     display: flex;
   }
 
   .md\:hidden{
     display: none;
+  }
+
+  .md\:aspect-\[4\/3\]{
+    aspect-ratio: 4/3;
   }
 
   .md\:h-\[550px\]{
