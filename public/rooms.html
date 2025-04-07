@@ -23,6 +23,60 @@
   <link rel="manifest" href="../site.webmanifest">
   <meta name="theme-color" content="#fafafa">
   
+  <style>
+    /* Disable hover effect for room details on small screens */
+    @media (max-width: 890px) { /* Corresponds to Tailwind's 'md' breakpoint */
+      .room-card .room-details {
+        /* Ensure hover effect doesn't display the details on small screens */
+        display: none !important;
+      }
+
+      .imr {
+          height: auto !important; /* Reset height to allow aspect ratio to work */
+          aspect-ratio: 1 / 1; /* Set aspect ratio to 1:1 (square) */
+        }
+
+    }
+
+    /* Styles specific to the accordion view on small screens */
+    .room-details-list-accordion {
+      padding: 1rem; /* Original padding */
+    }
+    .room-details-list-accordion .room-details-item {
+      display: flex; /* Ensure flex layout */
+      align-items: center; /* Align icon and text */
+      gap: 1rem; /* Original gap */
+    }
+    .room-details-list-accordion .room-details-icon {
+      width: 1.5rem; /* Original icon size */
+      height: 1.5rem;
+    }
+
+    /* Styles specific to the hover overlay view on medium screens and up */
+    @media (min-width: 768px) { /* Tailwind md breakpoint */
+      .room-details .room-details-list {
+        padding: 2rem; /* New padding */
+        /* Layout properties from original rules */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+        align-items: flex-start;
+        height: 100%; 
+      }
+      .room-details .room-details-item {
+        display: flex; 
+        align-items: center; 
+        gap: 2.5rem; /* New gap */
+        font-size: 1.25rem; /* New font size */
+        margin-bottom: 0.5rem; /* Keep original margin */
+      }
+      .room-details .room-details-icon {
+        width: 2rem; /* New icon size */
+        height: 2rem;
+      }
+    }
+  </style>
+
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="./components/js/utils.js"></script>
   <script type="module" src="../js/modalGallery.js"></script>
@@ -163,16 +217,17 @@
     });
   </script>
   <!--  <script src="../js/priceSheets.js" defer></script>-->
+  <script src="js/accordion.js" defer></script>
 </head>
 
 <body>
 
   <div id="header"></div>
 
-  <main class="box-border px-10">
+  <main class="box-border px-4 md:px-10">
 
     <section>
-      <h2 class="my-10 text-5xl bold" data-i18n="rooms.title"> 
+      <h2 class="mt-6 mb-4 md:mb-10 text-3xl md:text-4xl" data-i18n="rooms.title"> 
         Pokoje 
       </h2>
 
@@ -180,7 +235,7 @@
         <div class="p-2 sm:w-1/2 lg:w-1/4">
           <div class="room-card room-1" data-room-id="1">
             <img src="../img/pokoje/1.jpg" class="object-cover w-full imr" />
-            <div class="room-details">
+            <div class="room-details hidden md:block pointer-events-none">
               <ul class="room-details-list">
                 <li class="room-details-item">
                   <i data-lucide="bed-double" class="room-details-icon"></i>
@@ -208,8 +263,42 @@
                 </li>
               </ul>
             </div>
-            <div class="mt-5 mb-10 text-3xl">
+            <div class="mt-5 mb-10 text-3xl hidden md:block">
               <span data-i18n="rooms.room1">Pokoj č.1</span>
+            </div>
+            <div class="md:hidden my-5">
+              <div class="service-title-container flex justify-between items-center w-full cursor-pointer py-2" onclick="toggleServiceDescription(this)">
+                <span class="text-2xl" data-i18n="rooms.room1">Pokoj č.1</span>
+                <span class="toggle-btn">+</span>
+              </div>
+              <div class="service-description">
+                <ul class="room-details-list room-details-list-accordion mt-2 text-base space-y-1">
+                  <li class="room-details-item">
+                    <i data-lucide="bed-double" class="room-details-icon"></i>
+                    <span data-i18n="rooms.three_beds">3 lůžka</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="shower-head" class="room-details-icon"></i>
+                    <span data-i18n="rooms.wc">sprcha + wc</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="tv" class="room-details-icon"></i>
+                    <span data-i18n="rooms.tv">televize na pokoji</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="refrigerator" class="room-details-icon"></i>
+                    <span data-i18n="rooms.refrigerator">lednice</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="wifi" class="room-details-icon"></i>
+                    <span data-i18n="rooms.wifi">wifi na celém pokoji</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="car" class="room-details-icon"></i>
+                    <span data-i18n="rooms.parking">parkovací místo</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -217,7 +306,7 @@
         <div class="p-2 sm:w-1/2 lg:w-1/4">
           <div class="room-card room-2" data-room-id="2">
             <img src="../img/pokoje/2.jpg" class="object-cover w-full imr" />
-            <div class="room-details">
+            <div class="room-details hidden md:block pointer-events-none">
               <ul class="room-details-list">
                 <li class="room-details-item">
                   <i data-lucide="bed-double" class="room-details-icon"></i>
@@ -245,8 +334,42 @@
                 </li>
               </ul>
             </div>
-            <div class="mt-5 mb-10 text-3xl">
+            <div class="mt-5 mb-10 text-3xl hidden md:block">
               <span data-i18n="rooms.room2">Pokoj č.2</span>
+            </div>
+            <div class="md:hidden my-5">
+              <div class="service-title-container flex justify-between items-center w-full cursor-pointer py-2" onclick="toggleServiceDescription(this)">
+                <span class="text-2xl" data-i18n="rooms.room2">Pokoj č.2</span>
+                <span class="toggle-btn">+</span>
+              </div>
+              <div class="service-description">
+                <ul class="room-details-list room-details-list-accordion mt-2 text-base space-y-1">
+                  <li class="room-details-item">
+                    <i data-lucide="bed-double" class="room-details-icon"></i>
+                    <span data-i18n="rooms.three_beds">3 lůžka</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="shower-head" class="room-details-icon"></i>
+                    <span data-i18n="rooms.wc">sprcha + wc</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="tv" class="room-details-icon"></i>
+                    <span data-i18n="rooms.tv">televize na pokoji</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="refrigerator" class="room-details-icon"></i>
+                    <span data-i18n="rooms.refrigerator">lednice</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="wifi" class="room-details-icon"></i>
+                    <span data-i18n="rooms.wifi">wifi na celém pokoji</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="car" class="room-details-icon"></i>
+                    <span data-i18n="rooms.parking">parkovací místo</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -254,7 +377,7 @@
         <div class="p-2 sm:w-1/2 lg:w-1/4">
           <div class="room-card room-3" data-room-id="3">
             <img src="../img/pokoje/5.jpg" class="object-cover w-full imr" />
-            <div class="room-details">
+            <div class="room-details hidden md:block pointer-events-none">
               <ul class="room-details-list">
                 <li class="room-details-item">
                   <i data-lucide="bed-double" class="room-details-icon"></i>
@@ -282,8 +405,42 @@
                 </li>
               </ul>
             </div>
-            <div class="mt-5 mb-10 text-3xl">
+            <div class="mt-5 mb-10 text-3xl hidden md:block">
               <span data-i18n="rooms.room3">Pokoj č.3</span>
+            </div>
+            <div class="md:hidden my-5">
+              <div class="service-title-container flex justify-between items-center w-full cursor-pointer py-2" onclick="toggleServiceDescription(this)">
+                <span class="text-2xl" data-i18n="rooms.room3">Pokoj č.3</span>
+                <span class="toggle-btn">+</span>
+              </div>
+              <div class="service-description">
+                <ul class="room-details-list room-details-list-accordion mt-2 text-base space-y-1">
+                  <li class="room-details-item">
+                    <i data-lucide="bed-double" class="room-details-icon"></i>
+                    <span data-i18n="rooms.three_beds">3 lůžka</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="shower-head" class="room-details-icon"></i>
+                    <span data-i18n="rooms.wc">sprcha + wc</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="tv" class="room-details-icon"></i>
+                    <span data-i18n="rooms.tv">televize na pokoji</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="refrigerator" class="room-details-icon"></i>
+                    <span data-i18n="rooms.refrigerator">lednice</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="wifi" class="room-details-icon"></i>
+                    <span data-i18n="rooms.wifi">wifi na celém pokoji</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="car" class="room-details-icon"></i>
+                    <span data-i18n="rooms.parking">parkovací místo</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -291,7 +448,7 @@
         <div class="p-2 sm:w-1/2 lg:w-1/4">
           <div class="room-card room-4" data-room-id="4">
             <img src="../img/pokoje/4.jpg" class="object-cover w-full imr" />
-            <div class="room-details">
+            <div class="room-details hidden md:block pointer-events-none">
               <ul class="room-details-list">
                 <li class="room-details-item">
                   <i data-lucide="bed-double" class="room-details-icon"></i>
@@ -319,8 +476,42 @@
                 </li>
               </ul>
             </div>
-            <div class="mt-5 mb-10 text-3xl">
+            <div class="mt-5 mb-10 text-3xl hidden md:block">
               <span data-i18n="rooms.room4">Pokoj č.4</span>
+            </div>
+            <div class="md:hidden my-5">
+              <div class="service-title-container flex justify-between items-center w-full cursor-pointer py-2" onclick="toggleServiceDescription(this)">
+                <span class="text-2xl" data-i18n="rooms.room4">Pokoj č.4</span>
+                <span class="toggle-btn">+</span>
+              </div>
+              <div class="service-description">
+                <ul class="room-details-list room-details-list-accordion mt-2 text-base space-y-1">
+                  <li class="room-details-item">
+                    <i data-lucide="bed-double" class="room-details-icon"></i>
+                    <span data-i18n="rooms.two_beds">2 lůžka</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="shower-head" class="room-details-icon"></i>
+                    <span data-i18n="rooms.wc">sprcha + wc</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="tv" class="room-details-icon"></i>
+                    <span data-i18n="rooms.tv">televize na pokoji</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="refrigerator" class="room-details-icon"></i>
+                    <span data-i18n="rooms.refrigerator">lednice</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="wifi" class="room-details-icon"></i>
+                    <span data-i18n="rooms.wifi">wifi na celém pokoji</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="car" class="room-details-icon"></i>
+                    <span data-i18n="rooms.parking">parkovací místo</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -328,7 +519,7 @@
         <div class="p-2 sm:w-1/2 lg:w-1/4">
           <div class="room-card room-5" data-room-id="5">
             <img src="../img/pokoje/5.jpg" class="object-cover w-full imr" />
-            <div class="room-details">
+            <div class="room-details hidden md:block pointer-events-none">
               <ul class="room-details-list">
                 <li class="room-details-item">
                   <i data-lucide="bed-double" class="room-details-icon"></i>
@@ -356,8 +547,42 @@
                 </li>
               </ul>
             </div>
-            <div class="mt-5 mb-10 text-3xl">
+            <div class="mt-5 mb-10 text-3xl hidden md:block">
               <span data-i18n="rooms.room5">Pokoj č.5</span>
+            </div>
+            <div class="md:hidden my-5">
+              <div class="service-title-container flex justify-between items-center w-full cursor-pointer py-2" onclick="toggleServiceDescription(this)">
+                <span class="text-2xl" data-i18n="rooms.room5">Pokoj č.5</span>
+                <span class="toggle-btn">+</span>
+              </div>
+              <div class="service-description">
+                <ul class="room-details-list room-details-list-accordion mt-2 text-base space-y-1">
+                  <li class="room-details-item">
+                    <i data-lucide="bed-double" class="room-details-icon"></i>
+                    <span data-i18n="rooms.two_beds">2 lůžka</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="shower-head" class="room-details-icon"></i>
+                    <span data-i18n="rooms.wc">sprcha + wc</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="tv" class="room-details-icon"></i>
+                    <span data-i18n="rooms.tv">televize na pokoji</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="refrigerator" class="room-details-icon"></i>
+                    <span data-i18n="rooms.refrigerator">lednice</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="wifi" class="room-details-icon"></i>
+                    <span data-i18n="rooms.wifi">wifi na celém pokoji</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="car" class="room-details-icon"></i>
+                    <span data-i18n="rooms.parking">parkovací místo</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -365,7 +590,7 @@
         <div class="p-2 sm:w-1/2 lg:w-1/4">
           <div class="room-card room-6" data-room-id="6">
             <img src="../img/pokoje/6.jpg" class="object-cover w-full imr" />
-            <div class="room-details">
+            <div class="room-details hidden md:block pointer-events-none">
               <ul class="room-details-list">
                 <li class="room-details-item">
                   <i data-lucide="bed-double" class="room-details-icon"></i>
@@ -393,8 +618,42 @@
                 </li>
               </ul>
             </div>
-            <div class="mt-5 mb-10 text-3xl">
+            <div class="mt-5 mb-10 text-3xl hidden md:block">
               <span data-i18n="rooms.room6">Pokoj č.6</span>
+            </div>
+            <div class="md:hidden my-5">
+              <div class="service-title-container flex justify-between items-center w-full cursor-pointer py-2" onclick="toggleServiceDescription(this)">
+                <span class="text-2xl" data-i18n="rooms.room6">Pokoj č.6</span>
+                <span class="toggle-btn">+</span>
+              </div>
+              <div class="service-description">
+                <ul class="room-details-list room-details-list-accordion mt-2 text-base space-y-1">
+                  <li class="room-details-item">
+                    <i data-lucide="bed-double" class="room-details-icon"></i>
+                    <span data-i18n="rooms.two_beds">2 lůžka</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="shower-head" class="room-details-icon"></i>
+                    <span data-i18n="rooms.wc">sprcha + wc</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="tv" class="room-details-icon"></i>
+                    <span data-i18n="rooms.tv">televize na pokoji</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="refrigerator" class="room-details-icon"></i>
+                    <span data-i18n="rooms.refrigerator">lednice</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="wifi" class="room-details-icon"></i>
+                    <span data-i18n="rooms.wifi">wifi na celém pokoji</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="car" class="room-details-icon"></i>
+                    <span data-i18n="rooms.parking">parkovací místo</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -402,7 +661,7 @@
         <div class="p-2 sm:w-1/2 lg:w-1/4">
           <div class="room-card room-7" data-room-id="7">
             <img src="../img/pokoje/7.jpg" class="object-cover w-full imr" />
-            <div class="room-details">
+            <div class="room-details hidden md:block pointer-events-none">
               <ul class="room-details-list">
                 <li class="room-details-item">
                   <i data-lucide="bed-double" class="room-details-icon"></i>
@@ -430,28 +689,62 @@
                 </li>
               </ul>
             </div>
-            <div class="mt-5 mb-10 text-3xl">
+            <div class="mt-5 mb-10 text-3xl hidden md:block">
               <span data-i18n="rooms.room7">Pokoj č.7</span>
+            </div>
+            <div class="md:hidden my-5">
+              <div class="service-title-container flex justify-between items-center w-full cursor-pointer py-2" onclick="toggleServiceDescription(this)">
+                <span class="text-2xl" data-i18n="rooms.room7">Pokoj č.7</span>
+                <span class="toggle-btn">+</span>
+              </div>
+              <div class="service-description">
+                <ul class="room-details-list room-details-list-accordion mt-2 text-base space-y-1">
+                  <li class="room-details-item">
+                    <i data-lucide="bed-double" class="room-details-icon"></i>
+                    <span data-i18n="rooms.four_beds">4 lůžka</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="shower-head" class="room-details-icon"></i>
+                    <span data-i18n="rooms.wc">sprcha + wc</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="tv" class="room-details-icon"></i>
+                    <span data-i18n="rooms.tv">televize na pokoji</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="refrigerator" class="room-details-icon"></i>
+                    <span data-i18n="rooms.refrigerator">lednice</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="wifi" class="room-details-icon"></i>
+                    <span data-i18n="rooms.wifi">wifi na celém pokoji</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="car" class="room-details-icon"></i>
+                    <span data-i18n="rooms.parking">parkovací místo</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="mb-40">
-        <p class="mt-20 max-w-[1000px] text-2xl" data-i18n="rooms.rooms_text">
-          Dvoulůžkové a třílůžkové pokoje, tak jako i čtyřlůžkový pokoj se nacházejí 
-          v prvním patře našeho penzionu a jsou tak dostatečně vzdálené od společenské 
-          místnosti a ostatních společných prostor, což umožňuje našim hostům klidný a nerušený pobyt.
-          Všechny pokoje jsou zařízené nábytkem z masivu v přírodním odstínu, manželskou 
-          postelí, šatní skříní, stolkem a židlemi, nočními stolky a poličkami. Třílůžkové 
+      <div class="mb-20 md:mb-40">
+        <p class="mt-10 md:mt-20 max-w-[1000px] text-base md:text-2xl" data-i18n="rooms.rooms_text">
+          Dvoulůžkové a třílůžkové pokoje, tak jako i čtyřlůžkový pokoj se nacházejí 
+          v prvním patře našeho penzionu a jsou tak dostatečně vzdálené od společenské 
+          místnosti a ostatních společných prostor, což umožňuje našim hostům klidný a nerušený pobyt.
+          Všechny pokoje jsou zařízené nábytkem z masivu v přírodním odstínu, manželskou 
+          postelí, šatní skříní, stolkem a židlemi, nočními stolky a poličkami. Třílůžkové 
           pokoje mají ještě jednolůžkovou postel, čtyřlůžkový pokoj je vybaven palandou taktéž 
-          z masivního dřeva. Pro Váš komfort je v každém pokoji malá hotelová lednička, 
-          rychlovarná konvice, hrnečky na čaj, TV a fén na vlasy. Do každého pokoje je možné 
-          na vyžádání přidat dětskou dřevěnou postýlku s peřinkami, dětské prkénko, nočník nebo 
+          z masivního dřeva. Pro Váš komfort je v každém pokoji malá hotelová lednička, 
+          rychlovarná konvice, hrnečky na čaj, TV a fén na vlasy. Do každého pokoje je možné 
+          na vyžádání přidat dětskou dřevěnou postýlku s peřinkami, dětské prkénko, nočník nebo 
           stupátko pod umyvadlo.
         </p>
 
-        <div class="my-20 text-2xl">
+        <div class="my-10 md:my-20 text-2xl">
           <a href="provozni-rad.html" class="underline" data-i18n="operating_rules.title">
             Provozní řád
           </a>
@@ -462,7 +755,7 @@
 
     <section id="apartmany">
       <div class="h-[2px] bg-black"></div>
-      <h2 class="my-10 text-5xl bold" data-i18n="rooms.apartments"> 
+      <h2 class="mt-6 mb-4 md:mb-10 text-3xl md:text-4xl" data-i18n="rooms.apartments"> 
         Apartmány 
       </h2>
 
@@ -471,7 +764,7 @@
         <div class="p-2 w-full md:w-1/2">
           <div class="room-card apartment-67" data-room-id="apartment-67">
             <img src="../img/apartmany/67.jpg" class="object-cover w-full imr" />
-            <div class="room-details">
+            <div class="room-details hidden md:block pointer-events-none">
               <ul class="room-details-list">
                 <li class="room-details-item">
                   <i data-lucide="bed-double" class="room-details-icon"></i>
@@ -499,8 +792,42 @@
                 </li>
               </ul>
             </div>
-            <div class="mt-5 mb-10 text-3xl">
+            <div class="mt-5 mb-10 text-3xl hidden md:block">
               <span data-i18n="rooms.apartment67">Apartmán č.67</span>
+            </div>
+            <div class="md:hidden my-5">
+              <div class="service-title-container flex justify-between items-center w-full cursor-pointer py-2" onclick="toggleServiceDescription(this)">
+                <span class="text-2xl" data-i18n="rooms.apartment67">Apartmán č.67</span>
+                <span class="toggle-btn">+</span>
+              </div>
+              <div class="service-description">
+                <ul class="room-details-list room-details-list-accordion mt-2 text-base space-y-1">
+                  <li class="room-details-item">
+                    <i data-lucide="bed-double" class="room-details-icon"></i>
+                    <span data-i18n="rooms.six_beds">6 lůžka</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="shower-head" class="room-details-icon"></i>
+                    <span data-i18n="rooms.wc">sprcha + wc</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="tv" class="room-details-icon"></i>
+                    <span data-i18n="rooms.tv">televize na pokoji</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="refrigerator" class="room-details-icon"></i>
+                    <span data-i18n="rooms.refrigerator">lednice</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="wifi" class="room-details-icon"></i>
+                    <span data-i18n="rooms.wifi">wifi na celém pokoji</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="car" class="room-details-icon"></i>
+                    <span data-i18n="rooms.parking">parkovací místo</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -508,7 +835,7 @@
         <div class="p-2 w-full md:w-1/2">
           <div class="room-card apartment-68" data-room-id="apartment-68">
             <img src="../img/apartmany/68.jpg" class="object-cover w-full imr" />
-            <div class="room-details">
+            <div class="room-details hidden md:block pointer-events-none">
               <ul class="room-details-list">
                 <li class="room-details-item">
                   <i data-lucide="bed-double" class="room-details-icon"></i>
@@ -536,16 +863,50 @@
                 </li>
               </ul>
             </div>
-            <div class="mt-5 mb-10 text-3xl">
+            <div class="mt-5 mb-10 text-3xl hidden md:block">
               <span data-i18n="rooms.apartment68">Apartmán č.68</span>
+            </div>
+            <div class="md:hidden my-5">
+              <div class="service-title-container flex justify-between items-center w-full cursor-pointer py-2" onclick="toggleServiceDescription(this)">
+                <span class="text-2xl" data-i18n="rooms.apartment68">Apartmán č.68</span>
+                <span class="toggle-btn">+</span>
+              </div>
+              <div class="service-description">
+                <ul class="room-details-list room-details-list-accordion mt-2 text-base space-y-1">
+                  <li class="room-details-item">
+                    <i data-lucide="bed-double" class="room-details-icon"></i>
+                    <span data-i18n="rooms.four_beds">4 lůžka</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="shower-head" class="room-details-icon"></i>
+                    <span data-i18n="rooms.wc">sprcha + wc</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="tv" class="room-details-icon"></i>
+                    <span data-i18n="rooms.tv">televize na pokoji</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="refrigerator" class="room-details-icon"></i>
+                    <span data-i18n="rooms.refrigerator">lednice</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="wifi" class="room-details-icon"></i>
+                    <span data-i18n="rooms.wifi">wifi na celém pokoji</span>
+                  </li>
+                  <li class="room-details-item">
+                    <i data-lucide="car" class="room-details-icon"></i>
+                    <span data-i18n="rooms.parking">parkovací místo</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
 
       </div>
 
-      <div class="mb-40">
-        <p class="mt-20 max-w-[1000px] text-2xl" data-i18n="rooms.apartments_text">
+      <div class="mb-20 md:mb-40">
+        <p class="mt-10 md:mt-20 max-w-[1000px] text-base md:text-2xl" data-i18n="rooms.apartments_text">
           Oba nadstandardně zařízené apartmány se nacházejí v podkroví našeho penzionu 
           a umožňují tak krásný výhled na okolní krajinu.Každý apartmán je dvoupokojový 
           a je vybavený nábytkem z masivu v přírodním odstínu, manželskou postelí, jednolůžko 
@@ -555,7 +916,7 @@
           dětské prkénko, nočník, vaničku nebo stupátko pod umyvadlo.
         </p>
 
-        <div class="my-20 text-2xl">
+        <div class="my-10 md:my-20 text-2xl">
           <a href="provozni-rad.html" class="underline" data-i18n="operating_rules.title">
             Provozní řád
           </a>

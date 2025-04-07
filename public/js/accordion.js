@@ -1,7 +1,7 @@
 // Unified toggle function for both service descriptions and price sections
 function toggleAccordion(element, contentSelector) {
   // Only run this function on small screens
-  if (window.innerWidth >= 768) return;
+  if (window.innerWidth >= 890) return;
   
   // Get the toggle button and content element
   const toggleBtn = element.querySelector('.toggle-btn');

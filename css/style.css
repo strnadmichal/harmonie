@@ -324,34 +324,17 @@ textarea {
   overflow: auto;
 }
 
-.room-details-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  height: 100%;
-  padding: 2rem;
-  font-size: 1.25rem;
-}
-
-.room-details-item {
-  display: flex;
-  align-items: center;
-  gap: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.room-details-icon {
-  width: 2rem;
-  height: 2rem;
-}
-
 .room-card:hover .room-details {
   opacity: 1;
 }
 
 .imr {
   height: 512px;
+}
+
+/* Styles for the room details text */
+.room-details-text {
+  font-size: 1rem; /* Adjust as needed */
 }
 
 /* ==========================================================================
@@ -507,5 +490,60 @@ textarea {
   h2,
   h3 {
     page-break-after: avoid;
+  }
+}
+
+/* ===== UNIFIED ACCORDION STYLES (from index.html) ===== */
+/* Apply only on small screens */
+@media (max-width: 890px) {
+    /* Room card adjustments for accordion */
+    .room-card {
+      height: auto; /* Allow card height to adjust to content */
+      margin-bottom: 2rem; /* Adjust margin for mobile layout */
+    }
+
+    /* Hidden content styles */
+    .service-description,
+    .price-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out, opacity 0.3s ease-out, margin-bottom 0.2s ease-out;
+      opacity: 0;
+      margin-bottom: 0; /* Start with no margin */
+    }
+    
+    /* Expanded state */
+    .service-description.expanded,
+    .price-content.expanded {
+      max-height: 1000px; /* Large enough to contain any text */
+      opacity: 1;
+      transition: max-height 0.4s ease-in, opacity 0.3s ease-in, margin-bottom 0.2s ease-in;
+      margin-bottom: 2rem; /* Add space below expanded content */
+    }
+    
+    /* Title container styles */
+    .service-title-container,
+    .price-title-container {
+      cursor: pointer;
+    }
+    
+    /* Toggle button styles */
+    .toggle-btn {
+      font-size: 30px;
+      font-weight: bold;
+      color: #10162b;
+      transition: transform 0.4s ease;
+    }
+    
+    /* Active state for toggle buttons */
+    .toggle-btn.active {
+      transform: rotate(45deg);
+    }
+}
+
+/* Force hide mobile accordion on medium screens and up */
+@media (min-width: 890px) {
+  .room-card > div.md\:hidden { 
+    display: none !important; 
   }
 }

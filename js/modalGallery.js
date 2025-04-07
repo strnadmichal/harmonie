@@ -29,14 +29,19 @@ function initModalGallery(galleryItemSelector = '.room-card', roomIdAttribute = 
   
   // Add click event to each gallery item
   galleryItems.forEach((item) => {
-    item.addEventListener('click', () => {
-      // Find roomId from the data attribute
-      const roomId = item.getAttribute(roomIdAttribute);
-      const room = roomData.find(r => r.id.toString() === roomId);
-      
-      if (room) {
-        openGallery(room);
+    item.addEventListener('click', (event) => {
+      // Check if the clicked element is the image within the card
+      if (event.target.tagName === 'IMG') {
+        // Find roomId from the data attribute of the parent card ('item')
+        const roomId = item.getAttribute(roomIdAttribute);
+        // Use the stored roomData from the currentGallery object
+        const room = currentGallery.roomData.find(r => r.id.toString() === roomId);
+        
+        if (room) {
+          openGallery(room);
+        }
       }
+      // If the click was not directly on an IMG element, do nothing.
     });
   });
   
