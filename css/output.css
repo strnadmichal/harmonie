@@ -796,6 +796,9 @@ video {
 .p-2{
   padding: 0.5rem;
 }
+.p-4{
+  padding: 1rem;
+}
 .px-10{
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -1477,6 +1480,10 @@ textarea {
 
   .md\:mt-20{
     margin-top: 5rem;
+  }
+
+  .md\:mt-40{
+    margin-top: 10rem;
   }
 
   .md\:block{
