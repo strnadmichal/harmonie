@@ -26,26 +26,15 @@ export function initializeDropdownMenu() {
       // When closing menu, temporarily disable transitions
       header.style.transition = 'none';
 
-      // Restore the original header color or check the scroll position
+      // Restore the original header color that was saved when the menu opened
       if (header.dataset.originalHeaderColor) {
         header.setAttribute('data-header-color', header.dataset.originalHeaderColor);
+        // Clean up the temporary storage
         delete header.dataset.originalHeaderColor;
       } else {
-        // Fallback to check scroll position to determine proper theme
-        const slideshow = document.getElementById('slideshow');
-
-        if (slideshow) {
-          // Only on index page with slideshow
-          const scrollThreshold = window.innerHeight * 0.9;
-          if (window.scrollY <= scrollThreshold) {
-            header.setAttribute('data-header-color', 'light');
-          } else {
-            header.setAttribute('data-header-color', 'dark');
-          }
-        } else {
-          // On other pages without slideshow, use dark theme
-          header.setAttribute('data-header-color', 'dark');
-        }
+        // This case should ideally not happen if the open logic is correct,
+        // but log a warning if it does. The header will retain its current color.
+        console.warn('Could not restore original header color: dataset.originalHeaderColor not found.');
       }
 
       // Force a reflow to ensure the transition property is applied before we change it back
@@ -61,45 +50,33 @@ export function initializeDropdownMenu() {
 
 
   button.addEventListener('click', function () {
-    const isOpening = dropdown.classList.contains('hidden');
-    dropdown.classList.toggle('hidden');
+    const isCurrentlyOpen = !dropdown.classList.contains('hidden');
 
-    // Update dropdown state
-    window.isDropdownOpen = !dropdown.classList.contains('hidden');
+    if (isCurrentlyOpen) {
+        // --- Closing Action ---
+        closeDropdown();
+    } else {
+        // --- Opening Action ---
+        if (header) {
+            // Store the original header color *before* changing it
+            header.dataset.originalHeaderColor = header.getAttribute('data-header-color');
+            // Set to light theme for the open dropdown view (dark background)
+            header.setAttribute('data-header-color', 'light');
+            // Ensure header is visible if it was hidden by scrolling
+            header.classList.remove('header-hidden');
+        }
+        // Show the dropdown
+        dropdown.classList.remove('hidden');
+        window.isDropdownOpen = true;
 
-    dropdownIconOpen.forEach(icon => {
-      icon.classList.toggle('hiddenOveride');
-    });
-
-    dropdownIconClose.classList.toggle('hiddenOveride');
-
-    if (header) {
-      // Store the original header color when opening the dropdown
-      if (isOpening) {
-        // Save current header color before changing it
-        header.dataset.originalHeaderColor = header.getAttribute('data-header-color');
-
-        // When opening menu, always set to light theme (white logo) and ensure header is visible
-        header.setAttribute('data-header-color', 'light');
-        header.classList.remove('header-hidden');
-      } else {
-        // Delegate closing logic to the reusable function
-        closeDropdown(); // Call close function, but the state is already toggled, so we need to handle that nuance or refactor
-        // Re-check state as closeDropdown might have just run
-         if (!window.isDropdownOpen) {
-             // If it's now closed (because button click toggled it *back* to closed)
-             // Need to ensure the icons are correct for a closed state
-             dropdownIconOpen.forEach(icon => icon.classList.remove('hiddenOveride'));
-             dropdownIconClose.classList.add('hiddenOveride');
-
-             // Also re-run the color logic if needed (handled by closeDropdown)
-         }
-      }
-      console.log(header.getAttribute('data-header-color'));
+        // Toggle icons
+        dropdownIconOpen.forEach(icon => icon.classList.add('hiddenOveride'));
+        dropdownIconClose.classList.remove('hiddenOveride');
     }
-  })
+    console.log('Button clicked. Dropdown open:', window.isDropdownOpen, 'Header color:', header ? header.getAttribute('data-header-color') : 'N/A');
+  });
 
-  // Add click listeners to all dropdown links
+  // Add click listeners to all dropdown links to close the menu
   dropdownLinks.forEach(link => {
       link.addEventListener('click', () => {
           console.log('Dropdown link clicked');

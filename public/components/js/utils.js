@@ -11,7 +11,15 @@ async function loadComponent(name, targetId) {
   try {
     const response = await fetch(`./components/${name}/${name}.html`);
     const html = await response.text();
-    document.getElementById(targetId).innerHTML = html;
+    const targetElement = document.getElementById(targetId);
+    targetElement.innerHTML = html;
+
+    // Apply page-specific theme before initializing component scripts
+    const pageTheme = targetElement.getAttribute('data-page-theme');
+    const headerElement = targetElement.querySelector('header'); // Find the actual header element within the loaded HTML
+    if (pageTheme && headerElement) {
+      headerElement.setAttribute('data-header-color', pageTheme);
+    }
 
     const config = componentScripts[name];
     if (config) {
