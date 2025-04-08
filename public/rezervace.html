@@ -69,7 +69,6 @@
     .consent-group {
       display: flex;
       align-items: flex-start;
-      font-size: 20px;
       margin: 30px 0;
     }
 
@@ -98,12 +97,10 @@
     .submit-button {
       background-color: #10162b;
       color: white;
-      padding: 20px 80px;
       border: none;
       cursor: pointer;
       text-align: center;
       display: block;
-      margin-top: 10px;
     }
 
     .privacy-notice {
@@ -192,8 +189,8 @@
   <div id="header"></div>
 
   <main class="box-border px-4 md:px-10">
-    <section class="mb-20">
-      <h2 class="mt-6 mb-4 md:mb-10 text-3xl md:text-4xl" data-i18n="reservation.title">
+    <section class="mb-0 md:mb-20">
+      <h2 class="mt-0 md:mt-6 mb-6 md:mb-10 text-3xl md:text-4xl" data-i18n="reservation.title">
         Rezervace
       </h2>
 
@@ -288,7 +285,7 @@
           </select>
         </div>
 
-        <div class="form-group mt-10">
+        <div class="form-group my-10">
           <label for="message" data-i18n="reservation.message">Vaše zpráva</label>
           <textarea id="message" name="message" rows="8"></textarea>
         </div>
@@ -301,7 +298,7 @@
           </p>
         </div>
 
-        <div class="consent-group">
+        <div class="consent-group text-base md:text-xl">
           <label for="consent" data-i18n="reservation.consent_text">
             Přečetl jsem si a souhlasím se zpracováním osobních údajů
           </label>
@@ -312,7 +309,7 @@
         <!-- <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
         <div class="captcha-error" style="color: red; margin-top: 10px; display: none;" data-i18n="reservation.captcha_error">Please complete the captcha</div> -->
 
-        <button type="submit" class="submit-button text-2xl" data-i18n="reservation.submit">
+        <button type="submit" class="submit-button text-2xl my-10 px-10 py-2" data-i18n="reservation.submit">
           Odeslat
         </button>
       </form>

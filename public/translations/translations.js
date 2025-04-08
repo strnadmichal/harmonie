@@ -2,6 +2,11 @@ const translations = {
   cs: {
     nav: {
       accommodation: "Ubytování",
+      services: "Služby",
+      rooms: "Pokoje",
+      apartments: "Apartmány",
+      playroom: "Herna",
+      garden: "Zahrada",
       reservation: "Rezervace",
       prices: "Ceny",
       contact: "Kontakt"
@@ -210,7 +215,13 @@ const translations = {
       accommodation: "Accommodation",
       reservation: "Reservation",
       prices: "Prices",
-      contact: "Contact"
+      contact: "Contact",
+      services: "Services",
+      rooms: "Rooms",
+      apartments: "Apartments",
+      playroom: "Playroom",
+      garden: "Garden"
+      
     },
     home: {
       title: "Looking for a peaceful place in nature where you and your children will love to return?",
@@ -417,7 +428,12 @@ const translations = {
       accommodation: "Unterkunft",
       reservation: "Reservierung",
       prices: "Preise",
-      contact: "Kontakt"
+      contact: "Kontakt",
+      services: "Dienstleistungen",
+      rooms: "Zimmer",
+      apartments: "Apartments",
+      playroom: "Spielzimmer",
+      garden: "Garten"
     },
     home: {
       title: "Suchen Sie einen friedlichen Ort in der Natur, an den Sie und Ihre Kinder gerne zurückkehren werden?",

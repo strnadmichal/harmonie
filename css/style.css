@@ -125,6 +125,7 @@ html {
   line-height: 1.4;
   background-color: rgb(245, 245, 220);
   font-family: Lora;
+  font-weight: 400; /* Explicitly set base weight to normal */
   scroll-behavior: smooth;
 }
 

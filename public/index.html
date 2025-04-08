@@ -60,42 +60,6 @@
           height: auto !important; /* Reset height to allow aspect ratio to work */
           aspect-ratio: 1 / 1; /* Set aspect ratio to 1:1 (square) */
         }
-        
-        /* ===== UNIFIED ACCORDION STYLES ===== */
-        /* These styles have been moved to css/style.css */
-        /* Hidden content styles 
-        .service-description,
-        .price-content {
-          max-height: 0;
-          overflow: hidden;
-          transition: max-height 0.4s ease-out, opacity 0.3s ease-out, margin-bottom 0.2s ease-out;
-          opacity: 0;
-          margin-bottom: 0; 
-        }
-        
-        .service-description.expanded,
-        .price-content.expanded {
-          max-height: 1000px; 
-          opacity: 1;
-          transition: max-height 0.4s ease-in, opacity 0.3s ease-in, margin-bottom 0.2s ease-in;
-          margin-bottom: 2rem; 
-        }
-        
-        .service-title-container,
-        .price-title-container {
-          cursor: pointer;
-        }
-        
-        .toggle-btn {
-          font-size: 30px;
-          font-weight: bold;
-          color: #10162b;
-          transition: transform 0.4s ease;
-        }
-        
-        .toggle-btn.active {
-          transform: rotate(45deg);
-        } */
       }
 
       #slideshow {
@@ -177,13 +141,13 @@
     </div>
 
     <main class="box-border px-4 md:px-10">
-      <section class="mb-20 md:mb-40 max-w-[900px] text-black">
+      <section class="mb-16 md:mb-40 -mt-10 md:mt-20 max-w-[900px] text-black">
         <h1 class="hidden">Chata Harmonie</h1>
-        <h2 class="text-3xl md:text-5xl bold" data-i18n="home.title">
+        <h2 class="text-2xl md:text-4xl" data-i18n="home.title">
           Hledáte klidné místo uprostřed přírody, kam se budete rádi vracet Vy i
           Vaše děti?
         </h2>
-        <p class="mt-5 text-lg md:text-2xl" data-i18n="home.description">
+        <p class="mt-5 text-base md:text-2xl" data-i18n="home.description">
           Náš rodinný penzion s jedinečnou atmosférou původní Jizerskohorské
           chalupy nabízí útulně zařízené komfortní pokoje a apartmány,
           společenskou místnost s krbem, bar, kuchyňku, dětskou hernu, lyžárnu,
@@ -195,7 +159,7 @@
       <section id="ubytovani">
         <div class="my-10">
           <div class="h-[2px] bg-black"></div>
-          <h2 class="my-10 text-3xl md:text-5xl bold" data-i18n="accommodation.title">Ubytování</h2>
+          <h2 class="my-5 text-3xl md:text-5xl" data-i18n="accommodation.title">Ubytování</h2>
           <div class="h-[2px] bg-black"></div>
         </div>
 
@@ -246,14 +210,14 @@
       </section>
 
       <a href="./rezervace.html">
-        <h2 class="mt-20 mb-40 text-3xl md:text-5xl text-center underline bold" data-i18n="nav.reservation">
+        <h2 class="mt-20 mb-20 md:mb-40 text-3xl md:text-5xl text-center underline" data-i18n="nav.reservation">
           Rezervace
         </h2>
       </a>
 
-      <section>
+      <section id="sluzby">
         <div class="h-[2px] bg-black"></div>
-        <h2 class="my-10 text-3xl md:text-5xl bold" data-i18n="services.title">Služby</h2>
+        <h2 class="my-5 md:my-10 text-3xl md:text-5xl" data-i18n="services.title">Služby</h2>
 
         <div class="flex flex-row flex-wrap">
           <div class="p-2 sm:w-1/2 lg:w-1/4">
@@ -346,7 +310,7 @@
 
       <section id="ceny" class="mt-10 sm:mt-40">
         <div class="h-[2px] bg-black"></div>
-        <h2 class="my-10 text-5xl bold" data-i18n="prices.title">Ceny</h2>
+        <h2 class="my-10 text-3xl md:text-5xl" data-i18n="prices.title">Ceny</h2>
 
         <!-- Desktop price table - hidden on mobile -->
         <div class="hidden md:flex justify-center mb-16 w-full text-2xl align-middle">
@@ -436,7 +400,7 @@
               <span class="toggle-btn">+</span>
             </div>
             <div class="price-content text-sm">
-              <ul class="mt-4 space-y-2 pr-2">
+              <ul class="mt-4 space-y-5 pr-2">
                 <li class="flex justify-between">
                   <span data-i18n="prices.table.adults">Dospělí</span>
                   <span data-i18n="prices.table.adults_winter">610 Kč osoba / noc</span>
@@ -488,7 +452,7 @@
               <span class="toggle-btn">+</span>
             </div>
             <div class="price-content text-sm">
-              <ul class="mt-4 space-y-2 pr-2">
+              <ul class="mt-4 space-y-5 pr-2">
                 <li class="flex justify-between">
                   <span data-i18n="prices.table.adults">Dospělí</span>
                   <span data-i18n="prices.table.adults_summer">590 Kč osoba / noc</span>
@@ -540,7 +504,7 @@
               <span class="toggle-btn">+</span>
             </div>
             <div class="price-content text-sm">
-              <ul class="mt-4 space-y-2 pr-2">
+              <ul class="mt-4 space-y-5 pr-2">
                 <li class="flex justify-between">
                   <span data-i18n="prices.table.adults">Dospělí</span>
                   <span data-i18n="prices.table.adults_special">690 Kč osoba / noc</span>
@@ -587,7 +551,7 @@
         </div>
       </section>
 
-      <section class="flex flex-col justify-center md:items-center my-2 md:my-40">
+      <section class="flex flex-col justify-center md:items-center mb-8 my-2 md:my-40">
 
         <div class="mb-10 max-w-[1000px] md:text-center text-base md:text-2xl">
           <b data-i18n="prices.included.title"> Ceny zahrnují: </b>
