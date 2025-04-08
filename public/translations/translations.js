@@ -667,3 +667,5 @@ de: {
   }
 }
 };
+
+export default translations;
