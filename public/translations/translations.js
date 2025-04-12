@@ -194,7 +194,11 @@ cs: {
   contact: {
     title: "Kontakty",
     address: "Adresa",
-    telephone: "Telefon"
+    telephone: "Telefon",
+    map: {
+      consentText: "Abychom vám mohli zobrazit mapu, musíme načíst obsah od Google Maps, který může nastavovat cookies. Kliknutím na tlačítko níže souhlasíte s jejich použitím.",
+      acceptButton: "Přijmout"
+    }
   },
   reservation: {
     arrival: "Příjezd",
@@ -406,7 +410,11 @@ en: {
   contact: {
     title: "Contact",
     address: "Address",
-    telephone: "Telephone"
+    telephone: "Telephone",
+    map: {
+      consentText: "To show you the map, we need to load content from Google Maps, which may set cookies. By clicking the button below, you agree to their use.",
+      acceptButton: "Accept"
+    }
   },
   reservation: {
     title: "Reservation",
@@ -620,7 +628,11 @@ de: {
   contact: {
     title: "Kontakt",
     address: "Adresse",
-    telephone: "Telefon"
+    telephone: "Telefon",
+    map: {
+      consentText: "Um Ihnen die Karte anzeigen zu können, müssen wir Inhalte von Google Maps laden, die möglicherweise Cookies setzen. Indem Sie auf die Schaltfläche unten klicken, stimmen Sie deren Verwendung zu.",
+      acceptButton: "Akzeptieren"
+    }
   },
   reservation: {
     title: "Reservierung",

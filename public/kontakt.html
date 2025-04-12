@@ -41,6 +41,24 @@
         // Set header color based on page needs
       const header = document.querySelector('header');
       header.setAttribute('data-header-color', 'dark'); // or 'light'
+
+      // Map Consent Logic
+      const acceptButton = document.getElementById('accept-map-cookies');
+      const mapPlaceholder = document.getElementById('map-consent-placeholder');
+      const mapContainer = document.getElementById('map-container');
+      const mapConsentGiven = localStorage.getItem('mapConsentGiven');
+
+      if (mapConsentGiven === 'true') {
+        mapPlaceholder.classList.add('hidden');
+        mapContainer.classList.remove('hidden');
+      }
+
+      acceptButton.addEventListener('click', () => {
+        mapPlaceholder.classList.add('hidden');
+        mapContainer.classList.remove('hidden');
+        localStorage.setItem('mapConsentGiven', 'true'); // Remember consent
+        window.languageManager.updateContent(); // Re-apply translations if needed after DOM changes
+      });
     });
   </script>
   <!--  <script src="../js/priceSheets.js" defer></script>-->
@@ -97,15 +115,21 @@
           </div>
         </div>
 
-        <div class="w-full md:w-2/3 md:h-[500px] aspect-square bg-slate-200">
-            <iframe 
+        <div id="map-parent" class="w-full md:w-2/3 md:h-[500px] aspect-square relative">
+          <div id="map-consent-placeholder" class="absolute inset-0 bg-[#0A0A21] text-white flex flex-col justify-center items-center p-4 text-center z-10">
+              <p class="mb-4 text-xl max-w-xl" data-i18n="contact.map.consentText">Abychom vám mohli zobrazit mapu, musíme načíst obsah od Google Maps, který může nastavovat cookies. Kliknutím na tlačítko níže souhlasíte s jejich použitím.</p>
+              <button id="accept-map-cookies" class="px-4 py-2 border border-white hover:bg-white hover:text-gray-800" data-i18n="contact.map.acceptButton">Přijmout</button>
+          </div>
+          <div id="map-container" class="w-full h-full hidden">
+            <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2522.375837544153!2d15.153113!3d50.787143!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47093325965a25d7%3A0x5705800649917e26!2sChata%20Harmonie%20Bed%C5%99ichov!5e0!3m2!1scs!2sus!4v1738222212077!5m2!1scs!2sus"
                 class="w-full h-full"
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade">
             </iframe>
+          </div>
         </div>
       </div>
     </section>
