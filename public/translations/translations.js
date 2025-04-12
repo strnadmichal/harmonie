@@ -171,6 +171,7 @@ cs: {
     four_beds: "4 lůžka",
     six_beds: "6 lůžek", // Doplněno z EN/DE verze
     wc: "sprcha + wc",
+    wc_apartment: "sprcha + vana + wc",
     tv: "televize na pokoji",
     refrigerator: "lednice",
     wifi: "wifi na celém pokoji",
@@ -382,6 +383,7 @@ en: {
     four_beds: "4 beds",
     six_beds: "6 beds",
     wc: "shower + wc",
+    wc_apartment: "shower + bath + wc",
     tv: "TV in the room",
     refrigerator: "refrigerator",
     wifi: "wifi in the room",
@@ -594,6 +596,7 @@ de: {
     four_beds: "4 Betten",
     six_beds: "6 Betten",
     wc: "Dusche + WC",
+    wc_apartment: "Dusche + Badewanne + WC",
     tv: "TV im Zimmer",
     refrigerator: "Kühlschrank",
     wifi: "WLAN im Zimmer",

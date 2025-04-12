@@ -597,6 +597,9 @@ video {
 .-mt-10{
   margin-top: -2.5rem;
 }
+.mb-0{
+  margin-bottom: 0px;
+}
 .mb-10{
   margin-bottom: 2.5rem;
 }
@@ -644,9 +647,6 @@ video {
 }
 .mt-6{
   margin-top: 1.5rem;
-}
-.mb-0{
-  margin-bottom: 0px;
 }
 .box-border{
   box-sizing: border-box;
@@ -824,14 +824,6 @@ video {
 .py-8{
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-.py-4{
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-.px-8{
-  padding-left: 2rem;
-  padding-right: 2rem;
 }
 .pb-10{
   padding-bottom: 2.5rem;
