@@ -5,9 +5,10 @@
 // Funkcia na načítanie prekladov po načítaní dát cien
 async function loadTranslations() {
   try {
-    const response = await fetch('/public/data/prices.json');
+    const response = await fetch('../data/prices.json');
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      const errorUrl = new URL('../data/prices.json', import.meta.url);
+      throw new Error(`HTTP error! status: ${response.status} fetching ${errorUrl.href}`);
     }
     const priceValues = await response.json();
 
