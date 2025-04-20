@@ -1,40 +1,40 @@
 backend:
-  name: github # Môže byť aj gitlab, git-gateway, atď.
-  repo: strnadmichal/harmonie # !!! Nahraď cestou k tvojmu GitHub repozitáru
-  branch: main # Alebo branch, ktorú používaš pre live stránku (napr. master, production)
+  name: github # Může být také gitlab, git-gateway, atd.
+  repo: strnadmichal/harmonie # !!! Nahraď cestou k tvému GitHub repozitáři
+  branch: main # Nebo větev, kterou používáš pro live stránku (např. master, production)
 
-# Adresár pre médiá (napr. obrázky nahrané cez CMS)
+# Adresář pro média (např. obrázky nahrané přes CMS)
 media_folder: "public/img/uploads"
-# Ako sa bude cesta k médiám zobrazovať na webe
+# Jak se bude cesta k médiím zobrazovat na webu
 public_folder: "/img/uploads"
 
-# Definovanie kolekcií - typov obsahu, ktoré chceme spravovať
+# Definování kolekcí - typů obsahu, které chceme spravovat
 collections:
-  # Kolekcia pre nastavenie cien
+  # Kolekce pro nastavení cen
   - name: "prices"
-    label: "Cenník"
-    description: "Nastavenie cien ubytovania a služieb"
+    label: "Ceník"
+    description: "Nastavení cen ubytování a služeb"
     files:
       - label: "Ceny"
         name: "main_prices"
-        file: "public/_data/prices.json" # Súbor, kam sa ceny uložia (vytvoríme ho neskôr)
+        file: "public/_data/prices.json" # Soubor, kam se ceny uloží
         fields:
-          - { label: "Dospelí - Zimná sezóna (osoba/noc)", name: "adults_winter", widget: "number", value_type: "int" }
-          - { label: "Dospelí - Letná sezóna (osoba/noc)", name: "adults_summer", widget: "number", value_type: "int" }
-          - { label: "Dospelí - Špeciálna sezóna (osoba/noc)", name: "adults_special", widget: "number", value_type: "int" }
-          - { label: "Deti do 12 - Zimná sezóna (osoba/noc)", name: "children_12_winter", widget: "number", value_type: "int" }
-          - { label: "Deti do 12 - Letná sezóna (osoba/noc)", name: "children_12_summer", widget: "number", value_type: "int" }
-          - { label: "Deti do 12 - Špeciálna sezóna (osoba/noc)", name: "children_12_special", widget: "number", value_type: "int" }
-          # Deti do 2 rokov sú zdarma, widget netreba, ale pre úplnosť môžeme nechať 0
-          # - { label: "Deti do 2 rokov", name: "children_2", widget: "hidden", default: 0 }
-          - { label: "Prístelka - Zimná sezóna (osoba/noc)", name: "extra_bed_winter", widget: "number", value_type: "int" }
-          - { label: "Prístelka - Letná sezóna (osoba/noc)", name: "extra_bed_summer", widget: "number", value_type: "int" }
-          - { label: "Prístelka - Špeciálna sezóna (osoba/noc)", name: "extra_bed_special", widget: "number", value_type: "int" }
-          - { label: "Dospelí za 1 noc (Kč)", name: "adults_1night", widget: "number", value_type: "int" }
-          - { label: "Jednolôžková izba - Zimná sezóna (osoba/noc)", name: "single_room_winter", widget: "number", value_type: "int" }
-          - { label: "Jednolôžková izba - Letná sezóna (osoba/noc)", name: "single_room_summer", widget: "number", value_type: "int" }
-          - { label: "Jednolôžková izba - Špeciálna sezóna (osoba/noc)", name: "single_room_special", widget: "number", value_type: "int" }
-          - { label: "Príplatok za apartmán (osoba/noc)", name: "apartment_surcharge", widget: "number", value_type: "int" }
-          - { label: "Raňajky dospelí (Kč)", name: "breakfast_adults", widget: "number", value_type: "int" }
-          - { label: "Raňajky deti (Kč)", name: "breakfast_children", widget: "number", value_type: "int" }
+          - { label: "Dospělí - Zimní sezóna (osoba/noc)", name: "adults_winter", widget: "number", value_type: "int" }
+          - { label: "Dospělí - Letní sezóna (osoba/noc)", name: "adults_summer", widget: "number", value_type: "int" }
+          - { label: "Dospělí - Speciální sezóna (osoba/noc)", name: "adults_special", widget: "number", value_type: "int" }
+          - { label: "Děti do 12 - Zimní sezóna (osoba/noc)", name: "children_12_winter", widget: "number", value_type: "int" }
+          - { label: "Děti do 12 - Letní sezóna (osoba/noc)", name: "children_12_summer", widget: "number", value_type: "int" }
+          - { label: "Děti do 12 - Speciální sezóna (osoba/noc)", name: "children_12_special", widget: "number", value_type: "int" }
+          # Děti do 2 let jsou zdarma, widget není třeba, ale pro úplnost můžeme nechat 0
+          # - { label: "Děti do 2 let", name: "children_2", widget: "hidden", default: 0 }
+          - { label: "Přistýlka - Zimní sezóna (osoba/noc)", name: "extra_bed_winter", widget: "number", value_type: "int" }
+          - { label: "Přistýlka - Letní sezóna (osoba/noc)", name: "extra_bed_summer", widget: "number", value_type: "int" }
+          - { label: "Přistýlka - Speciální sezóna (osoba/noc)", name: "extra_bed_special", widget: "number", value_type: "int" }
+          - { label: "Dospělí za 1 noc (Kč)", name: "adults_1night", widget: "number", value_type: "int" }
+          - { label: "Jednolůžkový pokoj - Zimní sezóna (osoba/noc)", name: "single_room_winter", widget: "number", value_type: "int" }
+          - { label: "Jednolůžkový pokoj - Letní sezóna (osoba/noc)", name: "single_room_summer", widget: "number", value_type: "int" }
+          - { label: "Jednolůžkový pokoj - Speciální sezóna (osoba/noc)", name: "single_room_special", widget: "number", value_type: "int" }
+          - { label: "Příplatek za apartmán (osoba/noc)", name: "apartment_surcharge", widget: "number", value_type: "int" }
+          - { label: "Snídaně dospělí (Kč)", name: "breakfast_adults", widget: "number", value_type: "int" }
+          - { label: "Snídaně děti (Kč)", name: "breakfast_children", widget: "number", value_type: "int" }
           - { label: "Sauna 2 osoby (Kč)", name: "sauna", widget: "number", value_type: "int" } 
