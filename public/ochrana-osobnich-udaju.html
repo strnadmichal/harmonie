@@ -24,17 +24,42 @@
 
   <script src="./components/js/utils.js"></script>
   <script type="module">
+    // Import only starts the initialization process defined in languageManager.js
     import "./js/languageManager.js";
-    window.languageManager.updateContent();
-    
-    document.addEventListener('DOMContentLoaded', async () => {
-      await loadComponent('header', 'header');
-      await loadComponent('footer', 'footer');
+    // DO NOT call languageManager here directly, it might not be ready.
 
-      // Set header color based on page needs
-      const header = document.querySelector('header');
-      header.setAttribute('data-header-color', 'dark');
-    });
+    // This function will run AFTER the DOM is ready AND the language manager is initialized
+    async function initializePage() {
+        // Ensure languageManager is initialized
+        if (!window.languageManager) {
+            console.error("Language manager not initialized yet!");
+            await new Promise(resolve => setTimeout(resolve, 100)); // Simple wait
+            if (!window.languageManager) {
+                console.error("Language manager still not initialized after wait!");
+                return;
+            }
+        }
+
+        // Load components
+        await loadComponent('header', 'header');
+        await loadComponent('footer', 'footer');
+
+        // Set header color based on page needs
+        const header = document.querySelector('header');
+        if (header) {
+            header.setAttribute('data-header-color', 'dark');
+        }
+
+        // Initial content update for this specific page
+        if (window.languageManager) {
+            window.languageManager.updateContent();
+        } else {
+             console.error("Cannot update content, language manager not available.");
+        }
+    }
+
+    // Run the initialization function when the DOM is ready
+    document.addEventListener('DOMContentLoaded', initializePage);
   </script>
 </head>
 

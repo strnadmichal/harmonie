@@ -129,42 +129,77 @@
 
   <script src="./components/js/utils.js"></script>
   <script type="module">
+    // Import only starts the initialization process defined in languageManager.js
     import "./js/languageManager.js";
-    window.languageManager.updateContent();
+    // DO NOT call languageManager here directly, it might not be ready.
 
-    document.addEventListener("DOMContentLoaded", async () => {
-      await loadComponent("header", "header");
-      await loadComponent("footer", "footer");
+    // This function will run AFTER the DOM is ready AND the language manager is initialized
+    async function initializePage() {
+        // Ensure languageManager is initialized
+        if (!window.languageManager) {
+            console.error("Language manager not initialized yet!");
+            await new Promise(resolve => setTimeout(resolve, 100)); // Simple wait
+            if (!window.languageManager) {
+                console.error("Language manager still not initialized after wait!");
+                return;
+            }
+        }
 
-      // Set header color based on page needs
-      const header = document.querySelector("header");
-      header.setAttribute("data-header-color", "dark"); // or 'light'
+        // Load components
+        await loadComponent("header", "header");
+        await loadComponent("footer", "footer");
+
+        // Set header color based on page needs
+        const header = document.querySelector("header");
+        if (header) {
+            header.setAttribute("data-header-color", "dark"); // or 'light'
+        }
+        
+        // Logic for setting min dates (runs after DOM is ready anyway)
+        setFormMinDates();
+
+        // Initial content update for this specific page
+        if (window.languageManager) {
+            window.languageManager.updateContent();
+        } else {
+             console.error("Cannot update content, language manager not available.");
+        }
+    }
+
+    // Function to set minimum dates for date pickers
+    function setFormMinDates() {
+      const today = new Date().toISOString().split('T')[0];
+      const arrivalInput = document.getElementById('arrival');
+      const departureInput = document.getElementById('departure');
       
-      // // Form validation with reCAPTCHA
-      // const form = document.getElementById('reservationForm');
-      // const captchaError = document.querySelector('.captcha-error');
-      
-      // if (form) {
-      //   form.addEventListener('submit', function(event) {
-      //     // Verify reCAPTCHA
-      //     const recaptchaResponse = grecaptcha.getResponse();
-          
-      //     if (!recaptchaResponse) {
-      //       event.preventDefault();
-      //       captchaError.style.display = 'block';
-      //       return false;
-      //     }
-          
-      //     // Hide error message if captcha is completed
-      //     captchaError.style.display = 'none';
-      //     return true;
-      //   });
-      // }
-    });
+      if (arrivalInput) {
+          arrivalInput.setAttribute('min', today);
+          // Add event listener only if element exists
+          arrivalInput.addEventListener('change', function() {
+              if (departureInput) {
+                  departureInput.setAttribute('min', this.value);
+                  // If departure date is before new arrival date, update it
+                  if (departureInput.value && departureInput.value < this.value) {
+                      departureInput.value = this.value;
+                  }
+              }
+          });
+      }
+      if (departureInput) {
+          departureInput.setAttribute('min', today);
+      }
+    }
+
+    // Run the initialization function when the DOM is ready
+    document.addEventListener('DOMContentLoaded', initializePage);
   </script>
 
   <script>
+    // This script block remains as it doesn't depend on languageManager and runs on DOMContentLoaded
     // Set min date for arrival and departure to today
+    // NOTE: This logic is moved inside initializePage in the module script above for consistency.
+    // This block can potentially be removed if the logic above works correctly.
+    /*
     document.addEventListener('DOMContentLoaded', function() {
       const today = new Date().toISOString().split('T')[0];
       document.getElementById('arrival').setAttribute('min', today);
@@ -181,6 +216,7 @@
         }
       });
     });
+    */
   </script>
   <!--  <script src="../js/priceSheets.js" defer></script>-->
 </head>

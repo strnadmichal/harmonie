@@ -32,45 +32,70 @@
   <script src="./components/js/utils.js"></script>
   <script type="module" src="../js/modalGallery.js"></script>
   <script type="module">
+    // Import only starts the initialization process defined in languageManager.js
     import "./js/languageManager.js";
-    window.languageManager.updateContent();
-    
-    import { initModalGallery } from '../js/modalGallery.js';
-    
-    document.addEventListener('DOMContentLoaded', async () => {
-      await loadComponent('header', 'header');
-      await loadComponent('footer', 'footer');
+    // DO NOT call languageManager here directly, it might not be ready.
 
-      // Set header color based on page needs
-      // const header = document.querySelector('header');
-      // header.setAttribute('data-header-color', 'dark'); // or 'light'
-      
-      // Garden gallery data
-      const gardenData = [
-        {
-          id: 1,
-          name: "Garden",
-          images: [
-            "../img/zahrada/Garden/1.jpg",
-            "../img/zahrada/Garden/2.jpg",
-            "../img/zahrada/Garden/3.jpg",
-            "../img/zahrada/Garden/4.jpg",
-            "../img/zahrada/Garden/5.jpg",
-            "../img/zahrada/Garden/6.jpg",
-            "../img/zahrada/Garden/7.jpg",
-            "../img/zahrada/Garden/8.jpg",
-            "../img/zahrada/Garden/9.jpg",
-            "../img/zahrada/Garden/10.jpg",
-            "../img/zahrada/Garden/11.jpg",
-            "../img/zahrada/Garden/12.jpg",
-            "../img/zahrada/Garden/13.jpg"
-          ]
+    import { initModalGallery } from '../js/modalGallery.js';
+
+    // This function will run AFTER the DOM is ready AND the language manager is initialized
+    async function initializePage() {
+        // Ensure languageManager is initialized
+        if (!window.languageManager) {
+            console.error("Language manager not initialized yet!");
+            await new Promise(resolve => setTimeout(resolve, 100)); // Simple wait
+            if (!window.languageManager) {
+                console.error("Language manager still not initialized after wait!");
+                return;
+            }
         }
-      ];
+
+        // Load components
+        await loadComponent('header', 'header');
+        await loadComponent('footer', 'footer');
+
+        // Set header color based on page needs (if needed, currently commented out)
+        // const header = document.querySelector('header');
+        // if (header) {
+        //     header.setAttribute('data-header-color', 'dark'); // or 'light'
+        // }
       
-      // Initialize modal gallery with garden data
-      initModalGallery('.garden-image', 'data-gallery-id', gardenData);
-    });
+        // Garden gallery data
+        const gardenData = [
+            {
+                id: 1,
+                name: "Garden",
+                images: [
+                "../img/zahrada/Garden/1.jpg",
+                "../img/zahrada/Garden/2.jpg",
+                "../img/zahrada/Garden/3.jpg",
+                "../img/zahrada/Garden/4.jpg",
+                "../img/zahrada/Garden/5.jpg",
+                "../img/zahrada/Garden/6.jpg",
+                "../img/zahrada/Garden/7.jpg",
+                "../img/zahrada/Garden/8.jpg",
+                "../img/zahrada/Garden/9.jpg",
+                "../img/zahrada/Garden/10.jpg",
+                "../img/zahrada/Garden/11.jpg",
+                "../img/zahrada/Garden/12.jpg",
+                "../img/zahrada/Garden/13.jpg"
+                ]
+            }
+        ];
+        
+        // Initialize modal gallery with garden data
+        initModalGallery('.garden-image', 'data-gallery-id', gardenData);
+
+        // Initial content update for this specific page
+        if (window.languageManager) {
+            window.languageManager.updateContent();
+        } else {
+             console.error("Cannot update content, language manager not available.");
+        }
+    }
+
+    // Run the initialization function when the DOM is ready
+    document.addEventListener('DOMContentLoaded', initializePage);
   </script>
   <!--  <script src="../js/priceSheets.js" defer></script>-->
 </head>
