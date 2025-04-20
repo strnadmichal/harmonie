@@ -17,7 +17,7 @@ collections:
     files:
       - label: "Ceny"
         name: "main_prices"
-        file: "public/_data/prices.json" # Soubor, kam se ceny uloží
+        file: "public/data/prices.json" # Soubor, kam se ceny uloží
         fields:
           - { label: "Dospělí - Zimní sezóna (osoba/noc)", name: "adults_winter", widget: "number", value_type: "int" }
           - { label: "Dospělí - Letní sezóna (osoba/noc)", name: "adults_summer", widget: "number", value_type: "int" }

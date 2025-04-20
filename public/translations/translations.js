@@ -5,7 +5,7 @@
 // Funkcia na načítanie prekladov po načítaní dát cien
 async function loadTranslations() {
   try {
-    const response = await fetch('/public/_data/prices.json');
+    const response = await fetch('/public/data/prices.json');
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
