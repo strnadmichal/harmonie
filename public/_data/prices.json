@@ -1,0 +1,20 @@
+{
+  "adults_winter": 610,
+  "adults_summer": 590,
+  "adults_special": 690,
+  "children_12_winter": 410,
+  "children_12_summer": 390,
+  "children_12_special": 450,
+  "children_2": 0,
+  "extra_bed_winter": 250,
+  "extra_bed_summer": 250,
+  "extra_bed_special": 400,
+  "adults_1night": 760,
+  "single_room_winter": 800,
+  "single_room_summer": 800,
+  "single_room_special": 1000,
+  "apartment_surcharge": 150,
+  "breakfast_adults": 160,
+  "breakfast_children": 80,
+  "sauna": 400
+} 
