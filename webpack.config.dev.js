@@ -4,13 +4,13 @@ const common = require('./webpack.common.js');
 module.exports = merge(common, {
   mode: 'development',
   output: {
-    publicPath: '/harmonie/public/',
+    publicPath: '/',
   },
   devtool: 'inline-source-map',
   devServer: {
     liveReload: true,
     hot: true,
     open: true,
-    static: ['./'],
+    static: ['./public'],
   },
 });
