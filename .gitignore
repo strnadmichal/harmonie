@@ -6,4 +6,3 @@ node_modules
 dist
 .cache
 .original
-output.css
