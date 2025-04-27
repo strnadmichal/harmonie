@@ -1,5 +1,5 @@
 backend:
-  name: github # Může být také gitlab, git-gateway, atd.
+  name: git-gateway # Může být také gitlab, git-gateway, atd.
   repo: strnadmichal/harmonie # !!! Nahraď cestou k tvému GitHub repozitáři
   branch: main # Nebo větev, kterou používáš pro live stránku (např. master, production)
 
