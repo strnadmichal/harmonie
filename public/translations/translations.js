@@ -201,7 +201,8 @@ async function loadTranslations() {
           select_room: "-- Vyberte pokoj --",
           privacy_notice: "Prosíme, přečtěte si naše",
           privacy_policy: "Prohlášení o ochraně osobních údajů",
-          consent_text: "Přečetl jsem si a souhlasím se zpracováním osobních údajů"
+          consent_text: "Přečetl jsem si a souhlasím se zpracováním osobních údajů",
+          submission_success: "Děkujeme za odeslání poptávky! Brzy se Vám ozveme."
         },
         privacy: {
           title: "Ochrana dat",
@@ -418,7 +419,8 @@ async function loadTranslations() {
           select_room: "-- Select room --",
           privacy_notice: "Please read our",
           privacy_policy: "Privacy Policy",
-          consent_text: "I have read and agree to the processing of personal data"
+          consent_text: "I have read and agree to the processing of personal data",
+          submission_success: "Thank you for submitting your inquiry! We will contact you soon."
         },
         privacy: {
           title: "Data Protection",
@@ -636,7 +638,8 @@ async function loadTranslations() {
           select_room: "-- Zimmer auswählen --",
           privacy_notice: "Bitte lesen Sie unsere",
           privacy_policy: "Datenschutzerklärung",
-          consent_text: "Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung personenbezogener Daten zu"
+          consent_text: "Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung personenbezogener Daten zu",
+          submission_success: "Vielen Dank für Ihre Anfrage! Wir werden uns bald bei Ihnen melden."
         },
          privacy: {
           title: "Datenschutz",

@@ -158,11 +158,43 @@
         // Logic for setting min dates (runs after DOM is ready anyway)
         setFormMinDates();
 
+        // Display success message if redirected from form submission
+        displaySubmissionStatus();
+
         // Initial content update for this specific page
         if (window.languageManager) {
             window.languageManager.updateContent();
         } else {
              console.error("Cannot update content, language manager not available.");
+        }
+    }
+
+    // Function to display submission status message
+    function displaySubmissionStatus() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const submissionStatus = urlParams.get('submission');
+
+        if (submissionStatus === 'success') {
+            const formElement = document.getElementById('reservationForm');
+            if (formElement) {
+                const messageDiv = document.createElement('div');
+                messageDiv.setAttribute('data-i18n', 'reservation.submission_success'); // Key for translation
+                // Basic styling - you might want to use Tailwind classes or dedicated CSS
+                messageDiv.style.padding = '15px';
+                messageDiv.style.marginBottom = '20px';
+                messageDiv.style.border = '1px solid green';
+                messageDiv.style.backgroundColor = '#e8f5e9'; // Light green background
+                messageDiv.style.color = 'darkgreen';
+                messageDiv.textContent = 'Děkujeme za odeslání poptávky! Brzy se Vám ozveme.'; // Default text
+
+                // Insert the message before the form
+                formElement.parentNode.insertBefore(messageDiv, formElement);
+
+                // Optional: Update content immediately if language manager is ready
+                if (window.languageManager && window.languageManager.isInitialized) {
+                     window.languageManager.updateElement(messageDiv);
+                }
+            }
         }
     }
 
@@ -238,7 +270,7 @@
       >
 
         <input type="hidden" name="_subject" value="Nová rezervace">
-        <input type="hidden" name="_next" value="https://strnadmichal.github.io/harmonie/public/">
+        <input type="hidden" name="_next" value="https://harmonie-bedrichov.netlify.app/rezervace.html?submission=success">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_autoresponse" value="Dobrý den,\\n\\nděkujeme za Vaši poptávku rezervace v Chatě Harmonie.\\n\\nVaši poptávku zpracujeme a brzy se Vám ozveme s potvrzením dostupnosti a dalšími informacemi.\\n\\nS pozdravem,\\nTým Chaty Harmonie\\n\\n---\\n\\nDear Guest,\\n\\nThank you for your reservation inquiry at Chata Harmonie.\\n\\nWe will process your request and contact you soon with availability confirmation and further details.\\n\\nBest regards,\\nThe Chata Harmonie Team">
 
