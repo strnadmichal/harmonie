@@ -11,8 +11,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open --config webpack.config.dev.js",
-    "build": "webpack --config webpack.config.prod.js",
-    "tailwind": "postcss css/style.css -o css/output.css --watch"
+    "build": "postcss public/css/style.css -o public/css/output.css",
+    "tailwind:watch": "postcss public/css/style.css -o public/css/output.css --watch"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
