@@ -21,6 +21,8 @@
 
   <link rel="manifest" href="../site.webmanifest">
   <meta name="theme-color" content="#fafafa">
+  <link rel="modulepreload" href="./components/header/header.js">
+  <link rel="preload" href="./components/header/header.html" as="fetch" crossorigin>
 
   <script src="./components/js/utils.js"></script>
   <script type="module">
@@ -59,7 +61,7 @@
 
 <body>
 
-  <div id="header"></div>
+  <div id="header" data-page-theme="dark"></div>
 
   <main class="box-border px-4 md:px-10">
 

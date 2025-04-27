@@ -103,6 +103,8 @@
 
     <link rel="manifest" href="site.webmanifest" />
     <meta name="theme-color" content="#fafafa" />
+    <link rel="modulepreload" href="./components/header/header.js" />
+    <link rel="preload" href="./components/header/header.html" as="fetch" crossorigin />
 
     <script src="js/slideshow.js" defer></script>
     <script src="components/js/utils.js"></script>
@@ -144,7 +146,7 @@
     </div>
 
     <div class="w-screen h-screen">
-      <div id="header"></div>
+      <div id="header" data-page-theme="light"></div>
       <div id="slideshow">
         <div class="slide-overlay"></div>
         <div class="slide-bg" id="slide1"></div>

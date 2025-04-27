@@ -123,6 +123,8 @@
 
   <link rel="manifest" href="../site.webmanifest" />
   <meta name="theme-color" content="#fafafa" />
+  <link rel="modulepreload" href="./components/header/header.js">
+  <link rel="preload" href="./components/header/header.html" as="fetch" crossorigin>
 
   <!-- Google reCAPTCHA API -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -248,7 +250,7 @@
 </head>
 
 <body>
-  <div id="header"></div>
+  <div id="header" data-page-theme="dark"></div>
 
   <main class="box-border px-4 md:px-10">
     <section class="mb-0 md:mb-20">
