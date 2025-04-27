@@ -31,32 +31,23 @@
 
   <script src="./components/js/utils.js"></script>
   <script type="module">
-    // Import only starts the initialization process defined in languageManager.js
-    import "./js/languageManager.js";
-    // DO NOT call languageManager here directly, it might not be ready.
+    // Import the promise
+    import { languageManagerReady } from "./js/languageManager.js";
 
     // This function will run AFTER the DOM is ready AND the language manager is initialized
     async function initializePage() {
-        // Ensure languageManager is initialized (it sets window.languageManager when done)
-        // We might need a way to wait for it, or trust DOMContentLoaded is late enough *if* 
-        // languageManager initialization also starts on DOMContentLoaded.
-        // Let's assume for now that DOMContentLoaded in this script runs after 
-        // the one in languageManager.js has set window.languageManager.
-        // A more robust solution might involve custom events or promises.
+        // Wait for components and language manager
+        await Promise.all([
+            loadComponent('header', 'header'),
+            loadComponent('footer', 'footer'),
+            languageManagerReady // Wait for the language manager to be ready
+        ]);
 
-        if (!window.languageManager) {
-            console.error("Language manager not initialized yet!");
-            // Optionally, wait a bit and retry, or implement a Promise-based wait
-            await new Promise(resolve => setTimeout(resolve, 100)); // Simple wait
-            if (!window.languageManager) {
-                console.error("Language manager still not initialized after wait!");
-                return;
-            }
+        // Ensure languageManager is now available
+        if (!window.languageManager || !window.languageManager.isInitialized) {
+            console.error("Language manager failed to initialize properly!");
+            return;
         }
-
-        // Load components AFTER language manager should be ready
-        await loadComponent('header', 'header');
-        await loadComponent('footer', 'footer');
 
         // Set header color based on page needs
         const header = document.querySelector('header');
@@ -84,20 +75,15 @@
                 mapPlaceholder.classList.add('hidden');
                 mapContainer.classList.remove('hidden');
                 localStorage.setItem('mapConsentGiven', 'true'); // Remember consent
-                // Re-apply translations *after* structure change
-                if (window.languageManager) {
+                // Re-apply translations *after* structure change, only if manager is ready
+                if (window.languageManager && window.languageManager.isInitialized) {
                     window.languageManager.updateContent(); 
                 }
             });
         }
         
         // Initial content update for this specific page after components are loaded
-        // This ensures translations are applied to static content and newly loaded components.
-        if (window.languageManager) {
-            window.languageManager.updateContent();
-        } else {
-             console.error("Cannot update content, language manager not available.");
-        }
+        window.languageManager.updateContent();
     }
 
     // Run the initialization function when the DOM is ready

@@ -108,17 +108,29 @@
     <script src="components/js/utils.js"></script>
 
     <script type="module">
-      import "./js/languageManager.js";
+      import { languageManagerReady } from "./js/languageManager.js";
 
       document.addEventListener("DOMContentLoaded", async () => {
-        await loadComponent("header", "header");
-        await loadComponent("footer", "footer");
+        // Wait for header/footer components AND the language manager
+        // Use Promise.all to wait for multiple async operations concurrently
+        await Promise.all([
+            loadComponent("header", "header"),
+            loadComponent("footer", "footer"),
+            languageManagerReady // Wait for the language manager to be ready
+        ]);
 
         const header = document.querySelector("header");
-        header.setAttribute("data-header-color", "light");
-        header.setAttribute("static-color", "true");
+        if (header) { // Check if header was loaded successfully
+          header.setAttribute("data-header-color", "light");
+          header.setAttribute("static-color", "true");
+        }
 
-        window.languageManager.updateContent();
+        // Now it's safe to update content
+        if (window.languageManager) {
+          window.languageManager.updateContent();
+        } else {
+           console.error("Language Manager failed to initialize.");
+        }
       });
     </script>
     <!-- <script src="../js/loadingScreen.js"></script> -->

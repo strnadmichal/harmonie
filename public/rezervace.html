@@ -129,25 +129,23 @@
 
   <script src="./components/js/utils.js"></script>
   <script type="module">
-    // Import only starts the initialization process defined in languageManager.js
-    import "./js/languageManager.js";
-    // DO NOT call languageManager here directly, it might not be ready.
+    // Import the promise
+    import { languageManagerReady } from "./js/languageManager.js";
 
     // This function will run AFTER the DOM is ready AND the language manager is initialized
     async function initializePage() {
-        // Ensure languageManager is initialized
-        if (!window.languageManager) {
-            console.error("Language manager not initialized yet!");
-            await new Promise(resolve => setTimeout(resolve, 100)); // Simple wait
-            if (!window.languageManager) {
-                console.error("Language manager still not initialized after wait!");
-                return;
-            }
-        }
+        // Wait for components and language manager
+        await Promise.all([
+            loadComponent("header", "header"),
+            loadComponent("footer", "footer"),
+            languageManagerReady // Wait for the language manager to be ready
+        ]);
 
-        // Load components
-        await loadComponent("header", "header");
-        await loadComponent("footer", "footer");
+        // Ensure languageManager is now available (it should be after awaiting)
+        if (!window.languageManager || !window.languageManager.isInitialized) {
+            console.error("Language manager failed to initialize properly!");
+            return; // Stop further execution if manager failed
+        }
 
         // Set header color based on page needs
         const header = document.querySelector("header");
@@ -155,18 +153,14 @@
             header.setAttribute("data-header-color", "dark"); // or 'light'
         }
         
-        // Logic for setting min dates (runs after DOM is ready anyway)
+        // Logic for setting min dates
         setFormMinDates();
 
-        // Display success message if redirected from form submission
-        displaySubmissionStatus();
+        // Display success message if redirected
+        displaySubmissionStatus(); // This might need translation update
 
         // Initial content update for this specific page
-        if (window.languageManager) {
-            window.languageManager.updateContent();
-        } else {
-             console.error("Cannot update content, language manager not available.");
-        }
+        window.languageManager.updateContent();
     }
 
     // Function to display submission status message

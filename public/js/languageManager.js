@@ -1,23 +1,39 @@
 import { loadTranslations } from '../translations/translations.js';
 
+let languageManagerInstance = null;
+let languageManagerReady = null; // This will hold our promise
+
 class LanguageManager {
   constructor() {
     // This setup needs to be async now
     // We'll call an async init method instead
     this.currentLanguage = localStorage.getItem('language') || 'cs';
     this.translations = {}; // Initialize as empty
+    this.isInitialized = false; // Add an initialization flag
   }
 
   // Async initialization method
   async init() {
-    this.translations = await loadTranslations();
-    this.currentLanguage = localStorage.getItem('language') || 'cs';
-    // Initial content update after loading translations
-    this.updateContent(); 
+    try {
+      this.translations = await loadTranslations();
+      this.currentLanguage = localStorage.getItem('language') || 'cs';
+      this.isInitialized = true;
+      // Initial content update after loading translations
+      // Removed from here, should be called by the page after awaiting the promise
+      // this.updateContent(); 
+      console.log("Language Manager Initialized");
+    } catch (error) {
+        console.error("Failed to initialize Language Manager:", error);
+        // Handle initialization failure if needed
+    }
   }
 
   // Změna jazyka
   setLanguage(lang) {
+    if (!this.isInitialized) {
+      console.warn("Cannot set language: Language Manager not initialized.");
+      return;
+    }
     this.currentLanguage = lang;
     localStorage.setItem('language', lang);
     this.updateContent();
@@ -27,8 +43,8 @@ class LanguageManager {
   getText(key) {
     const keys = key.split('.');
     // Ensure translations for the current language are loaded
-    if (!this.translations[this.currentLanguage]) {
-      console.warn(`Translations not loaded for language: ${this.currentLanguage}`);
+    if (!this.isInitialized || !this.translations[this.currentLanguage]) {
+      console.warn(`Translations not loaded for language: ${this.currentLanguage} or manager not initialized.`);
       return key; // Return key if translations aren't ready
     }
 
@@ -50,33 +66,41 @@ class LanguageManager {
   // Aktualizace obsahu stránky
   updateContent() {
     // Ensure translations are loaded before updating
-    if (!this.translations || Object.keys(this.translations).length === 0) {
-        console.log("Translations not yet loaded, skipping content update.");
+    if (!this.isInitialized || !this.translations || Object.keys(this.translations).length === 0) {
+        console.log("Translations not yet loaded or manager not initialized, skipping content update.");
         return; 
     }
+    console.log("Updating content based on language:", this.currentLanguage);
     document.querySelectorAll('[data-i18n]').forEach(element => {
+      this.updateElement(element);
+    });
+  }
+
+  // Helper to update a single element
+  updateElement(element) {
+      if (!this.isInitialized) return; // Guard clause
       const key = element.getAttribute('data-i18n');
       const translatedText = this.getText(key);
       if (translatedText !== key) { // Only update if translation exists
           element.textContent = translatedText;
       } else {
-        // Optional: Log if a key wasn't found, but only once?
+        // Optional: Log if a key wasn't found
         // console.warn(`Translation missing for key: ${key}`)
       }
-    });
   }
 }
 
-// Vytvoření globální instance a inicializace
-async function initializeLanguageManager() {
-  const manager = new LanguageManager();
-  await manager.init(); // Wait for translations to load
-  window.languageManager = manager;
-}
+// Immediately-invoked async function to initialize the manager
+languageManagerReady = (async () => {
+  if (!languageManagerInstance) {
+    console.log("Initializing Language Manager...");
+    languageManagerInstance = new LanguageManager();
+    await languageManagerInstance.init(); // Wait for translations to load
+    window.languageManager = languageManagerInstance; // Assign to global scope
+  }
+  return languageManagerInstance; // Resolve the promise with the instance
+})();
 
-// Spustíme inicializáciu po načítaní DOMu
-document.addEventListener('DOMContentLoaded', initializeLanguageManager);
+// Export the promise and the class (if needed elsewhere)
+export { languageManagerReady, LanguageManager };
 
-// Keep the default export if other parts of the code might use it directly,
-// although the primary usage is via the global window.languageManager
-export default LanguageManager;
