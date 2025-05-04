@@ -259,13 +259,13 @@
       </h2>
 
       <form 
-        action="https://formsubmit.co/harmonie-bedrichov@centrum.cz" 
+        action="https://formsubmit.co/michalstrnad18@seznam.cz" 
         method="POST" 
         class="reservation-form" 
         id="reservationForm"
       >
 
-        <input type="hidden" name="_subject" value="Nová rezervace">
+        <input type="hidden" name="_subject" value="Nová rezervace | New reservation">
         <input type="hidden" name="_next" value="https://harmonie-bedrichov.cz/rezervace.html?submission=success">
         <input type="hidden" name="_template" value="table">
         <!-- <input type="hidden" name="_autoresponse" 
@@ -282,14 +282,14 @@
           <div class="form-column">
             <div class="form-group">
               <label for="firstname" data-i18n="reservation.firstname">Jméno</label>
-              <input type="text" id="firstname" name="firstname" required />
+              <input type="text" name="Křestní jméno | First name | Vornamen" required />
             </div>
           </div>
 
           <div class="form-column">
             <div class="form-group">
               <label for="lastname" data-i18n="reservation.lastname">Příjmení</label>
-              <input type="text" id="lastname" name="lastname" required />
+              <input type="text" name="Příjmení | Last name | Nachname" required />
             </div>
           </div>
         </div>
@@ -298,14 +298,14 @@
           <div class="form-column">
             <div class="form-group">
               <label for="phone" data-i18n="reservation.phone">Telefon</label>
-              <input type="tel" id="phone" name="phone" required />
+              <input type="tel" name="Telefon | Phone" required />
             </div>
           </div>
 
           <div class="form-column">
             <div class="form-group">
               <label for="email" data-i18n="reservation.email">Email</label>
-              <input type="email" id="email" name="email" required />
+              <input type="email" name="Email" required />
             </div>
           </div>
         </div>
@@ -314,14 +314,14 @@
           <div class="form-column">
             <div class="form-group">
               <label for="adults" data-i18n="reservation.adults">Dospělí</label>
-              <input type="number" id="adults" name="adults" value="0" min="0" required />
+              <input type="number" name="Dospělí | Adults | Erwachsene" value="0" min="0" required />
             </div>
           </div>
 
           <div class="form-column">
             <div class="form-group">
               <label for="children" data-i18n="reservation.children">Děti</label>
-              <input type="number" id="children" name="children" value="0" min="0" />
+              <input type="number" name="Děti | Children | Kinder" value="0" min="0" />
             </div>
           </div>
         </div>
@@ -330,21 +330,21 @@
           <div class="form-column">
             <div class="form-group">
               <label for="arrival" data-i18n="reservation.arrival">Příjezd</label>
-              <input type="date" id="arrival" name="arrival" required />
+              <input type="date" name="Příjezd | Arrival | Ankunft" required />
             </div>
           </div>
 
           <div class="form-column">
             <div class="form-group">
               <label for="departure" data-i18n="reservation.departure">Odjezd</label>
-              <input type="date" id="departure" name="departure" required />
+              <input type="date" name="Odjezd | Departure | Abreise" required />
             </div>
           </div>
         </div>
         
         <div class="form-group">
           <label for="room" data-i18n="reservation.room">Pokoj</label>
-          <select id="room" name="room" required>
+          <select name="Pokoj | Room | Zimmer" required>
             <option value="" disabled selected data-i18n="reservation.select_room">-- Vyberte pokoj --</option>
             <option value="1" data-i18n="rooms.room1">Pokoj č.1</option>
             <option value="2" data-i18n="rooms.room2">Pokoj č.2</option>
@@ -360,7 +360,7 @@
 
         <div class="form-group my-10">
           <label for="message" data-i18n="reservation.message">Vaše zpráva</label>
-          <textarea id="message" name="message" rows="8"></textarea>
+          <textarea name="Vaše zpráva | Your message | Ihre Nachricht" rows="8"></textarea>
         </div>
 
         <div class="privacy-notice">
@@ -375,7 +375,7 @@
           <label for="consent" data-i18n="reservation.consent_text">
             Přečetl jsem si a souhlasím se zpracováním osobních údajů
           </label>
-          <input type="checkbox" id="consent" name="consent" required />
+          <input type="checkbox" name="consent" required />
           <span style="margin-left: 5px;">*</span>
         </div>
 
