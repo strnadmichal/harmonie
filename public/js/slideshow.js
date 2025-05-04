@@ -1,10 +1,10 @@
 // Seznam obrázků
 const images = [
-  "../img/uvod/1.jpg",
-  "../img/uvod/2.jpg",
-  "../img/uvod/3.jpg",
-  "../img/uvod/4.jpg",
-  "../img/uvod/5.jpg",
+  "../img/uvod/1.webp",
+  "../img/uvod/2.webp",
+  "../img/uvod/3.webp",
+  "../img/uvod/4.webp",
+  "../img/uvod/5.webp",
 ];
 
 let currentIndex = 0;
