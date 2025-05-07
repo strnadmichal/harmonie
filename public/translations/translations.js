@@ -49,7 +49,7 @@ async function loadTranslations() {
           },
           parking: {
             title: "Parkování",
-            description: "Parkoviště s asfaltovým povrchem se nachází přímo před penzionem a hosté ho mohou využívat zcela zdarma."
+            description: "Parkoviště s asfaltovým povrchem se nachází přímo před penzionem a hosté ho mohou využívat po celou dobu pobytu zcela zdarma. Parkování před zahájením pobytu a po jeho skončení je možné po dohodě (eventuálně za příplatek)."
           },
           playground: {
             title: "Dětské hřiště",
@@ -266,7 +266,7 @@ async function loadTranslations() {
           },
           parking: {
             title: "Parking",
-            description: "The asphalt parking lot is located directly in front of the pension, and guests can use it completely free of charge."
+            description: "The asphalt parking lot is located directly in front of the guesthouse and guests can use it free of charge for the entire duration of their stay. Parking before the start of the stay and after its end is possible by arrangement (possibly for an additional fee)."
           },
           playground: {
             title: "Children's Playground",
@@ -484,7 +484,7 @@ async function loadTranslations() {
           },
           parking: {
             title: "Parkplatz",
-            description: "Der asphaltierte Parkplatz befindet sich direkt vor der Pension und kann von Gästen kostenlos genutzt werden."
+            description: "Der asphaltierte Parkplatz befindet sich direkt vor der Pension und kann von den Gästen während des gesamten Aufenthalts kostenlos genutzt werden. Parken vor Beginn des Aufenthalts und nach dessen Ende ist nach Absprache möglich (eventuell gegen Aufpreis)."
           },
           playground: {
             title: "Kinderspielplatz",
