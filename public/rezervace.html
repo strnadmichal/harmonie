@@ -262,10 +262,12 @@
         method="POST" 
         name="rezervace"
         data-netlify="true"
+        action="?submission=success"
         class="reservation-form" 
         id="reservationForm"
         netlify-honeypot="fax"
       >
+        <input type="hidden" name="form-name" value="rezervace" />
 
         <div class="form-row">
           <div class="form-column">
@@ -275,7 +277,7 @@
             </div>
             <div class="form-group hidden">
               <label for="fax" data-i18n="reservation.firstname">Fax</label>
-              <input type="text" name="fax" required />
+              <input type="text" name="fax" />
             </div>
           </div>
 
