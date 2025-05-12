@@ -108,7 +108,7 @@
     }
   </style>
 
-  <link rel="stylesheet" href="../css/output.css" />
+  <link rel="stylesheet" href="./css/output.css" />
   <meta name="description" content="" />
 
   <meta property="og:title" content="" />
@@ -253,7 +253,7 @@
   <div id="header" data-page-theme="dark"></div>
 
   <main class="box-border px-4 md:px-10">
-    <section class="mb-0 md:mb-20">
+    <!-- <section class="mb-0 md:mb-20">
       <h2 class="mt-0 md:mt-6 mb-6 md:mb-10 text-3xl md:text-4xl" data-i18n="reservation.title">
         Rezervace
       </h2>
@@ -270,22 +270,6 @@
         <input type="hidden" name="_subject" value="Nová rezervace | New reservation">
         <input type="hidden" name="_next" value="https://harmonie-bedrichov.cz/rezervace.html?submission=success">
         <input type="hidden" name="_template" value="table">
-        <!-- <input type="hidden" name="_autoresponse" 
-          value=
-          "
-          Dobrý den,
-          děkujeme za Vaši poptávku rezervace v Chatě Harmonie.
-          Vaši poptávku zpracujeme a brzy se Vám ozveme s potvrzením dostupnosti a dalšími informacemi.
-          __________
-          Dear Guest,
-          Thank you for your reservation inquiry at Chata Harmonie.
-          We will process your request and contact you soon with availability confirmation and further details.
-          __________
-          Hallo,
-          Vielen Dank für Ihre Reservierungsanfrage im Chalet Harmonie.
-          Wir werden Ihre Anfrage bearbeiten und uns bald mit einer Bestätigung der Verfügbarkeit und weiteren Informationen bei Ihnen melden.
-          "
-        > -->
 
         <div class="form-row">
           <div class="form-column">
@@ -385,6 +369,123 @@
             Přečetl jsem si a souhlasím se zpracováním osobních údajů
           </label>
           <input type="checkbox" name="Souhlas|Consent|Zustimmung" required />
+          <span style="margin-left: 5px;">*</span>
+        </div>
+
+        <button type="submit" class="submit-button text-2xl my-10 px-10 py-2" data-i18n="reservation.submit">
+          Odeslat
+        </button>
+      </form>
+    </section> -->
+    
+    <section class="mb-0 md:mb-20">
+      <h2 class="mt-0 md:mt-6 mb-6 md:mb-10 text-3xl md:text-4xl" data-i18n="reservation.title">
+        Rezervace
+      </h2>
+
+      <form 
+        method="POST" 
+        name="rezervace"
+        data-netlify="true"
+      >
+        <div class="form-row">
+          <div class="form-column">
+            <div class="form-group">
+              <label for="firstname" data-i18n="reservation.firstname">Jméno</label>
+              <input type="text" name="Křestní jméno" required />
+            </div>
+          </div>
+
+          <div class="form-column">
+            <div class="form-group">
+              <label for="lastname" data-i18n="reservation.lastname">Příjmení</label>
+              <input type="text" name="Příjmení" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-column">
+            <div class="form-group">
+              <label for="phone" data-i18n="reservation.phone">Telefon</label>
+              <input type="tel" name="Telefon" required />
+            </div>
+          </div>
+
+          <div class="form-column">
+            <div class="form-group">
+              <label for="email" data-i18n="reservation.email">Email</label>
+              <input type="email" name="Email" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-column">
+            <div class="form-group">
+              <label for="adults" data-i18n="reservation.adults">Dospělí</label>
+              <input type="number" name="Dospělí" value="0" min="0" required />
+            </div>
+          </div>
+
+          <div class="form-column">
+            <div class="form-group">
+              <label for="children" data-i18n="reservation.children">Děti</label>
+              <input type="number" name="Děti" value="0" min="0" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-column">
+            <div class="form-group">
+              <label for="arrival" data-i18n="reservation.arrival">Příjezd</label>
+              <input type="date" name="Příjezd" required />
+            </div>
+          </div>
+
+          <div class="form-column">
+            <div class="form-group">
+              <label for="departure" data-i18n="reservation.departure">Odjezd</label>
+              <input type="date" name="Odjezd" required />
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="room" data-i18n="reservation.room">Pokoj</label>
+          <select name="Pokoj" required>
+            <option value="" disabled selected data-i18n="reservation.select_room">-- Vyberte pokoj --</option>
+            <option value="1" data-i18n="rooms.room1">Pokoj č.1</option>
+            <option value="2" data-i18n="rooms.room2">Pokoj č.2</option>
+            <option value="3" data-i18n="rooms.room3">Pokoj č.3</option>
+            <option value="4" data-i18n="rooms.room4">Pokoj č.4</option>
+            <option value="5" data-i18n="rooms.room5">Pokoj č.5</option>
+            <option value="6" data-i18n="rooms.room6">Pokoj č.6</option>
+            <option value="7" data-i18n="rooms.room7">Pokoj č.7</option>
+            <option value="apartment-67" data-i18n="rooms.apartment67">Apartmán 67</option>
+            <option value="apartment-68" data-i18n="rooms.apartment68">Apartmán 68</option>
+          </select>
+        </div>
+
+        <div class="form-group my-10">
+          <label for="message" data-i18n="reservation.message">Vaše zpráva</label>
+          <textarea name="Vaše zpráva" rows="8"></textarea>
+        </div>
+
+        <div class="privacy-notice">
+          <p>
+            <span data-i18n="reservation.privacy_notice">Prosíme, přečtěte si naše</span>
+            <a href="ochrana-osobnich-udaju.html" class="underline" data-i18n="reservation.privacy_policy">
+              Prohlášení o ochraně osobních údajů</a>.
+          </p>
+        </div>
+
+        <div class="consent-group text-base md:text-xl">
+          <label for="consent" data-i18n="reservation.consent_text">
+            Přečetl jsem si a souhlasím se zpracováním osobních údajů
+          </label>
+          <input type="checkbox" name="Souhlas" required />
           <span style="margin-left: 5px;">*</span>
         </div>
 
