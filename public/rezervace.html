@@ -108,7 +108,7 @@
     }
   </style>
 
-  <link rel="stylesheet" href="./css/output.css" />
+  <link rel="stylesheet" href="../css/output.css" />
   <meta name="description" content="" />
 
   <meta property="og:title" content="" />
@@ -262,19 +262,21 @@
         method="POST" 
         name="rezervace"
         data-netlify="true"
+        action="/rezervace.html?submission=success"
         class="reservation-form" 
         id="reservationForm"
+        netlify-honeypot="fax"
       >
-
-        <input type="hidden" name="_subject" value="Nová rezervace | New reservation">
-        <input type="hidden" name="_next" value="https://harmonie-bedrichov.cz/rezervace.html?submission=success">
-        <input type="hidden" name="_template" value="table">
 
         <div class="form-row">
           <div class="form-column">
             <div class="form-group">
               <label for="firstname" data-i18n="reservation.firstname">Jméno</label>
               <input type="text" name="Křestní jméno" required />
+            </div>
+            <div class="form-group hidden">
+              <label for="fax" data-i18n="reservation.firstname">Fax</label>
+              <input type="text" name="fax" required />
             </div>
           </div>
 
