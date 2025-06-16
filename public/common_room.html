@@ -1,0 +1,140 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Chata Harmonie </title>
+  
+  <!-- Internal CSS styles -->
+  <style>
+    .imr {
+      height: 400px;
+    }
+  </style>
+
+  <link rel="stylesheet" href="../css/output.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/icon.png" />
+
+  <link rel="manifest" href="../site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+  <link rel="modulepreload" href="./components/header/header.js">
+  <link rel="preload" href="./components/header/header.html" as="fetch" crossorigin>
+
+  <script src="./components/js/utils.js"></script>
+  <script type="module" src="../js/modalGallery.js"></script>
+  <script type="module">
+    // Import the promise
+    import { languageManagerReady } from "./js/languageManager.js";
+
+    import { initModalGallery } from '../js/modalGallery.js';
+
+    // This function will run AFTER the DOM is ready AND the language manager is initialized
+    async function initializePage() {
+        // Wait for components and language manager
+        await Promise.all([
+            loadComponent('header', 'header'),
+            loadComponent('footer', 'footer'),
+            languageManagerReady // Wait for the language manager to be ready
+        ]);
+
+        // Ensure languageManager is now available
+        if (!window.languageManager || !window.languageManager.isInitialized) {
+            console.error("Language manager failed to initialize properly!");
+            return;
+        }
+
+        // Set header color based on page needs (if needed, currently commented out)
+        // const header = document.querySelector('header');
+        // if (header) {
+        //     header.setAttribute('data-header-color', 'dark'); // or 'light'
+        // }
+      
+        // Garden gallery data
+        const gardenData = [
+            {
+                id: 1,
+                name: "Garden",
+                images: [
+                "../img/zahrada/Garden/1.webp",
+                "../img/zahrada/Garden/2.webp",
+                "../img/zahrada/Garden/3.webp",
+                "../img/zahrada/Garden/4.webp",
+                "../img/zahrada/Garden/5.webp",
+                "../img/zahrada/Garden/6.webp",
+                "../img/zahrada/Garden/7.webp",
+                "../img/zahrada/Garden/8.webp",
+                "../img/zahrada/Garden/9.webp",
+                "../img/zahrada/Garden/10.webp",
+                "../img/zahrada/Garden/11.webp",
+                "../img/zahrada/Garden/12.webp",
+                "../img/zahrada/Garden/13.webp"
+                ]
+            }
+        ];
+        
+        // Initialize modal gallery with garden data
+        initModalGallery('.garden-image', 'data-gallery-id', gardenData);
+
+        // Initial content update for this specific page
+        window.languageManager.updateContent();
+    }
+
+    // Run the initialization function when the DOM is ready
+    document.addEventListener('DOMContentLoaded', initializePage);
+  </script>
+  <!--  <script src="../js/priceSheets.js" defer></script>-->
+</head>
+
+<body>
+
+  <div id="header" data-page-theme="dark"></div>
+
+  <main class="box-border px-4 md:px-10">
+
+    <section>
+      <h2 class="mt-0 md:mt-6 mb-4 md:mb-10 text-3xl md:text-4xl" data-i18n="garden.title"> 
+        Zahrada 
+      </h2>
+
+      <div class="flex flex-col md:flex-row flex-wrap justify-between w-full">
+
+        <div class="w-full md:w-full">
+          <div class="aspect-[3/4] md:aspect-[4/3] w-full overflow-hidden garden-image" data-gallery-id="1" style="cursor: pointer;">
+            <img 
+              src="../img/ubytovani/zahrada.webp" 
+              class="object-cover w-full h-full" />
+          </div>
+        </div>
+
+        <p class="mb-10 mt-10 md:mb-40 md:mt-20 max-w-[1000px] text-base md:text-2xl" data-i18n="garden.text">
+          Zahrada penzionu je ideální pro rodinné pobyty s dětmi. 
+          Na zahradě se nachází dětské houpačky, pískoviště, dětský hrad, 
+          hrazdy, lezecí síť, trampolína, lehátka a bazén. Celá zahrada je 
+          pokryta přírodním travnatým povrchem, na kterém je možnost provozovat 
+          spousty aktivit od klasických dětských her a radovánek, až po ping-pong, 
+          badminton, petang, frisbee apod. Terasa před penzionem vybízí především v 
+          horkých letních dnech k večernímu posezení, ohniště v dolní části zahrady 
+          láká k opékání buřtů a trávení krásných chvil u večerního táboráku.
+        </p>
+
+      </div>
+
+
+    </section>
+
+    <div id="footer"></div>
+
+  </main>
+</body>
+</html>
