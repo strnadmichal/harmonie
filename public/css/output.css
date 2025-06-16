@@ -773,17 +773,14 @@ video {
 .justify-between{
   justify-content: space-between;
 }
-.gap-2{
-  gap: 0.5rem;
-}
 .gap-4{
   gap: 1rem;
 }
-.gap-8{
-  gap: 2rem;
-}
 .gap-6{
   gap: 1.5rem;
+}
+.gap-8{
+  gap: 2rem;
 }
 .gap-x-16{
   -moz-column-gap: 4rem;
@@ -804,9 +801,6 @@ video {
 }
 .overflow-hidden{
   overflow: hidden;
-}
-.rounded-lg{
-  border-radius: 0.5rem;
 }
 .border{
   border-width: 1px;
