@@ -51,9 +51,9 @@ async function loadTranslations() {
             title: "Parkování",
             description: "Parkoviště s asfaltovým povrchem se nachází přímo před penzionem a hosté ho mohou využívat po celou dobu pobytu zcela zdarma. Parkování před zahájením pobytu a po jeho skončení je možné po dohodě (eventuálně za příplatek)."
           },
-          playground: {
-            title: "Dětské hřiště",
-            description: "Děti se zcela jistě zabaví na zahradě, která je plná atrakcí právě pro ně. Hřiště, pískoviště, domečky, houpačky, lezecí stěna a síť, trampolína, bazén a další prvky pro dětskou zábavu ocení rodiče i prarodiče malých i větších dětí."
+          common_room: {
+            title: "Společenská místnost",
+            description: "Společenská místnost s krbem, TV a samoobslužným barem, ve kterém najdete nealko i alko nápoje a něco malého k zakousnutí, slouží také jako jídelna, kde  se podávají snídaně Její součástí je i vybavený kuchyňský kout, kde je možné připravit si vlastní pokrmy, což ocení především rodiče malých dětí."
           }
         },
         prices: {
@@ -268,9 +268,9 @@ async function loadTranslations() {
             title: "Parking",
             description: "The asphalt parking lot is located directly in front of the guesthouse and guests can use it free of charge for the entire duration of their stay. Parking before the start of the stay and after its end is possible by arrangement (possibly for an additional fee)."
           },
-          playground: {
-            title: "Children's Playground",
-            description: "Children will surely enjoy themselves in the garden, which is full of attractions just for them. Playground, sandbox, playhouses, swings, climbing wall and net, trampoline, pool, and other elements for children's entertainment will be appreciated by parents and grandparents of both small and older children."
+          common_room: {
+            title: "Common Room",
+            description: "The lounge with a fireplace, TV and a self-service bar, where you can find soft and alcoholic drinks and small snacks, also serves as a dining room, where breakfast is served and is also used for evening gatherings, or for family celebrations and meetings with friends. It also includes an equipped kitchenette where you can prepare your own meals, which will be especially appreciated by parents of young children."
           }
         },
         prices: {
@@ -486,9 +486,9 @@ async function loadTranslations() {
             title: "Parkplatz",
             description: "Der asphaltierte Parkplatz befindet sich direkt vor der Pension und kann von den Gästen während des gesamten Aufenthalts kostenlos genutzt werden. Parken vor Beginn des Aufenthalts und nach dessen Ende ist nach Absprache möglich (eventuell gegen Aufpreis)."
           },
-          playground: {
-            title: "Kinderspielplatz",
-            description: "Kinder werden sich sicherlich im Garten vergnügen, der voller Attraktionen speziell für sie ist. Spielplatz, Sandkasten, Spielhäuschen, Schaukeln, Kletterwand und -netz, Trampolin, Pool und andere Elemente zur Kinderunterhaltung werden von Eltern und Großeltern sowohl kleiner als auch größerer Kinder geschätzt."
+          common_room: {
+            title: "Aufenthaltsraum",
+            description: "Der Aufenthaltsraum mit Kamin, Fernseher und einer Selbstbedienungsbar, an der Sie alkoholfreie und alkoholische Getränke sowie kleine Snacks erhalten, dient auch als Speisesaal, in dem das Frühstück serviert wird und der auch für abendliche Zusammenkünfte oder für Familienfeiern und Treffen mit Freunden genutzt wird. Außerdem gibt es eine ausgestattete Küchenzeile, in der Sie Ihre eigenen Mahlzeiten zubereiten können, was besonders Eltern mit kleinen Kindern zu schätzen wissen."
           }
         },
         prices: {
