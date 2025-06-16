@@ -35,7 +35,8 @@ async function loadTranslations() {
           rooms: "Pokoje",
           playroom: "Herna",
           garden: "Zahrada",
-          apartments: "Apartmány"
+          apartments: "Apartmány",
+          common_room: "Společenská místnost"
         },
         services: {
           title: "Služby",
@@ -175,6 +176,10 @@ async function loadTranslations() {
           title: "Zahrada",
           text: "Zahrada penzionu je ideální pro rodinné pobyty s dětmi. Na zahradě se nachází dětské houpačky, pískoviště, dětský hrad, hrazdy, lezecí síť,  trampolína, lehátka a bazén. Celá zahrada je pokryta přírodním travnatým povrchem, na kterém je možnost provozovat spousty aktivit od klasických dětských her a radovánek, až po ping-pong, badminton, petang, frisbee apod. Terasa před penzionem vybízí především v horkých letních dnech k večernímu posezení, ohniště v dolní části zahrady láká k opékání buřtů a trávení krásných chvil u večerního táboráku."
         },
+        common_room: {
+          title: "Společenská místnost",
+          text: "Společenská místnost s krbem, TV a samoobslužným barem, ve kterém najdete nealko i alko nápoje a něco malého k zakousnutí, slouží také jako jídelna, kde  se podávají snídaně a využívána je také k večernímu posezení, případně k rodinným oslavám a setkáním s přáteli. Její součástí je i vybavený kuchyňský kout, kde je možné připravit si vlastní pokrmy, což ocení především rodiče malých dětí."
+        },
         contact: {
           title: "Kontakty",
           address: "Adresa",
@@ -252,7 +257,8 @@ async function loadTranslations() {
           rooms: "Rooms",
           playroom: "Playroom",
           garden: "Garden",
-          apartments: "Apartments"
+          apartments: "Apartments",
+          common_room: "Common Room"
         },
         services: {
           title: "Services",
@@ -392,6 +398,10 @@ async function loadTranslations() {
           title: "Garden",
           text: "The garden is ideal for family stays with children. In the garden there are children's swings, sandpit, children's castle, trapeze, climbing net, trampoline, deck chairs and swimming pool. The entire garden is covered with natural grass surface, on which there is a possibility to practice a lot of activities from classic children's games and fun, to ping-pong, badminton, petanque, frisbee, etc. The terrace in front of the guesthouse invites especially on hot summer days for evening sitting, the fireplace in the lower part of the garden invites to roasting sausages and spending beautiful moments at the evening campfire. "
         },
+        common_room: {
+          title: "Common Room",
+          text: "The lounge with a fireplace, TV and a self-service bar, where you can find soft and alcoholic drinks and small snacks, also serves as a dining room, where breakfast is served and is also used for evening gatherings, or for family celebrations and meetings with friends.It also includes an equipped kitchenette where you can prepare your own meals, which will be especially appreciated by parents of young children."
+        },
         contact: {
           title: "Contact",
           address: "Address",
@@ -470,7 +480,8 @@ async function loadTranslations() {
           rooms: "Zimmer",
           playroom: "Spielzimmer",
           garden: "Garten",
-          apartments: "Apartments"
+          apartments: "Apartments",
+          common_room: "Gemeinschaftsraum"
         },
         services: {
           title: "Dienstleistungen",
@@ -610,6 +621,10 @@ async function loadTranslations() {
         garden: {
           title: "Garten",
           text: "Der Garten ist ideal für Familienaufenthalte mit Kindern. Im Garten befinden sich Kinderschaukeln, Sandkasten, Spielburg, Trapez, Kletternetz, Trampolin, Liegestühle und Pool. Der gesamte Garten ist mit natürlichem Gras bewachsen und bietet Platz für zahlreiche Aktivitäten von klassischen Kinderspielen bis hin zu Tischtennis, Badminton, Petanque, Frisbee etc. Die Terrasse lädt besonders an heißen Sommertagen zum abendlichen Verweilen ein, der Feuerplatz im unteren Gartenteil zum Würstchengrillen und gemütlichen Beisammensein am Lagerfeuer."
+        },
+        common_room: {
+          title: "Aufenthaltsraum",
+          text: "Der Aufenthaltsraum mit Kamin, Fernseher und einer Selbstbedienungsbar, an der Sie alkoholfreie und alkoholische Getränke sowie kleine Snacks erhalten, dient auch als Speisesaal, in dem das Frühstück serviert wird und der auch für abendliche Zusammenkünfte oder für Familienfeiern und Treffen mit Freunden genutzt wird. Außerdem gibt es eine ausgestattete Küchenzeile, in der Sie Ihre eigenen Mahlzeiten zubereiten können, was vor allem Eltern mit kleinen Kindern zu schätzen wissen werden."
         },
         contact: {
           title: "Kontakt",
