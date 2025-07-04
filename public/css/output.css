@@ -697,6 +697,15 @@ video {
 .h-screen{
   height: 100vh;
 }
+.h-\[350px\]{
+  height: 350px;
+}
+.h-\[400px\]{
+  height: 400px;
+}
+.h-\[500px\]{
+  height: 500px;
+}
 .w-3\/4{
   width: 75%;
 }
@@ -728,9 +737,6 @@ video {
 .max-w-xl{
   max-width: 36rem;
 }
-.max-w-xs{
-  max-width: 20rem;
-}
 .flex-shrink{
   flex-shrink: 1;
 }
@@ -757,9 +763,6 @@ video {
 }
 .flex-wrap{
   flex-wrap: wrap;
-}
-.place-items-center{
-  place-items: center;
 }
 .items-center{
   align-items: center;
