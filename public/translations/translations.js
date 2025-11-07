@@ -52,7 +52,7 @@ async function loadTranslations() {
           sauna: {
             title: "Sauna",
             description:
-              "Pro příznivce saunování jsme před nedávnem vybudovali krásnou malou saunu s kamenným obložením, klenutým stropem, nápaditým osvětlením a dřevěnou ochlazovací kádí.Během správného saunování se uvolňuje napětí svalů, dýchací cesty, posílí se Vaše imunita a Váš organismus se celkově detoxikuje.",
+              "Pro příznivce saunování jsme před nedávnem vybudovali krásnou malou saunu s kamenným obložením, klenutým stropem, nápaditým osvětlením a dřevěnou ochlazovací kádí. Během správného saunování se uvolňuje napětí svalů, dýchací cesty, posílí se Vaše imunita a Váš organismus se celkově detoxikuje.",
           },
           parking: {
             title: "Parkování",
@@ -104,7 +104,7 @@ async function loadTranslations() {
           included: {
             title: "Ceny zahrnují: ",
             description:
-              "Wifi v celém objektu, energii, vodu, odvoz odpadků, závěrečný úklid, ručníky, povlečení, TV/SAT, skladování kol a lyží, parkování,využití areálu.",
+              "Wifi v celém objektu, energii, vodu, odvoz odpadků, závěrečný úklid, ručníky, povlečení, TV/SAT, skladování kol a lyží, parkování, využití areálu.",
           },
           notIncluded: {
             title: "Ceny nezahrnují:",
@@ -117,10 +117,10 @@ async function loadTranslations() {
               "Rezervace ubytování je platná po zaplacení zálohy 20% z celkové ceny ubytování. Doplatek se hradí v hotovosti nebo převodem na účet v den nástupu k pobytu.",
           },
           cancellation: {
-            title: "Storno podnínky:",
-            rule1: "21 a více dní před příjdezdem vracíme celou zálohu",
+            title: "Storno podmínky:",
+            rule1: "21 a více dní před příjezdem vracíme celou zálohu",
             rule2: "20-8 dní před příjezdem vracíme 25% ze zaplacené zálohy",
-            rule3: "7 a méně dní pře pžíjezdem zálohu již nevracíme",
+            rule3: "7 a méně dní před příjezdem zálohu již nevracíme",
           },
           arrival: {
             title: "Příjezd: ",
@@ -152,7 +152,7 @@ async function loadTranslations() {
           rule9:
             "9. Není dovoleno užívat vlastních elektrospotřebičů (např. varné konvice, vařiče, toustovače apod.) Vyjímkou jsou holící a masážní strojky, vysoušeče vlasů, kulmy, rádia. Za použití povolených spotřebičů zodpovídá host a ručí za jakékoliv škody způsobené jejich provozem.",
           rule10:
-            "10. Při odchodu z pokoje je host povinen uzavřít vodovodníuzávěry, zhasnout světla, vypnout televizi, uzavřít okna a přiukončení pobytu odevzdat klíč.",
+            "10. Při odchodu z pokoje je host povinen uzavřít vodovodní uzávěry, zhasnout světla, vypnout televizi, uzavřít okna a při ukončení pobytu odevzdat klíč.",
           rule11:
             "11. Není dovoleno donášet na pokoje sportovní nářadí a předměty (lyže, sáňky, kola), pro jejichž uschování je vyhrazeno jiné místo.",
           rule12:
@@ -209,7 +209,7 @@ async function loadTranslations() {
         },
         common_room: {
           title: "Společenská místnost",
-          text: "Společenská místnost s krbem, TV a samoobslužným barem, ve kterém najdete nealko i alko nápoje a něco malého k zakousnutí, slouží také jako jídelna, kde  se podávají snídaně a využívána je také k večernímu posezení, případně k rodinným oslavám a setkáním s přáteli. Její součástí je i vybavený kuchyňský kout, kde je možné připravit si vlastní pokrmy, což ocení především rodiče malých dětí.",
+          text: "Společenská místnost s krbem, TV a samoobslužným barem, ve kterém najdete nealko i alko nápoje a něco malého k zakousnutí, slouží také jako jídelna, kde se podávají snídaně a využívána je také k večernímu posezení, případně k rodinným oslavám a setkáním s přáteli. Její součástí je i vybavený kuchyňský kout, kde je možné připravit si vlastní pokrmy, což ocení především rodiče malých dětí.",
         },
         contact: {
           title: "Kontakty",
@@ -430,7 +430,7 @@ async function loadTranslations() {
           rule17:
             "17. If a guest leaves the guesthouse at night when the restaurant is not open, he/she is obliged to turn off the lights in the staircase and lock the building.",
           rule18:
-            "18. Each guest is obliged to comply with these accommodation rules and fire regulations.In the event of a serious breach of these rules and regulations, the owner of the guesthouse has the right to terminate the contractual relationship with the guest without compensation.",
+            "18. Each guest is obliged to comply with these accommodation rules and fire regulations. In the event of a serious breach of these rules and regulations, the owner of the guesthouse has the right to terminate the contractual relationship with the guest without compensation.",
         },
         rooms: {
           title: "Rooms",
@@ -453,13 +453,13 @@ async function loadTranslations() {
           wifi: "wifi in the room",
           parking: "parking space",
           rooms_text:
-            "Double and triple rooms, as well as a quadruple room are located on the first floor of our guesthouse and are thus far enough away from the social room and other common areas, allowing our guests a quiet and undisturbed stay.All rooms are furnished with solid wood furniture in a natural shade, a double bed, wardrobe, table and chairs, bedside tables and shelves. Triple rooms have a single bed, the quadruple room is equipped with a bunk bed as well made of solid wood. For your comfort there is a small hotel fridge in each room, electric kettle, tea cups, TV and hairdryer. Each room can be on request, a wooden cot with blankets, a child's bed, a potty or step stool under the sink.",
+            "Double and triple rooms, as well as a quadruple room are located on the first floor of our guesthouse and are thus far enough away from the social room and other common areas, allowing our guests a quiet and undisturbed stay. All rooms are furnished with solid wood furniture in a natural shade, a double bed, wardrobe, table and chairs, bedside tables and shelves. Triple rooms have a single bed, the quadruple room is equipped with a bunk bed as well made of solid wood. For your comfort there is a small hotel fridge in each room, electric kettle, tea cups, TV and hairdryer. Each room can be on request, a wooden cot with blankets, a child's bed, a potty or step stool under the sink.",
           apartments: "Apartments",
           apartment: "Apartment",
           apartment67: "Apartment No.67",
           apartment68: "Apartment No.68",
           apartments_text:
-            "Both luxuriously furnished apartments are located in the attic of our guesthouse and allow a beautiful view of the surrounding countryside.Each apartment is a two-room of the same material, wardrobe, dining table, chairs, armchair or sofa, TV, a modern kitchen and a spacious bathroom.Each apartment can be On request, a wooden cot with blankets, a highchair for children can be added to each apartment, A baby board, potty, bath tub or step stool under the sink.",
+            "Both luxuriously furnished apartments are located in the attic of our guesthouse and allow a beautiful view of the surrounding countryside. Each apartment is a two-room of the same material, wardrobe, dining table, chairs, armchair or sofa, TV, a modern kitchen and a spacious bathroom.Each apartment can be On request, a wooden cot with blankets, a highchair for children can be added to each apartment, A baby board, potty, bath tub or step stool under the sink.",
         },
         playroom: {
           title: "Playroom",
@@ -471,7 +471,7 @@ async function loadTranslations() {
         },
         common_room: {
           title: "Common Room",
-          text: "The lounge with a fireplace, TV and a self-service bar, where you can find soft and alcoholic drinks and small snacks, also serves as a dining room, where breakfast is served and is also used for evening gatherings, or for family celebrations and meetings with friends.It also includes an equipped kitchenette where you can prepare your own meals, which will be especially appreciated by parents of young children.",
+          text: "The lounge with a fireplace, TV and a self-service bar, where you can find soft and alcoholic drinks and small snacks, also serves as a dining room, where breakfast is served and is also used for evening gatherings, or for family celebrations and meetings with friends. It also includes an equipped kitchenette where you can prepare your own meals, which will be especially appreciated by parents of young children.",
         },
         contact: {
           title: "Contact",
